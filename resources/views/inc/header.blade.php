@@ -22,14 +22,14 @@
             <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="images/report_ticket.png" width="16" height="16" /> รายงาน <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                <li><a href="report.php?act=r1">สถิติดำเนินงานตามกลุ่มเป้าหมาย</a></li>
-                <li><a href="report.php?act=r2">จำนวนเรื่องจำแนกตามเขต/จังหวัด</a></li>
-                <li><a href="report.php?act=r3">สถิติการดำเนินงานภาพรวม</a></li>
-                <li><a href="report.php?act=r4">จำนวนเรื่องจำแนกตามสถานะ/จังหวัด</a></li>
-                <li><a href="report.php?act=r5">รายงานการรับเรื่องของเจ้าหน้าที่</a></li>
-                <li><a href="report.php?act=r6">สถิติการส่งต่อเรื่องร้องทุกข์</a></li>
-                <li><a href="report.php?act=r7">การดำเนินงานจำแนกตามประเภทปัญหา</a></li>
-                <li><a href="logfile.php">ประวัติการใช้งาน (Logfile)</a></li>
+                <li><a href="report/r1">สถิติดำเนินงานตามกลุ่มเป้าหมาย</a></li>
+                <li><a href="report/r2">จำนวนเรื่องจำแนกตามเขต/จังหวัด</a></li>
+                <li><a href="report/r3">สถิติการดำเนินงานภาพรวม</a></li>
+                <li><a href="report/r4">จำนวนเรื่องจำแนกตามสถานะ/จังหวัด</a></li>
+                <li><a href="report/r5">รายงานการรับเรื่องของเจ้าหน้าที่</a></li>
+                <li><a href="report/r6">สถิติการส่งต่อเรื่องร้องทุกข์</a></li>
+                <li><a href="report/r7">การดำเนินงานจำแนกตามประเภทปัญหา</a></li>
+                <li><a href="report/log">ประวัติการใช้งาน (Logfile)</a></li>
                 </ul>
             </li>
           </ul>
