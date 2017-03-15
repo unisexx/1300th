@@ -5,10 +5,10 @@
   <td><input name="textarea4" type="text" class="form-control" id="textarea4" value="" style="width:150px;"/></td>
 </tr>
 <tr>
-  <th>ชื่อคำนำหน้า (ไทย) / (อังกฤษ)<span class="Txt_red_12"> *</span></th>
+  <th>ชื่อคำนำหน้า (ไทย) <span class="Txt_red_12"> *</span> / (อังกฤษ)</th>
   <td><span class="form-inline">
-    <input type="text" class="form-control" id="exampleInputName" placeholder="ชื่อคำนำหน้า (ไทย)" style="width:200px;" /> /
-    <input type="text" class="form-control" id="exampleInputName" placeholder="ชื่อคำนำหน้า (อังกฤษ)" style="width:200px;" /></span>
+    <input type="text" class="form-control" id="exampleInputName" placeholder="ชื่อคำนำหน้า (ไทย)" style="width:250px;" /> /
+    <input type="text" class="form-control" id="exampleInputName" placeholder="ชื่อคำนำหน้า (อังกฤษ)" style="width:250px;" /></span>
   </td>
 </tr>
 <tr>

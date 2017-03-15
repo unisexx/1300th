@@ -39,7 +39,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="images/setting_ticket.png" width="16" height="16" /> ตั้งค่าข้อมูลหลัก <span class="caret"></span></a>
               <ul class="dropdown-menu" style="height:auto; max-height:400px; overflow-x: hidden;">
                 <li><a href="user.php">ผู้ใช้งาน</a></li>
-                <li><a href="permission.php">สิทธิ์การช้งาน</a></li>
+                <li><a href="permission.php">สิทธิ์การใช้งาน</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="target.php">กลุ่มเป้าหมาย / ปัญหาหลัก / ปัญหาย่อย</a></li>
                 <li><a href="department.php">*กระทรวง / กรม / สำนัก/กอง</a></li>
@@ -54,18 +54,17 @@
                 <li><a href="religion.php">*ศาสนา</a></li>
                 <li><a href="nationality.php">*สัญชาติ</a></li>
                 <li><a href="race.php">เชื้อชาติ</a></li>
-                <li><a href="channel.php">ช่องทางรับแจ้ง</a></li>
+                <li><a href="channel.php">ช่องทางรับเรื่อง</a></li>
                 <li><a href="dept_info.php">หน่วยงานที่แจ้ง</a></li>
                 <li><a href="career.php">อาชีพ</a></li>
-                <li><a href="situation.php">สถานภาพ</a></li>
+                <li><a href="marital_status.php">สถานภาพสมรส</a></li>
                 <li><a href="cable_type.php">ประเภทสาย</a></li> 
                 <li><a href="category_info.php">หมวดหมู่ผู้แจ้ง</a></li>
                 <li><a href="channel_know.php">ช่องทางรู้จัก 1300</a></li>
                 <li><a href="urgent.php">ระดับความเร่งด่วน</a></li>
                 <li><a href="doc_type.php">ประเภทเอกสาร</a></li>
                 <li><a href="position.php">ตำแหน่ง</a></li>
-                <li><a href="user1300_type.php">ประเภทผู้ใช้บริการ</a></li>
-                <li><a href="status.php">สถานะภาพ</a></li>
+                <li><a href="userservice_type.php">ประเภทผู้ใช้บริการ</a></li>
                 <li><a href="risk.php">การประเมินความเสี่ยง</a></li>
                 <li><a href="help.php">แนวทางการช่วยเหลือฯ</a></li>
               </ul>

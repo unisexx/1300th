@@ -98,7 +98,7 @@
   <td align="left">นาย สุภวัฏ เนรา</td>
   <td>Hotline</td>
   <td><span class="odd cursor">ศูนย์ช่วยเหลือสังคม</span></td>
-  <td>User</td>
+  <td>Call Center (Hotline)</td>
   <td><img src="images/icon_checkbox.png" width="24" height="24" /></td>
   <td class="odd cursor"><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /><img src="images/remove.png" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
   </tr>
@@ -107,7 +107,7 @@
   <td align="left">นางสาว สุภัสรา คงแก้ว</td>
   <td class="odd cursor">นักสังคมสงเคราะห์ปฏิบัติการ</td>
   <td class="odd cursor">สำนักงานพัฒนาสังคมและความมั่นคงของมนุษ์จังหวัดนนทบุรี </td>
-  <td class="odd cursor">User</td>
+  <td class="odd cursor">นักสังคมสงเคราะห์ฯ</td>
   <td class="odd cursor"><img src="images/icon_checkbox.png" width="24" height="24" /></td>
   <td><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /><img src="images/remove.png" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
   </tr>
@@ -116,7 +116,7 @@
   <td align="left" class="odd">นาย ศุธินัย มีทรัพย์</td>
   <td>นักวิเคราะห์นโยบายและแผนปฏิบัติการ</td>
   <td>บ้านพักเด็กและครอบครัวจังหวัดชุมพร</td>
-  <td>User</td>
+  <td><span class="odd cursor">หน่วยงานจังหวัด</span></td>
   <td><span class="odd cursor"><img src="images/icon_checkbox.png" width="24" height="24" /></span></td>
   <td><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /><img src="images/remove.png" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
   </tr>

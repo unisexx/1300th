@@ -38,36 +38,36 @@
           	 <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="images/setting_ticket.png" width="16" height="16" /> ตั้งค่าข้อมูลหลัก <span class="caret"></span></a>
               <ul class="dropdown-menu" style="height:auto; max-height:400px; overflow-x: hidden;">
-                <li><a href="user.php">ผู้ใช้งาน</a></li>
-                <li><a href="permission.php">สิทธิ์การช้งาน</a></li>
+                <li><a href="setting/user">ผู้ใช้งาน</a></li>
+                <li><a href="setting/permission">สิทธิ์การช้งาน</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="target.php">กลุ่มเป้าหมาย / ปัญหาหลัก / ปัญหาย่อย</a></li>
-                <li><a href="department.php">*กระทรวง / กรม / สำนัก/กอง</a></li>
-                <li><a href="dept_out.php">หน่วยงานภายนอก</a></li>
-                <li><a href="dept_out_type.php">ลักษณะหน่วยงานภายนอก</a></li>
-                <li><a href="country.php">*ประเทศ</a></li>
-                <li><a href="province.php">*จังหวัด/รัฐ</a></li>
-                <li><a href="amphoe.php">*อำเภอ</a></li>
-                <li><a href="tumbon.php">*ตำบล</a></li>
-                <li><a href="prefix.php">*คำนำหน้า</a></li>
-                <li><a href="gender.php">*เพศ</a></li>
-                <li><a href="religion.php">*ศาสนา</a></li>
-                <li><a href="nationality.php">*สัญชาติ</a></li>
-                <li><a href="race.php">เชื้อชาติ</a></li>
-                <li><a href="channel.php">ช่องทางรับแจ้ง</a></li>
-                <li><a href="dept_info.php">หน่วยงานที่แจ้ง</a></li>
-                <li><a href="career.php">อาชีพ</a></li>
-                <li><a href="situation.php">สถานภาพ</a></li>
-                <li><a href="cable_type.php">ประเภทสาย</a></li>
-                <li><a href="category_info.php">หมวดหมู่ผู้แจ้ง</a></li>
-                <li><a href="channel_know.php">ช่องทางรู้จัก 1300</a></li>
-                <li><a href="urgent.php">ระดับความเร่งด่วน</a></li>
-                <li><a href="doc_type.php">ประเภทเอกสาร</a></li>
-                <li><a href="position.php">ตำแหน่ง</a></li>
-                <li><a href="user1300_type.php">ประเภทผู้ใช้บริการ</a></li>
-                <li><a href="status.php">สถานะภาพ</a></li>
-                <li><a href="risk.php">การประเมินความเสี่ยง</a></li>
-                <li><a href="help.php">แนวทางการช่วยเหลือฯ</a></li>
+                <li><a href="setting/target">กลุ่มเป้าหมาย / ปัญหาหลัก / ปัญหาย่อย</a></li>
+                <li><a href="setting/department">*กระทรวง / กรม / สำนัก/กอง</a></li>
+                <li><a href="setting/dept_out">หน่วยงานภายนอก</a></li>
+                <li><a href="setting/dept_out_type">ลักษณะหน่วยงานภายนอก</a></li>
+                <li><a href="setting/country">*ประเทศ</a></li>
+                <li><a href="setting/province">*จังหวัด/รัฐ</a></li>
+                <li><a href="setting/amphoe">*อำเภอ</a></li>
+                <li><a href="setting/tumbon">*ตำบล</a></li>
+                <li><a href="setting/prefix">*คำนำหน้า</a></li>
+                <li><a href="setting/gender">*เพศ</a></li>
+                <li><a href="setting/religion">*ศาสนา</a></li>
+                <li><a href="setting/nationality">*สัญชาติ</a></li>
+                <li><a href="setting/race">เชื้อชาติ</a></li>
+                <li><a href="setting/channel">ช่องทางรับแจ้ง</a></li>
+                <li><a href="setting/dept_info">หน่วยงานที่แจ้ง</a></li>
+                <li><a href="setting/career">อาชีพ</a></li>
+                <li><a href="setting/situation">สถานภาพ</a></li>
+                <li><a href="setting/cable_type">ประเภทสาย</a></li>
+                <li><a href="setting/category_info">หมวดหมู่ผู้แจ้ง</a></li>
+                <li><a href="setting/channel_know">ช่องทางรู้จัก 1300</a></li>
+                <li><a href="setting/urgent">ระดับความเร่งด่วน</a></li>
+                <li><a href="setting/doc_type">ประเภทเอกสาร</a></li>
+                <li><a href="setting/position">ตำแหน่ง</a></li>
+                <li><a href="setting/user1300_type">ประเภทผู้ใช้บริการ</a></li>
+                <li><a href="setting/status">สถานะภาพ</a></li>
+                <li><a href="setting/risk">การประเมินความเสี่ยง</a></li>
+                <li><a href="setting/help">แนวทางการช่วยเหลือฯ</a></li>
               </ul>
             </li>
           <li><a href="user.php?act=form" class="vtip" title="นายเอกพินิจ แก้วเสนา"><img src="images/user_info.png" width="16" height="16" /></a></li>
