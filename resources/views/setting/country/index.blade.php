@@ -16,7 +16,7 @@
   <input type="button" title="เพิ่มประเทศ" value="เพิ่มประเทศ" onclick="document.location='setting/country/form'" class="btn btn-success vtip" />
 </div>
 
-<div class="paginationTG">
+<!-- <div class="paginationTG">
 	<ul>
     <li style="margin-right:10px;">หน้าที่</li>
 	<li class="currentpage">1</li><li ><a href=''>2</a></li>
@@ -27,7 +27,9 @@
 	<li><a href="">7</a></li> . . . <li ><a href="">19</a></li>
 	<li><a href="">20</a></li><li ><a href="">21</a></li>
 	</ul>
-</div>
+</div> -->
+
+{{ $rs->appends(@$_GET)->render() }}
 
 <table class="tblist">
 <tr>
@@ -38,13 +40,25 @@
   <th>เปิดใช้งาน</th>
   <th>จัดการ</th>
   </tr>
+
+@foreach($rs as $row)
 <tr>
+  <td>{{ ++$no }}</td>
+  <td>{{ $row->code }}</td>
+  <td>{{ $row->name }}</td>
+  <td>{{ $row->phone }}</td>
+  <td><img src="images/icon_checkbox.png" width="24" height="24" /></td>
+  <td><a href="<?=basename($_SERVER['PHP_SELF'])?>?act=form"><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a><img src="images/remove.png" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
+</tr>
+@endforeach
+
+<!-- <tr>
   <td>1</td>
   <td>THA</td>
   <td>ไทย</td>
   <td>66</td>
   <td><img src="images/icon_checkbox.png" width="24" height="24" /></td>
-  <td><a href="<?=basename($_SERVER['PHP_SELF'])?>?act=form"><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a><img src="images/remove.png" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
+  <td><a href="<?//=basename($_SERVER['PHP_SELF'])?>?act=form"><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a><img src="images/remove.png" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
   </tr>
 <tr class="odd">
   <td>2</td>
@@ -77,10 +91,11 @@
   <td>86</td>
   <td><img src="images/icon_checkbox.png" width="24" height="24" /></td>
   <td><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /><img src="images/remove.png" alt="" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
-  </tr>
+  </tr> -->
+
 </table>
 
-<div class="paginationTG">
+<!-- <div class="paginationTG">
 	<ul>
     <li style="margin-right:10px;">หน้าที่</li>
 	<li class="currentpage">1</li><li ><a href=''>2</a></li>
@@ -91,7 +106,8 @@
 	<li><a href="">7</a></li> . . . <li ><a href="">19</a></li>
 	<li><a href="">20</a></li><li ><a href="">21</a></li>
   </ul>
-</div>
+</div> -->
+{{ $rs->appends(@$_GET)->render() }}
 
 
 @endsection

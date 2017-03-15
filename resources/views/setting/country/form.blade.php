@@ -18,6 +18,12 @@
   </td>
 </tr>
 <tr>
+  <th>รหัสโทรศัพท์<span class="Txt_red_12"> *</span></th>
+  <td>
+    <input name="phone" type="text" class="form-control" placeholder="รหัสโทรศัพท์" style="width:500px;" />
+  </td>
+</tr>
+<tr>
   <th>เปิด / ปิดการใช้งาน</th>
   <td><input name="status" type="checkbox" value="1" checked="checked" />
     เปิดใช้งาน</td>
