@@ -3,6 +3,7 @@
 <head>
     <base href="{{ url('/') }}/"  />
     @include('inc.meta')
+    {!! js_notify() !!}
 </head>
 <body>
     @include('inc.header')

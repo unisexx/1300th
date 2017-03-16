@@ -18,9 +18,10 @@ class CreateCountriesTable extends Migration
             $table->string('name', 100);
             $table->string('phone', 100);
             $table->tinyInteger('status');
-            $table->integer('sort');
+            $table->integer('seq');
             $table->integer('standard_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

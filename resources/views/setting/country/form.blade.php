@@ -4,29 +4,31 @@
 
 
 <h3>ประเทศ (เพิ่ม / แก้ไข)</h3>
-<form method="post" action="setting/country/save">
+<form method="post" action="setting/country/save/{{ @$rs->id }}">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <table class="tbadd">
 <tr>
   <th>รหัสประเทศ</th>
-  <td><input name="code" type="text" class="form-control" value="" style="width:150px;"/></td>
+  <td><input name="code" type="text" class="form-control" value="{{ @$rs->code }}" style="width:150px;"/></td>
 </tr>
 <tr>
   <th>ชื่อประเทศ<span class="Txt_red_12"> *</span></th>
   <td>
-    <input name="name" type="text" class="form-control" placeholder="ชื่อประเทศ" style="width:500px;" />
+    <input name="name" type="text" class="form-control" placeholder="ชื่อประเทศ" value="{{ @$rs->name }}" style="width:500px;" />
   </td>
 </tr>
 <tr>
   <th>รหัสโทรศัพท์<span class="Txt_red_12"> *</span></th>
   <td>
-    <input name="phone" type="text" class="form-control" placeholder="รหัสโทรศัพท์" style="width:500px;" />
+    <input name="phone" type="text" class="form-control" placeholder="รหัสโทรศัพท์" value="{{ @$rs->phone }}" style="width:500px;" />
   </td>
 </tr>
 <tr>
   <th>เปิด / ปิดการใช้งาน</th>
-  <td><input name="status" type="checkbox" value="1" checked="checked" />
-    เปิดใช้งาน</td>
+  <td>
+    <input type="hidden" name="status" value="0">
+    <input name="status" type="checkbox" value="1" {{ @$rs->status == 1 ? 'checked' : '' }}/> เปิดใช้งาน
+  </td>
 </tr>
 </table>
 <div id="btnBoxAdd">

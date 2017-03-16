@@ -19,8 +19,9 @@ class CountryController extends Controller {
       return view('setting.country.index',$data);
     }
 
-    public function getForm() {
-      return view('setting.country.form');
+    public function getForm($id = null) {
+      $data['rs'] = Countries::find($id);
+      return view('setting.country.form',$data);
     }
 
     public function postSave(Request $rq, $id = null) {
@@ -29,7 +30,15 @@ class CountryController extends Controller {
       $model->fill($rq->all());
   		$model->save();
 
-  		// set_notify('success', trans('message.completeSave'));
+  		set_notify('success', trans('message.completeSave'));
+  		return Redirect('setting/country');
+  	}
+
+    public function getDelete($id = null) {
+  		if($rs = Countries::find($id)) {
+  			$rs->delete(); // Delete process
+        set_notify('error', trans('message.completeDelete'));
+  		}
   		return Redirect('setting/country');
   	}
 }
