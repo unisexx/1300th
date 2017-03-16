@@ -14,6 +14,12 @@ use DB;
 class CountryController extends Controller {
     public function getIndex() {
       $data['rs'] = new Countries;
+
+      //search
+      if(!empty($_GET['search'])){
+        $data['rs'] = $data['rs']->where('name', 'like', '%'.$_GET['search'].'%')->orWhere('phone','like','%'.$_GET['search'].'%');
+      }
+      
       $data['rs'] = $data['rs']->orderBy('id','desc')->paginate();
       $data['no'] = (empty($_GET['page']))?0:($_GET['page']-1)*20;
       return view('setting.country.index',$data);

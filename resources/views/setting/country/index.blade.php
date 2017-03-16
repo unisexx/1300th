@@ -6,15 +6,17 @@
 <h3>ประเทศ</h3>
 <div id="search">
 <div id="searchBox">
-<form class="form-inline">
- <input type="text" class="form-control " id="exampleInputName2" placeholder="ชื่อประเทศ / รหัสโทรศัพท์" style="width:350px;">
+<form class="form-inline" method="get">
+ <input name="search" value="{{ @$_GET['search'] }}" type="text" class="form-control" placeholder="ชื่อประเทศ / รหัสโทรศัพท์" style="width:350px;">
  <button type="submit" class="btn btn-info"><img src="images/search.png" width="16" height="16" />ค้นหา</button>
 </form>
 </div>
+
 </div>
 <div id="btnBox">
   <input type="button" title="เพิ่มประเทศ" value="เพิ่มประเทศ" onclick="document.location='setting/country/form'" class="btn btn-success vtip" />
 </div>
+
 
 {{ $rs->appends(@$_GET)->render() }}
 
