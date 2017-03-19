@@ -54,14 +54,14 @@ Route::group(['prefix' => 'setting', 'namespace' => 'Setting'], function(){
   Route::controller('channel', 'ChannelController');
   Route::controller('dept_info', 'Dept_infoController');
   Route::controller('career', 'CareerController');
-  Route::controller('situation', 'SituationController');
+  Route::controller('marital_status', 'Marital_statusController');
   Route::controller('cable_type', 'Cable_typeController');
   Route::controller('category_info', 'Category_infoController');
   Route::controller('channel_know', 'Channel_knowController');
   Route::controller('urgent', 'UrgentController');
   Route::controller('doc_type', 'Doc_typeController');
   Route::controller('position', 'PositionController');
-  Route::controller('user1300_type', 'User1300_typeController');
+  Route::controller('userservice_type', 'Userservice_typeController');
   Route::controller('status', 'StatusController');
   Route::controller('risk', 'RiskController');
   Route::controller('help', 'HelpController');

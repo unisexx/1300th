@@ -57,15 +57,15 @@
                 <li><a href="setting/channel">ช่องทางรับแจ้ง</a></li>
                 <li><a href="setting/dept_info">หน่วยงานที่แจ้ง</a></li>
                 <li><a href="setting/career">อาชีพ</a></li>
-                <li><a href="setting/situation">สถานภาพ</a></li>
+                <li><a href="setting/marital_status">สถานภาพ</a></li>
                 <li><a href="setting/cable_type">ประเภทสาย</a></li>
                 <li><a href="setting/category_info">หมวดหมู่ผู้แจ้ง</a></li>
                 <li><a href="setting/channel_know">ช่องทางรู้จัก 1300</a></li>
                 <li><a href="setting/urgent">ระดับความเร่งด่วน</a></li>
                 <li><a href="setting/doc_type">ประเภทเอกสาร</a></li>
                 <li><a href="setting/position">ตำแหน่ง</a></li>
-                <li><a href="setting/user1300_type">ประเภทผู้ใช้บริการ</a></li>
-                <li><a href="setting/status">สถานะภาพ</a></li>
+                <li><a href="setting/userservice_type">ประเภทผู้ใช้บริการ</a></li>
+                <!-- <li><a href="setting/status">สถานะภาพ</a></li> -->
                 <li><a href="setting/risk">การประเมินความเสี่ยง</a></li>
                 <li><a href="setting/help">แนวทางการช่วยเหลือฯ</a></li>
               </ul>
