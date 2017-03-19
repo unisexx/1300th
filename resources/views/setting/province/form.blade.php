@@ -10,19 +10,19 @@
 <table class="tbadd">
 <tr>
   <th>รหัสจังหวัด/รัฐ<span class="Txt_red_12"> *</span></th>
-  <td><input name="code" type="text" class="form-control" value="" style="width:150px;"/></td>
+  <td><input name="code" type="text" class="form-control" value="{{ @$rs->code }}" style="width:150px;"/></td>
 </tr>
 <tr>
   <th>ชื่อจังหวัด/รัฐ<span class="Txt_red_12"> *</span></th>
   <td>
-    <input name="name" type="text" class="form-control" placeholder="ชื่อจังหวัด" style="width:500px;" />
+    <input name="name" value="{{ @$rs->name }}" type="text" class="form-control" placeholder="ชื่อจังหวัด" style="width:500px;" />
     </td>
 </tr>
 <tr>
   <th>ประเทศ<span class="Txt_red_12"> *</span></th>
   <td>
     <span class="form-inline">
-    {!! Form::select('countries_id', dropdownOption('countries', 'id', 'name', '', 'name asc'), '', array('class'=>'form-control', 'placeholder'=>'- เลือกประเทศ -')) !!}
+    {!! Form::select('countries_id', dropdownOption('countries', 'id', 'name', '', 'name asc'), @$rs->countries_id, array('class'=>'form-control', 'placeholder'=>'- เลือกประเทศ -')) !!}
     </span>
   </td>
 </tr>

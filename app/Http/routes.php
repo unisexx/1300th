@@ -66,3 +66,6 @@ Route::group(['prefix' => 'setting', 'namespace' => 'Setting'], function(){
   Route::controller('risk', 'RiskController');
   Route::controller('help', 'HelpController');
 });
+
+// Ajax
+Route::controller('ajax', 'AjaxController');
