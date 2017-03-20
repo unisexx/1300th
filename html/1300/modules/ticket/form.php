@@ -63,15 +63,46 @@
     	<label>ช่องทางรับเรื่อง</label>
         <select class="form-control">
           <option>--</option>
-          <option>Call Center</option>
+          <option>โทร 1300</option>
           <option>Website</option>
-          <option>Social Media</option>
-          <option>ติดต่อด้วยตนเอง</option>
+          <option>Line</option>
+          <option>Skype</option>
+          <option>Facebook</option>
+          <option>Email</option>
+          <option>Walk-in (ติดต่อด้วยตนเอง)</option>
+          <option>Moblie APP หญิงไทย</option>
+          <option>APP แสนรู้</option>
+          <option>ทีวี</option>
         </select>
-   	 	<input type="text" class="form-control" id="exampleInputEmail2" placeholder="อื่นๆ ระบุ">
+   	 	<!--<input type="text" class="form-control" id="exampleInputEmail2" placeholder="อื่นๆ ระบุ">-->
 		</div>
+        
+        <div class="form-group form-inline col-md-6">
+    	<label><span class="Txt_red_12"> *</span> ประเภทสาย</label>
+   	 	<select class="form-control">
+          <option>--</option>
+          <option value="NewProblem">ปัญหาใหม่</option>
+          <option value="OldProblem">ติดตามปัญหา (เดิม)</option>
+          <option value="WrongCall">*โทรผิด</option>
+          <option value="Harry">*ก่อกวน</option>
+          <option value="AskInfo">สอบถามข้อมูล</option>
+          <option value="Comment">ให้ข้อคิดเห็น</option>
+        </select>
+  		</div>
+		
+        <div class="boxNotWrongCall">
+        <div class="form-group form-inline col-md-6">
+    	<label>หมวดหมู่ของผู้แจ้ง</label>
+   	 	<select class="form-control">
+          <option>--</option>
+          <option>ติดต่อด้วยตนเอง</option>
+          <option value="TypeisDept">*หน่วยงาน</option>
+          <option>พลเมืองดี</option>
+          <option>บิดา มารดา หรือญาติฯ</option>
+        </select>
+  		</div>
 
- 		<div class="form-group form-inline col-md-6">
+ 		<div class="form-group form-inline col-md-6 boxDeptInfo">
     	<label>หน่วยงานที่แจ้ง</label>
    	 	<select class="form-control">
           <option>--</option>
@@ -80,7 +111,7 @@
           <option>ศูนย์บริการสาธารณสุข</option>
           <option>จส.100</option>
         </select>
-   	 	<input type="text" class="form-control" id="exampleInputEmail2" placeholder="อื่นๆ ระบุ">
+   	 	<!--<input type="text" class="form-control" id="exampleInputEmail2" placeholder="อื่นๆ ระบุ">-->
   		</div>
         
         <div class="form-group form-inline col-md-12" style="margin-bottom:0px;">
@@ -103,7 +134,8 @@
    	 	<input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อตัว" style="width:120px;">
         <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อสกุล" style="width:200px;">
         <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อรอง" style="width:120px;">
-         <input type="text" class="form-control fidcard" id="exampleInputEmail" placeholder="เลขบัตรประชาชน" style="width:150px;" />
+         <input type="text" class="form-control" data-inputmask="'mask': '9-9999-99999-99-9'" placeholder="เลขบัตรประชาชน" style="width:150px;"  />
+
   		</div>
              
         <div class="form-group form-inline col-md-6">
@@ -125,31 +157,10 @@
           <option>นครปฐม</option>
         </select>
   		</div>
-        
-        <div class="form-group form-inline col-md-6">
-    	<label><span class="Txt_red_12"> *</span> ประเภทสาย</label>
-   	 	<select class="form-control">
-          <option>--</option>
-          <option>ปัญหาใหม่</option>
-          <option>ติดตามปัญหา</option>
-          <option>โทรผิด/ก่อกวน</option>
-          <option>อื่นๆ</option>
-        </select>
-  		</div>
 
 		<div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> เบอร์โทรศัพท์</label>
    	 	<input type="text" class="form-control" id="exampleInputEmail2" placeholder="">
-  		</div>
-        
-        <div class="form-group form-inline col-md-6">
-    	<label>หมวดหมู่ของผู้แจ้ง</label>
-   	 	<select class="form-control">
-          <option>--</option>
-          <option>ติดต่อด้วยตนเอง</option>
-          <option>พลเมืองดี</option>
-          <option>ผู้เกี่ยวข้อง (บิดา, มารดา ฯลฯ)</option>
-        </select>
   		</div>
         
         <div class="form-group form-inline col-md-6">
@@ -163,11 +174,11 @@
           <option>เครือข่ายอื่นๆ</option>
         </select>
   		</div>
-        
+        </div> <!--boxWrongCall-->
         </fieldset>
         
         
-        <fieldset>
+        <fieldset class="boxNotWrongCall">
         <legend>รายละเอียดเหตุการณ์</legend>
         
          <div class="form-group form-inline col-md-6">
@@ -231,7 +242,7 @@
       	</div>
         </fieldset>
         
-        <fieldset>
+        <fieldset class="boxNotWrongCall">
         <legend>การประเมินความเสี่ยง (จากการพูดคุยทางโทรศัพท์) </legend>
         <div class="form-group form-inline col-md-3" style="height:30px;">
      	 <label style="width:100%; text-align:left;"><input type="checkbox"> ไม่มีความเสี่ยง </label>
@@ -290,7 +301,7 @@
         </fieldset>
         
         
-        <fieldset>
+        <fieldset class="boxNotWrongCall">
         <legend>ผู้ขอรับการช่วยเหลือ</legend>
         <div style="float:right; margin-bottom:5px;"><a class='inline' href="#inline_help"><input type="button" value="เพิ่มข้อมูลผู้ขอรับการช่วยเหลือ" class="btn btn-success" /></a></div>
     
@@ -339,7 +350,7 @@
         
         </fieldset>
         
-        <fieldset>
+        <fieldset class="boxNotWrongCall">
         <legend>ผู้กระทำความผิด</legend>
         <div style="float:right; margin-bottom:5px;"><a class='inline' href="#inline_offender"><input type="button" value="เพิ่มข้อมูลผู้กระทำความผิด" class="btn btn-success" /></a></div>
     
@@ -378,12 +389,11 @@
   </tr>
 </table>
         
+        </fieldset>
         <div id="btnBoxAdd">
   <input name="input" type="button" title="บันทึกข้อมูลรับเรื่อง" value="บันทึกข้อมูลรับเรื่อง" class="btn btn-primary"/>
   <input name="input2" type="button" title="ย้อนกลับ" value="ย้อนกลับ"  onclick="history.back(-1)"  class="btn btn-default" style="width:100px;"/>
 </div>
-        
-        </fieldset>
     </div> 
         
 	</div>
@@ -679,7 +689,7 @@
         
         <div class="form-group form-inline col-md-6">
         <label>เลขบัตรประชาชน</label>
-        <input type="text" class="form-control fidcard" id="exampleInputEmail2" style="width:150px;">
+        <input type="text" class="form-control" data-inputmask="'mask': '9-9999-99999-99-9'" placeholder="เลขบัตรประชาชน" style="width:150px;"  />
         </div>
         
         <div class="form-group form-inline col-md-6">
@@ -921,7 +931,7 @@
         
         <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อสกุล" style="width:200px;">
         <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อรอง" style="width:120px;">
-  		<input type="text" class="form-control fidcard" id="exampleInputEmail3" placeholder="เลขบัตรประชาชน" style="width:150px;" />
+  		<input type="text" class="form-control" data-inputmask="'mask': '9-9999-99999-99-9'" placeholder="เลขบัตรประชาชน" style="width:150px;"  />
     	</div>
         
         <div class="form-group form-inline col-md-12">
@@ -938,7 +948,7 @@
         
         <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อสกุล" style="width:200px;">
         <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อรอง" style="width:120px;">
-  		<input type="text" class="form-control fidcard" id="exampleInputEmail4" placeholder="เลขบัตรประชาชน" style="width:150px;" />
+  		<input type="text" class="form-control" data-inputmask="'mask': '9-9999-99999-99-9'" placeholder="เลขบัตรประชาชน" style="width:150px;"  />
         </div>
         
         <div class="form-group form-inline col-md-12">
@@ -1341,6 +1351,10 @@
           <option>ด่วนที่สุด</option>
         </select> 
         </div>
+        </fieldset>
+        
+        <fieldset>
+        <legend>ข้อมูลหน่วยงานประสานส่งต่อ <img src="images/add.png" width="16" height="16" class="vtip" title="เพิ่มหน่วยงาน" />   </legend>   
         
         <div class="form-group form-inline col-md-6">
         <label>ประสานความช่วยเหลือ</label>
@@ -1348,7 +1362,7 @@
            <option value="DeptIN">หน่วยงานภายใน พม.</option>
            <option value="DeptOUT">หน่วยงานภายนอก </option>
          </select>
-         </div>
+               </div>
          
          <div class="form-group form-inline col-md-6">
          <label>ชื่อหน่วยงาน</label>
@@ -1398,7 +1412,11 @@
         <label>หมายเลขโทรศัพท์</label>
         <input type="text" class="form-control" id="exampleInputEmail2" style="width:350px;">
         </div>
-       
+        </fieldset>
+        
+        
+       <fieldset>
+        <legend>ความคิดเห็นและรายละเอียด</legend>   
        	<div class="form-group form-inline col-md-12">
         <label><span class="Txt_red_12"> *</span> ความเห็นของนักสังคมสงเคราะห์/ผู้รับผิดชอบ</label>
         <textarea class="form-control" id="exampleInputEmail2" placeholder="" style="width:80%; height:100px;"></textarea>
@@ -1408,13 +1426,6 @@
         <label><span class="Txt_red_12"> *</span> รายละเอียด</label>
         <textarea class="form-control" id="exampleInputEmail2" placeholder="" style="width:80%; height:200px;">นายเอกพินิจ แก้วเสนา ตำแหน่งนักพัฒนาสังคมชำนาญการ หน่วยงานศูนย์ช่วยเหลือสังคม</textarea>
       	</div>
-        
-        <div class="form-group form-inline col-md-12">
-        <label></label>
-        <label style="width:400px; text-align:left; font-weight:700; color:#F30"><input type="checkbox"> ยุติการช่วยเหลือ (กรณี แก้ปัญหาได้เอง โทรปรึกษา ก่อกวน  ฯลฯ)</label>
-        </div>
-        
-        
         
         </fieldset>
             

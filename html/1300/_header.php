@@ -22,6 +22,12 @@
             <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="images/report_ticket.png" width="16" height="16" /> รายงาน <span class="caret"></span></a>
                 <ul class="dropdown-menu">
+                <li><a href="report.php?act=r1">สถิติการให้บริการผู้ประสบปัญหาสังคม ประจำวัน</a></li>
+                <li><a href="report.php?act=r2">สถิติการให้บริการผู้ประสบปัญหาสังคม ประจำเดือน</a></li>
+                <li><a href="report.php?act=r3">สถิติการให้บริการผู้ประสบปัญหาสังคม ประจำปี</a></li>
+                <li><a href="report.php?act=r4">สถิติการให้บริการศูนย์ช่วยเหลือสังคม ประจำวัน (Infographic)</a></li>
+                <li><a href="report.php?act=r5">สถิติการให้บริการศูนย์ช่วยเหลือสังคม ประจำสัปดาห์ (Infographic)</a></li>
+                <li role="separator" class="divider"></li>
                 <li><a href="report.php?act=r1">สถิติดำเนินงานตามกลุ่มเป้าหมาย</a></li>
                 <li><a href="report.php?act=r2">จำนวนเรื่องจำแนกตามเขต/จังหวัด</a></li>
                 <li><a href="report.php?act=r3">สถิติการดำเนินงานภาพรวม</a></li>

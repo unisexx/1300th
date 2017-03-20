@@ -13,8 +13,11 @@
 
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+
+<script src="js/jstree.min.js"></script>
+<link rel="stylesheet" href="css/jstree.min.css" />
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />-->
 
 <script>
   $(function () {
@@ -78,6 +81,17 @@ $(function(){
 });
 </script>
 
+
+<!-- Input format new -->
+<script src="js/jquery.inputmask.bundle.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(":input").inputmask();
+});
+</script>
+
+
+
 <!-- Input format -->
 <script type="text/javascript" src="js/jquery.maskedinput.js"></script>
 <script type="text/javascript">
@@ -91,10 +105,14 @@ jQuery(function($){
 </script>
 
 
+
+
+
 <!-- Listbox show/hide -->
 <script type="text/javascript">
 $(document).ready(function(){
 	$(".boxDeptOUT").hide();
+	$(".boxDeptInfo").hide();
     $("select").change(function(){
         $(this).find("option:selected").each(function(){
 			
@@ -106,6 +124,22 @@ $(document).ready(function(){
                 $(".boxDeptIN").hide();
 				$(".boxDeptOUT").show();
             }
+			
+			if($(this).attr("value")=="TypeisDept"){
+                $(".boxDeptInfo").show();
+			 }
+            else{
+                $(".boxDeptInfo").hide();
+            }
+
+			if($(this).attr("value")=='WrongCall' || $(this).attr("value")== 'Harry'){
+                $(".boxNotWrongCall").hide();
+			 }
+            if($(this).attr("value")=='NewProblem' || $(this).attr("value")== 'OldProblem' || $(this).attr("value")== 'AskInfo' || $(this).attr("value")== 'Comment' ){
+                $(".boxNotWrongCall").show();
+            }
+	
+           
         });
     }).change();
 });

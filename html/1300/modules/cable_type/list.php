@@ -45,22 +45,28 @@
   </tr>
 <tr>
   <td>3</td>
-  <td>โทรผิด, ก่อกวน</td>
+  <td>โทรผิด</td>
   <td><img src="images/icon_checkbox.png" width="24" height="24" /></td>
   <td><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /><img src="images/remove.png" alt="" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
   </tr>
 <tr class="odd">
   <td>4</td>
-  <td>สอบถามข้อมูล</td>
+  <td>ก่อกวน</td>
   <td><img src="images/icon_checkbox.png" width="24" height="24" /></td>
   <td><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /><img src="images/remove.png" alt="" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
   </tr>
 <tr>
   <td>5</td>
+  <td>สอบถามข้อมูล</td>
+  <td><img src="images/icon_checkbox.png" width="24" height="24" /></td>
+  <td><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /><img src="images/remove.png" alt="" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
+</tr>
+<tr>
+  <td>ุ6</td>
   <td>ให้ข้อคิดเห็น</td>
   <td><img src="images/icon_checkbox.png" width="24" height="24" /></td>
   <td><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /><img src="images/remove.png" alt="" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
-  </tr>
+</tr>
 </table>
 
 <div class="paginationTG">

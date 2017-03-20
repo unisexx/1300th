@@ -10,6 +10,23 @@
   <td><input name="textarea7" type="text" class="form-control" id="textarea7" value="" style="width:400px;"/></td>
 </tr>
 <tr>
+  <th>ช่วงอายุ</th>
+  <td><select name="lunch2" class="selectpicker" id="lunch" title="อายุ" data-live-search="true">
+    <option>0</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+  </select>
+    ปี - 
+      <select name="lunch3" class="selectpicker" id="lunch3" title="อายุ" data-live-search="true">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+ปี</td>
+</tr>
+<tr>
   <th>เปิด / ปิดการใช้งาน</th>
   <td><input name="checkbox" type="checkbox" id="checkbox" checked="checked" />
     เปิดใช้งาน</td>
@@ -21,8 +38,8 @@
 <tr>
   <th>รหัสปัญหาหลัก<span class="Txt_red_12"> *</span></th>
   <td><span class="form-inline">
-    <input name="textarea5" type="text" class="form-control" id="textarea5" value="" style="width:150px;"/><span class="note">CH YO AD OL</span>
-    </span>
+    <input name="textarea5" type="text" class="form-control" id="textarea5" value="" style="width:150px;"/>
+  </span>
     </td>
 </tr>
 <tr>
