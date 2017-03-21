@@ -15,13 +15,14 @@ use DB;
 class TargetController extends Controller {
   public function getIndex() {
     $data['rs'] = new Targets;
-    $data['rs'] = $data['rs']->orderBy('id','desc')->get();
+    $data['rs'] = $data['rs']->wherenull('parent_id')->orderBy('id','desc')->get();
     $data['no'] = (empty($_GET['page']))?0:($_GET['page']-1)*20;
     return view('setting.target.index',$data);
   }
 
-  public function getForm($parent_id = null,$id = null) {
-    $data['p'] = Targets::find($parent_id);
+  public function getForm($tier,$parent_id = null,$id = null) {
+    $data['tier'] = $tier;
+    $data['parent'] = Targets::find($parent_id);
     $data['rs'] = Targets::find($id);
     return view('setting.target.form',$data);
   }

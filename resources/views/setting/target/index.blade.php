@@ -14,13 +14,13 @@
 </div>
 
 <div id="btnBox">
-  <input type="button" title="เพิ่มกลุ่มเป้าหมาย" value="เพิ่มกลุ่มเป้าหมาย" onclick="document.location='setting/target/form'" class="btn btn-success vtip" />
+  <input type="button" title="เพิ่มกลุ่มเป้าหมาย" value="เพิ่มกลุ่มเป้าหมาย" onclick="document.location='setting/target/form/0'" class="btn btn-success vtip" />
 </div>
 
 <div id="jstree">
     <!-- in this example the tree is populated from inline HTML -->
     <ul>
-      <li class="jstree-open" data-jstree='{"icon":"images/problem_target_group.png"}'>[CH] เด็ก
+      <!-- <li class="jstree-open" data-jstree='{"icon":"images/problem_target_group.png"}'>[CH] เด็ก
         <img src="images/add_ticket.png" width="16" height="16" style="margin-left:50px;" onclick="document.location='<?=basename($_SERVER['PHP_SELF'])?>?act=add'" class="vtip" title="เพิ่มปัญหาหลัก" /> /
         <img src="images/edit2.png" width="16" height="16"  onclick="document.location='<?=basename($_SERVER['PHP_SELF'])?>?act=edit'"  class="vtip" title="แก้ไขกลุ่มเป้าหมายนี้" /> /
         <img src="images/remove2.png" width="16" height="16" />
@@ -60,15 +60,76 @@
 
       <li data-jstree='{"icon":"images/problem_target_group.png"}'>[YO] เยาวชน</li>
       <li data-jstree='{"icon":"images/problem_target_group.png"}'>[AD] ผู้ใหญ่</li>
-      <li data-jstree='{"icon":"images/problem_target_group.png"}'>[OL] ผู้สูงอายุ</li>
+      <li data-jstree='{"icon":"images/problem_target_group.png"}'>[OL] ผู้สูงอายุ</li> -->
 
-
-      @foreach($rs as $row)
+      <!-- กลุ่มเป้าหมาย -->
+      @foreach($rs as $target)
       <li class="jstree-open" data-jstree='{"icon":"images/problem_target_group.png"}'>
-        [{{ $row->code }}] {{ $row->name }} {{ $children = $row->children()->get() }}
-        <img src="images/add_ticket.png" width="16" height="16" style="margin-left:50px;" onclick="document.location='setting/target/form/{{ $row->id }}'" class="vtip" title="เพิ่มปัญหาหลัก" /> /
-        <img src="images/edit2.png" width="16" height="16"  onclick="document.location='setting/target/form/{{ $row->id }}'"  class="vtip" title="แก้ไขกลุ่มเป้าหมายนี้" /> /
-        <img src="images/remove2.png" width="16" height="16" />
+        [{{ $target->code }}] {{ $target->name }}
+        <img src="images/add_ticket.png" width="16" height="16" style="margin-left:50px;" onclick="document.location='setting/target/form/1/{{ $target->id }}'" class="vtip" title="เพิ่มปัญหาหลัก" /> /
+        <img src="images/edit2.png" width="16" height="16"  onclick="document.location='setting/target/form/0/{{ $target->id }}'"  class="vtip" title="แก้ไขกลุ่มเป้าหมายนี้" /> /
+        <img src="images/remove2.png" width="16" height="16" onclick="document.location='setting/target/delete/{{ $target->id }}'" />
+
+        <!-- ปัญหาหลัก -->
+        @if(count( $target->children ) > 0 )
+            <ul>
+            @foreach($target->children as $problem)
+                <li class="jstree-open" data-jstree='{"icon":"images/problem_main.png"}'>
+                  {{ $problem->name }}
+                  <img src="images/add_ticket.png" width="16" height="16" style="margin-left:50px;" onclick="document.location='setting/target/form/2/{{ $problem->id }}'" class="vtip" title="เพิ่มปัญหาย่อย1" /> /
+                  <img src="images/edit2.png" width="16" height="16"  onclick="document.location='setting/target/form/1/{{ $problem->id }}'"  class="vtip" title="แก้ไขกลุ่มเป้าหมายนี้" /> /
+                  <img src="images/remove2.png" width="16" height="16" onclick="document.location='setting/target/delete/{{ $problem->id }}'" />
+
+                  <!-- ปัญหาย่่อย 1 -->
+                  @if(count( $problem->children ) > 0 )
+                      <ul>
+                      @foreach($problem->children as $subproblem_1)
+                          <li class="jstree-open" data-jstree='{"icon":"images/problem1.png"}'>
+                            {{ $subproblem_1->name }}
+                            <img src="images/add_ticket.png" width="16" height="16" style="margin-left:50px;" onclick="document.location='setting/target/form/3/{{ $subproblem_1->id }}'" class="vtip" title="เพิ่มปัญหาย่อย1" /> /
+                            <img src="images/edit2.png" width="16" height="16"  onclick="document.location='setting/target/form/2/{{ $subproblem_1->id }}'"  class="vtip" title="แก้ไขกลุ่มเป้าหมายนี้" /> /
+                            <img src="images/remove2.png" width="16" height="16" onclick="document.location='setting/target/delete/{{ $subproblem_1->id }}'" />
+
+                            <!-- ปัญหาย่่อย 2 -->
+                            @if(count( $subproblem_1->children ) > 0 )
+                                <ul>
+                                @foreach($subproblem_1->children as $subproblem_2)
+                                    <li class="jstree-open" data-jstree='{"icon":"images/problem2.png"}'>
+                                      {{ $subproblem_2->name }}
+                                      <img src="images/add_ticket.png" width="16" height="16" style="margin-left:50px;" onclick="document.location='setting/target/form/4/{{ $subproblem_2->id }}'" class="vtip" title="เพิ่มปัญหาย่อย2" /> /
+                                      <img src="images/edit2.png" width="16" height="16"  onclick="document.location='setting/target/form/3/{{ $subproblem_2->id }}'"  class="vtip" title="แก้ไขกลุ่มเป้าหมายนี้" /> /
+                                      <img src="images/remove2.png" width="16" height="16" onclick="document.location='setting/target/delete/{{ $subproblem_2->id }}'" />
+
+                                      <!-- ปัญหาย่่อย 3 -->
+                                      @if(count( $subproblem_2->children ) > 0 )
+                                          <ul>
+                                          @foreach($subproblem_2->children as $subproblem_3)
+                                              <li class="jstree-open" data-jstree='{"icon":"images/problem3.png"}'>
+                                                {{ $subproblem_3->name }}
+                                                <img style="margin-left:50px;" src="images/edit2.png" width="16" height="16"  onclick="document.location='setting/target/form/4/{{ $subproblem_3->id }}'"  class="vtip" title="แก้ไขกลุ่มเป้าหมายนี้" /> /
+                                                <img src="images/remove2.png" width="16" height="16" onclick="document.location='setting/target/delete/{{ $subproblem_3->id }}'" />
+
+
+                                              </li>
+                                          @endforeach
+                                          </ul>
+                                      @endif
+
+                                    </li>
+                                @endforeach
+                                </ul>
+                            @endif
+
+                          </li>
+                      @endforeach
+                      </ul>
+                  @endif
+
+                </li>
+            @endforeach
+            </ul>
+        @endif
+
       </li>
       @endforeach
     </ul>
