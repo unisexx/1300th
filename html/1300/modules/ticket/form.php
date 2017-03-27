@@ -8,7 +8,7 @@
   
   <div class="form-group">
     <label style="width:auto;">ref.ticket</label>
-    <a href="#"><span style="font-weight:700; display:inline-block; margin-top:3px;">17-01-0030</span></a>
+    <a href="#"><span style="font-weight:700; display:inline-block; margin-top:3px;">17-01-00030</span></a>
   </div>
   
   <div class="form-group">
@@ -95,10 +95,10 @@
     	<label>หมวดหมู่ของผู้แจ้ง</label>
    	 	<select class="form-control">
           <option>--</option>
-          <option>ติดต่อด้วยตนเอง</option>
-          <option value="TypeisDept">*หน่วยงาน</option>
-          <option>พลเมืองดี</option>
-          <option>บิดา มารดา หรือญาติฯ</option>
+          <option value="Owner">ติดต่อด้วยตนเอง</option>
+          <option value="DeptInfo">*หน่วยงาน</option>
+          <option value="Goodman">พลเมืองดี</option>
+          <option value="Family">บิดา มารดา หรือญาติฯ</option>
         </select>
   		</div>
 
@@ -110,6 +110,13 @@
           <option>โรงพยาบาล</option>
           <option>ศูนย์บริการสาธารณสุข</option>
           <option>จส.100</option>
+          <option>สวพ.91</option>
+          <option>ร่วมด้วยช่วยกัน</option>
+          <option>มูลนิธิ</option>
+          <option>สำนักงานเขต</option>
+          <option>สถานีจราจรเพื่อสังคม</option>
+          <option>องค์การบริหารส่วนตำบล</option>
+          <option>หน่วยงานจากต่างประเทศ</option>
         </select>
    	 	<!--<input type="text" class="form-control" id="exampleInputEmail2" placeholder="อื่นๆ ระบุ">-->
   		</div>
@@ -311,7 +318,6 @@
   <th>เลขบัตรประชาชน</th>
   <th>ชื่อผู้ขอรับการช่วยเหลือ</th>
   <th>กลุ่มเป้าหมาย</th>
-  <th>ประเภทผู้ใช้บริการ</th>
   <th>ปัญหาหลัก</th>
   <th>ที่อยู่ปัจจุบัน</th>
   <th>จัดการ</th>
@@ -321,7 +327,6 @@
   <td>1234567891234</td>
   <td>นายทรงพล  อาริยวัฒน์</td>
   <td>ผู้ใหญ่</td>
-  <td>คนพิการ</td>
   <td>เร่รอน/ขอทาน</td>
   <td>112/31  หมู่6  ซอยชินเขต1/5   ถนนงามวงศ์วาน  แขวงทุ่งสองห้อง   เขตหลักสี่ กรุงเทพมหานคร 10210</td>
   <td><a href=""><img src="images/edit2.png" width="16" height="16" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a> <img src="images/remove2.png" width="16" height="16" class="vtip" title="ลบรายการนี้"  /></td>
@@ -333,12 +338,10 @@
   <td>&nbsp;</td>
   <td>&nbsp;</td>
   <td>&nbsp;</td>
-  <td>&nbsp;</td>
   <td><a href=""><img src="images/edit2.png" width="16" height="16" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a> <img src="images/remove2.png" width="16" height="16" class="vtip" title="ลบรายการนี้"  /></td>
   </tr>
 <tr>
   <td>3</td>
-  <td>&nbsp;</td>
   <td>&nbsp;</td>
   <td>&nbsp;</td>
   <td>&nbsp;</td>
@@ -406,9 +409,10 @@
   <th>ลำดับ</th>
   <th>วันที่เวลา</th>
   <th>ชื่อเจ้าหน้าที่</th>
-  <th>แผนการช่วยเหลือ</th>
-  <th>ส่งต่อ</th>
-  <th style="width:40%">รายละเอียด</th>
+  <th>รายละเอียด</th>
+  <th>แนวทางการช่วยเหลือ</th>
+  <th>ส่งต่อหน่วยงาน</th>
+  <th>สถานะ</th>
   <th>จัดการ</th>
   </tr>
 <tr>
@@ -418,13 +422,25 @@
   <td>นาย วิทธิลักษณ์ จันทร์ธนสมบัติ<br />
     ศูนย์ส่วนเหลือสังคม 1300<br />
     (นักสังคมสงเคราะห์)</td>
-  <td><img src="images/detail.png" width="32" height="32" class="vtip">
+  <td><a href="#"><img src="images/detail2.png" width="29" height="32" class="vtip" title="สำรวจพื้นที่การช่วยเหลืออย่างเร่งด่วน" /></a></td>
+  <td><img src="images/detail.png" width="24" height="32" class="vtip" title="-">
   </td>
-  <td>นายวรพจน์  จงจิตต์<br />
-    ศูนย์ส่วนเหลือสังคมจังหวัดนนทบุรี<br />
-    (นักสังคมสงเคราะห์ปฎิบัติการ)</td>
-  <td>สำรวจพื้นที่การช่วยเหลืออย่างเร่งด่วน</td>
-  <td><a class='inline2' href="#inline_docprint"><img src="images/print2.png" width="16" height="14" style="margin-right:10px;" class="vtip" title="พิมพ์ใบส่งต่อ" /></a><a href=""><img src="images/edit2.png" width="16" height="16" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a><img src="images/remove2.png" width="16" height="16" class="vtip" title="ลบรายการนี้"  /></td>
+  <td><div class="DeptSent">
+   ศูนย์ส่วนเหลือสังคมจังหวัดนนทบุรี <a href="<? basename($_SERVER['PHP_SELF'])?>?act=print1" target="_blank"><img src="images/printer.png" width="22" height="22" /></a> <br />
+  นายวรพจน์  จงจิตต์<br />
+    (นักสังคมสงเคราะห์ปฎิบัติการ)</div>
+    
+    <div class="DeptSent">สำนักงานพัฒนาสังคมและความมั่นคงของมนุษย์จังหวัดนนทบุรี <a href="<? basename($_SERVER['PHP_SELF'])?>?act=print1" target="_blank"><img src="images/printer.png" width="22" height="22" /></a><br />
+นางสุมาลี  ดลสุขวงศาวัฒน์<br />
+      (นักสังคมสงเคราะห์ปฎิบัติการ)</div>
+    
+    <div class="DeptSent">ร.พ. นนทเวช <a href="<? basename($_SERVER['PHP_SELF'])?>?act=print1" target="_blank"><img src="images/printer.png" width="22" height="22" /></a><br />
+นางพรศรี  สุตเธียรกุล
+      <br />
+      (จิตแพทย์)</div>
+  </td>
+  <td>วา่งแผนความช่วยเหลือเรียบร้อย</td>
+  <td><!--<a class='inline2' href="#inline_docprint"><img src="images/print2.png" width="16" height="14" style="margin-right:10px;" class="vtip" title="พิมพ์ใบส่งต่อ" /></a>--><a href=""><img src="images/edit2.png" width="16" height="16" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a><img src="images/remove2.png" width="16" height="16" class="vtip" title="ลบรายการนี้"  /></td>
   </tr>
 <tr class="odd">
   <td>2</td>
@@ -433,15 +449,17 @@
   <td>นาย วิทธิลักษณ์ จันทร์ธนสมบัติ<br />
     ศูนย์ส่วนเหลือสังคม 1300<br />
     (นักสังคมสงเคราะห์)</td>
-  <td><img src="images/detail.png" alt="" width="32" height="32" class="vtip" title="- ให้คำปรึกษา / แนะนำด้าน   (สวัสดิการสังคม กฏหมาย/พรบ.ที่เกี่ยวข้อง)      &lt;br /&gt;
+  <td><a href="#"><img src="images/detail2.png" width="29" height="32" class="vtip" title="นางสาวพุทธิดา เจริญพากรากุล เจ้าหน้าที่รับเรื่องศูนย์ช่วยเหลือสังคม ให้คำแนะนำเบื้องต้น รายละเอียดการรับลงทะเบียน คุณสมบัติผู้มีสิทธิ์รับเงินอุดหนุน และหลักเกณฑ์การจ่ายเงิน โครงการเงินอุดหนุนเพื่อการเลี้ยงดูเด็กแรกเกิด 1. การรับลงทะเบียน/สถานที่รับลงทะเบียน - เด็กที่เกิดตั้งแต่วันที่ 1 ตุลาคม 2558-30 กันยายน 2559 สามารถลงทะเบียนได้ ตั้งแต่วันที่ 1 เมษายน 2559-30 กันยายน 2559 - เด็กที่เกิดตั้งแต่วันที่ 1 ตุลาคม 2559-30 กันยายน 2560 สามารถลงทะเบียนได้ตั้งแต่วันที่ 1 เมษายน 2559-30 กันยายน 2560 โดยสามารถลงทะเบียนได้ที่ - กรุงเทพมหานคร ลงทะเบียน ณ สำนักงานเขต - ส่วนภูมิภาค ลงทะเบียน ณ สำนักงานเทศบาล หรือ องค์การบริหารส่วนตำบล 2. คุณสมบัติผู้ลงทะเบียน/หลักเกณฑ์ - เด็กต้องเป็นผู้มีสัญชาติไทย - ไม่เป็นผู้รับสวัสดิการหรือสิทธิประโยชน์อื่นใดจากหน่วยงานของรัฐหรือรัฐวิสาหกิจ - เงินสงเคราะห์บุตรจากกองทุนประกันสังคม - สวัสดิการข้าราชการหรือรัฐวิสาหกิจ - ไม่อยู่ในความดูแลของหน่วยงานรัฐ เช่น บ้านพักเด็กและครอบครัว , สถานสงเคราะห์ของรัฐ - ครอบครัวที่เสี่ยงต่อความยากจน หมายถึง สมาชิกภายในครอบครัวมีรายได้เฉลี่ยต่ำกว่า 3,000 บาท ต่อคน ต่อเดือน โดยนำรายได้ของสมาชิกภายในครอบครัวทั้งหมด หารด้วยจำนวนสมาชิกภายในครอบครัว ทั้งหมดซึ่งรวมถึงเด็กแรกเกิดด้วย" /></a></td>
+  <td><img src="images/detail.png" alt="" width="24" height="32" class="vtip" title="- ให้คำปรึกษา / แนะนำด้าน   (สวัสดิการสังคม กฏหมาย/พรบ.ที่เกี่ยวข้อง)      &lt;br /&gt;
     - ให้คำปรึกษาของนักสังคมสงเคราะห์ &lt;br /&gt;
     - การประสาน/ ขอข้อมูลเพิ่มเติม" /></td>
   <td>-</td>
-  <td> นางสาวพุทธิดา เจริญพากรากุล เจ้าหน้าที่รับเรื่องศูนย์ช่วยเหลือสังคม ให้คำแนะนำเบื้องต้น รายละเอียดการรับลงทะเบียน คุณสมบัติผู้มีสิทธิ์รับเงินอุดหนุน และหลักเกณฑ์การจ่ายเงิน โครงการเงินอุดหนุนเพื่อการเลี้ยงดูเด็กแรกเกิด 1. การรับลงทะเบียน/สถานที่รับลงทะเบียน - เด็กที่เกิดตั้งแต่วันที่ 1 ตุลาคม 2558-30 กันยายน 2559 สามารถลงทะเบียนได้ ตั้งแต่วันที่ 1 เมษายน 2559-30 กันยายน 2559 - เด็กที่เกิดตั้งแต่วันที่ 1 ตุลาคม 2559-30 กันยายน 2560 สามารถลงทะเบียนได้ตั้งแต่วันที่ 1 เมษายน 2559-30 กันยายน 2560 โดยสามารถลงทะเบียนได้ที่ - กรุงเทพมหานคร ลงทะเบียน ณ สำนักงานเขต - ส่วนภูมิภาค ลงทะเบียน ณ สำนักงานเทศบาล หรือ องค์การบริหารส่วนตำบล 2. คุณสมบัติผู้ลงทะเบียน/หลักเกณฑ์ - เด็กต้องเป็นผู้มีสัญชาติไทย - ไม่เป็นผู้รับสวัสดิการหรือสิทธิประโยชน์อื่นใดจากหน่วยงานของรัฐหรือรัฐวิสาหกิจ - เงินสงเคราะห์บุตรจากกองทุนประกันสังคม - สวัสดิการข้าราชการหรือรัฐวิสาหกิจ - ไม่อยู่ในความดูแลของหน่วยงานรัฐ เช่น บ้านพักเด็กและครอบครัว , สถานสงเคราะห์ของรัฐ - ครอบครัวที่เสี่ยงต่อความยากจน หมายถึง สมาชิกภายในครอบครัวมีรายได้เฉลี่ยต่ำกว่า 3,000 บาท ต่อคน ต่อเดือน โดยนำรายได้ของสมาชิกภายในครอบครัวทั้งหมด หารด้วยจำนวนสมาชิกภายในครอบครัว ทั้งหมดซึ่งรวมถึงเด็กแรกเกิดด้วย</td>
+  <td>&nbsp;</td>
   <td><a href=""><img src="images/edit2.png" width="16" height="16" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a><img src="images/remove2.png" width="16" height="16" class="vtip" title="ลบรายการนี้"  /></td>
   </tr>
 <tr>
   <td>3</td>
+  <td>&nbsp;</td>
   <td>&nbsp;</td>
   <td>&nbsp;</td>
   <td>&nbsp;</td>
@@ -463,20 +481,9 @@
   <th style="width:40%">รายละเอียด</th>
   <th>สถานะ</th>
   <th>จัดการ</th>
-  </tr>
-<tr>
-  <td>1</td>
-  <td>07/02/2560<br />
-15:30 น.</td>
-  <td>นายวรพจน์  จงจิตต์<br />
-ศูนย์ส่วนเหลือสังคมจังหวัดนนทบุรี<br />
-(นักสังคมสงเคราะห์ปฎิบัติการ)</td>
-  <td>ได้ลงพื้นที่พร้อมสอบถามและแนะนำวิธีการช่วยเหลือในเบื้องต้น และในวันที่ 09/02/2560 จะมาพานักจิตวิทยามาช่วยอีกครั้ง</td>
-  <td>-</td>
-  <td><a href=""><img src="images/edit2.png" width="16" height="16" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a> <img src="images/remove2.png" width="16" height="16" class="vtip" title="ลบรายการนี้"  /></td>
-  </tr>
+</tr>
 <tr class="odd">
-  <td>2</td>
+  <td>1</td>
   <td>09/02/2560<br />
     10:10 น.</td>
   <td>นายวรพจน์  จงจิตต์<br />
@@ -485,7 +492,18 @@
   <td>เจ้าหน้าที่นักจิตวิทยา ได้ให้ผู้รับการช่วยเหลือไปประจำที่ รพ.</td>
   <td>ให้ความช่วยเหลือเรียบร้อย</td>
   <td><a href=""><img src="images/edit2.png" width="16" height="16" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a> <img src="images/remove2.png" width="16" height="16" class="vtip" title="ลบรายการนี้"  /></td>
-  </tr>
+</tr>
+<tr>
+  <td>2</td>
+  <td>07/02/2560<br />
+    15:30 น.</td>
+  <td>นายวรพจน์  จงจิตต์<br />
+    ศูนย์ส่วนเหลือสังคมจังหวัดนนทบุรี<br />
+    (นักสังคมสงเคราะห์ปฎิบัติการ)</td>
+  <td>ได้ลงพื้นที่พร้อมสอบถามและแนะนำวิธีการช่วยเหลือในเบื้องต้น และในวันที่ 09/02/2560 จะมาพานักจิตวิทยามาช่วยอีกครั้ง</td>
+  <td>-</td>
+  <td><a href=""><img src="images/edit2.png" width="16" height="16" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a> <img src="images/remove2.png" width="16" height="16" class="vtip" title="ลบรายการนี้"  /></td>
+</tr>
 <tr>
   <td>3</td>
   <td>&nbsp;</td>
@@ -493,7 +511,7 @@
   <td>&nbsp;</td>
   <td>&nbsp;</td>
   <td><a href=""><img src="images/edit2.png" width="16" height="16" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a> <img src="images/remove2.png" width="16" height="16" class="vtip" title="ลบรายการนี้"  /></td>
-  </tr>
+</tr>
 </table>
     </div>
     
@@ -656,12 +674,17 @@
         <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อรอง" style="width:120px;">
   		</div>
         
-        <div class="form-group form-inline col-md-6">
-        <label>ตำหนิ รูปพรรณ</label>
-        <input type="text" class="form-control" id="exampleInputEmail2" style="width:350px;">
+        <div class="form-group form-inline col-md-4">
+        <label><span class="Txt_red_12"> *</span> เลขบัตรประชาชน</label>
+        <input type="text" class="form-control" data-inputmask="'mask': '9-9999-99999-99-9'" placeholder="เลขบัตรประชาชน" style="width:150px;"  />
         </div>
         
-        <div class="form-group form-inline col-md-6">
+        <div class="form-group form-inline col-md-4">
+        <label>เกิดวันที่</label>
+        <input type="text" class="form-control fdate" id="exampleInputEmail2" style="width:100px;">
+        </div>
+        
+        <div class="form-group form-inline col-md-4">
         <label>เพศ</label>
         <select class="form-control">
           <option>--</option>
@@ -671,38 +694,23 @@
         </select>
         </div>
         
-        <div class="form-group form-inline col-md-6">
-        <label>ประเภทผู้ใช้บริการ</label>
-         <select class="form-control">
+        <div class="form-group form-inline col-md-4">
+        <label>สัญญาติ</label>
+        <select class="form-control">
           <option>--</option>
-          <option>คนพิการ</option>
-          <option>เด็ก/เยาวชน</option>
-          <option>ผู้ติดเชื้อ HIV</option>
-          <option>สตรี</option>
-          <option>ผู้สูงอายุ</option>
-          <option>คนเร่ร่อน/ไร้ที่พึ่ง</option>
-          <option>อื่นๆ</option>
+          <option>ไทย</option>
         </select>
-        <label style="width:50px;">ระบุ</label>
-        <input type="text" class="form-control" id="exampleInputEmail2" style="width:150px;" placeholder="อื่นๆ ระบุ">
-        </div>
-        
-        <div class="form-group form-inline col-md-6">
-        <label>เลขบัตรประชาชน</label>
-        <input type="text" class="form-control" data-inputmask="'mask': '9-9999-99999-99-9'" placeholder="เลขบัตรประชาชน" style="width:150px;"  />
-        </div>
-        
-        <div class="form-group form-inline col-md-6">
-        <label>เลขที่หนังสือเดินทาง</label>
-        <input type="text" class="form-control numOnly" id="exampleInputEmail2" style="width:150px;">
         </div>
         
         <div class="form-group form-inline col-md-4">
-        <label>เอกสารประจำตัวอื่นๆ</label>
-        <input type="text" class="form-control numOnly" id="exampleInputEmail2" style="width:150px;" maxlength="3">
+        <label>เชื้อชาติ</label>
+        <select class="form-control">
+          <option>--</option>
+          <option>ไทย</option>
+        </select>
         </div>
         
-        <div class="form-group form-inline col-md-6">
+        <div class="form-group form-inline col-md-4">
         <label>ศาสนา</label>
         <select class="form-control">
           <option>--</option>
@@ -714,25 +722,7 @@
         </select>
         </div>
         
-        <div class="form-group form-inline col-md-6">
-        <label>เชื้อชาติ</label>
-        <select class="form-control">
-          <option>--</option>
-          <option>ไทย</option>
-        </select>
-        </div>
-        
-        <div class="form-group form-inline col-md-6">
-        <label>สัญญาติ</label>
-        <select class="form-control">
-          <option>--</option>
-          <option>ไทย</option>
-        </select>
-        <label style="width:50px;">อื่นๆ</label>
-        <input type="text" class="form-control" id="exampleInputEmail2" style="width:150px;">
-        </div>
-        
-        <div class="form-group form-inline col-md-6">
+        <div class="form-group form-inline col-md-4">
         <label>อาชีพ</label>
         <select class="form-control">
           <option>--</option>
@@ -747,12 +737,7 @@
         </select>
         </div>
         
-        <div class="form-group form-inline col-md-6">
-        <label>เกิดวันที่</label>
-        <input type="text" class="form-control fdate" id="exampleInputEmail2" style="width:100px;">
-        </div>
-        
-        <div class="form-group form-inline col-md-6">
+        <div class="form-group form-inline col-md-4">
         <label>สถานะภาพ</label>
         <select class="form-control">
           <option>--</option>
@@ -763,6 +748,21 @@
         </select>
         </div>
         
+        <div class="form-group form-inline col-md-4">
+        <label>เลขที่หนังสือเดินทาง</label>
+        <input type="text" class="form-control" id="exampleInputEmail2" style="width:150px;">
+        </div>
+        
+        <div class="form-group form-inline col-md-6">
+        <label>เอกสารประจำตัวอื่นๆ</label>
+        <input type="text" class="form-control" id="exampleInputEmail2" style="width:250px;">
+        </div>
+        
+        <div class="form-group form-inline col-md-6">
+        <label>ตำหนิ รูปพรรณ</label>
+        <input type="text" class="form-control" id="exampleInputEmail2" style="width:350px;">
+        </div>
+
         <div class="form-group form-inline col-md-6">
         <label>รหัสอ้างอิงพิสูจน์ลักษณะบุคคล</label>
         <input type="text" class="form-control" id="exampleInputEmail2" style="width:400px;">
@@ -1032,7 +1032,7 @@
     <fieldset>
     <legend>ข้อมูลส่วนตัว</legend>
         <div class="form-group form-inline col-md-12">
-    	<label><span class="Txt_red_12"> *</span> ชื่อผู้กระทำความผิด</label>
+    	<label><span class="Txt_red_12"> *</span> ชื่อผู้รับการช่วยเหลือ</label>
         <select class="form-control">
           <option>--</option>
           <option>นาย/Mr.</option>
@@ -1042,16 +1042,22 @@
           <option>เด็กชาย/Master</option>
         </select>
    	 	<input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อตัว" style="width:120px;">
-        <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อรอง" style="width:120px;">
+        
         <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อสกุล" style="width:200px;">
+        <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อรอง" style="width:120px;">
   		</div>
         
-        <div class="form-group form-inline col-md-6">
-        <label>ตำหนิ รูปพรรณ</label>
-        <input type="text" class="form-control" id="exampleInputEmail2" style="width:350px;">
+        <div class="form-group form-inline col-md-4">
+        <label><span class="Txt_red_12"> *</span> เลขบัตรประชาชน</label>
+        <input type="text" class="form-control" data-inputmask="'mask': '9-9999-99999-99-9'" placeholder="เลขบัตรประชาชน" style="width:150px;"  />
         </div>
         
-        <div class="form-group form-inline col-md-6">
+        <div class="form-group form-inline col-md-4">
+        <label>เกิดวันที่</label>
+        <input type="text" class="form-control fdate" id="exampleInputEmail2" style="width:100px;">
+        </div>
+        
+        <div class="form-group form-inline col-md-4">
         <label>เพศ</label>
         <select class="form-control">
           <option>--</option>
@@ -1061,38 +1067,23 @@
         </select>
         </div>
         
-        <div class="form-group form-inline col-md-6">
-        <label>ประเภทผู้ใช้บริการ</label>
-         <select class="form-control">
+        <div class="form-group form-inline col-md-4">
+        <label>สัญญาติ</label>
+        <select class="form-control">
           <option>--</option>
-          <option>คนพิการ</option>
-          <option>เด็ก/เยาวชน</option>
-          <option>ผู้ติดเชื้อ HIV</option>
-          <option>สตรี</option>
-          <option>ผู้สูงอายุ</option>
-          <option>คนเร่ร่อน/ไร้ที่พึ่ง</option>
-          <option>อื่นๆ</option>
+          <option>ไทย</option>
         </select>
-        <label style="width:50px;">ระบุ</label>
-        <input type="text" class="form-control" id="exampleInputEmail2" style="width:150px;" placeholder="อื่นๆ ระบุ">
-        </div>
-        
-        <div class="form-group form-inline col-md-6">
-        <label>เลขบัตรประชาชน</label>
-        <input type="text" class="form-control fidcard" id="exampleInputEmail2" style="width:150px;">
-        </div>
-        
-        <div class="form-group form-inline col-md-6">
-        <label>เลขที่หนังสือเดินทาง</label>
-        <input type="text" class="form-control numOnly" id="exampleInputEmail2" style="width:150px;">
         </div>
         
         <div class="form-group form-inline col-md-4">
-        <label>เอกสารประจำตัวอื่นๆ</label>
-        <input type="text" class="form-control numOnly" id="exampleInputEmail2" style="width:150px;" maxlength="3">
+        <label>เชื้อชาติ</label>
+        <select class="form-control">
+          <option>--</option>
+          <option>ไทย</option>
+        </select>
         </div>
         
-        <div class="form-group form-inline col-md-6">
+        <div class="form-group form-inline col-md-4">
         <label>ศาสนา</label>
         <select class="form-control">
           <option>--</option>
@@ -1104,25 +1095,7 @@
         </select>
         </div>
         
-        <div class="form-group form-inline col-md-6">
-        <label>เชื้อชาติ</label>
-        <select class="form-control">
-          <option>--</option>
-          <option>ไทย</option>
-        </select>
-        </div>
-        
-        <div class="form-group form-inline col-md-6">
-        <label>สัญญาติ</label>
-        <select class="form-control">
-          <option>--</option>
-          <option>ไทย</option>
-        </select>
-        <label style="width:50px;">อื่นๆ</label>
-        <input type="text" class="form-control" id="exampleInputEmail2" style="width:150px;">
-        </div>
-        
-        <div class="form-group form-inline col-md-6">
+        <div class="form-group form-inline col-md-4">
         <label>อาชีพ</label>
         <select class="form-control">
           <option>--</option>
@@ -1137,12 +1110,7 @@
         </select>
         </div>
         
-        <div class="form-group form-inline col-md-6">
-        <label>เกิดวันที่</label>
-        <input type="text" class="form-control fdate" id="exampleInputEmail2" style="width:100px;">
-        </div>
-        
-        <div class="form-group form-inline col-md-6">
+        <div class="form-group form-inline col-md-4">
         <label>สถานะภาพ</label>
         <select class="form-control">
           <option>--</option>
@@ -1153,6 +1121,21 @@
         </select>
         </div>
         
+        <div class="form-group form-inline col-md-4">
+        <label>เลขที่หนังสือเดินทาง</label>
+        <input type="text" class="form-control" id="exampleInputEmail2" style="width:150px;">
+        </div>
+        
+        <div class="form-group form-inline col-md-6">
+        <label>เอกสารประจำตัวอื่นๆ</label>
+        <input type="text" class="form-control" id="exampleInputEmail2" style="width:250px;">
+        </div>
+        
+        <div class="form-group form-inline col-md-6">
+        <label>ตำหนิ รูปพรรณ</label>
+        <input type="text" class="form-control" id="exampleInputEmail2" style="width:350px;">
+        </div>
+
         <div class="form-group form-inline col-md-6">
         <label>รหัสอ้างอิงพิสูจน์ลักษณะบุคคล</label>
         <input type="text" class="form-control" id="exampleInputEmail2" style="width:400px;">
@@ -1354,6 +1337,51 @@
         </fieldset>
         
         <fieldset>
+        <legend>แนวทางการช่วยเหลือตามสภาพปัญหาและความต้องการของผู้ใช้บริการ </legend>
+        <div class="form-group form-inline col-md-4" style="height:30px;">
+     	 <label style="width:100%; text-align:left;"><input type="checkbox"> ให้คำปรึกษา / แนะนำด้าน  (สวัสดิการสังคม กฏหมาย/พรบ.ที่เกี่ยวข้อง)</label>
+  		</div>
+        
+        <div class="form-group form-inline col-md-4" style="height:30px;">
+     	 <label style="width:100%; text-align:left;"><input type="checkbox"> การช่วยเหลือผู้ประสบปัญหาสังคกรณีฉุกเฉิน/วิกฤตการ</label>
+  		</div>
+        
+        <div class="form-group form-inline col-md-4" style="height:30px;">
+     	<label style="width:100%; text-align:left;"><input type="checkbox"> ให้คำปรึกษาของนักสังคมสงเคราะห์ </label>
+  		</div>
+        
+        <div class="form-group form-inline col-md-4" style="height:30px;">
+     	 <label style="width:100%; text-align:left;"><input type="checkbox"> การประสาน/ ขอข้อมูลเพิ่มเติม</label>
+  		</div>
+        
+        <div class="form-group form-inline col-md-4" style="height:30px;">
+     	 <label style="width:100%; text-align:left;"><input type="checkbox"> การประสานเครือข่ายทางสังคมเพื่อให้การช่วยเหลือ เช่น ตำรวจ โรงพยาบาล  </label>
+  		</div>
+        
+        <div class="form-group form-inline col-md-4" style="height:30px;">
+     	 <label style="width:100%; text-align:left;"><input type="checkbox"> ติดตามผลการช่วยเหลือ </label>
+  		</div>
+        
+        <div class="form-group form-inline col-md-4" style="height:30px;">
+     	 <label style="width:100%; text-align:left;"><input type="checkbox"> อื่นๆ โปรดระบุ <input type="text" class="form-control" id="exampleInputEmail2" style="width:250px;"></label>
+         
+  		</div>
+        </fieldset>
+        
+        <fieldset>
+        <legend>ความคิดเห็นของนักสังคมฯ / ผู้รับผิดชอบ <span class="note">* สำหรับสิทธิ์นักสังคมฯ</span></legend>   
+       	<div class="form-group form-inline col-md-12">
+        <label><span class="Txt_red_12"> *</span> ความเห็นของนักสังคมสงเคราะห์/ผู้รับผิดชอบ</label>
+        <textarea class="form-control" id="exampleInputEmail2" placeholder="" style="width:80%; height:100px;"></textarea>
+      	</div>
+        
+        <div class="form-group form-inline col-md-12">
+        <label>ชื่อนักสังคมฯ</label>
+        <input type="text" class="form-control" id="exampleInputEmail2" style="width:350px;" readonly="readonly">
+        </div>
+        </fieldset>
+        
+        <fieldset>
         <legend>ข้อมูลหน่วยงานประสานส่งต่อ <img src="images/add.png" width="16" height="16" class="vtip" title="เพิ่มหน่วยงาน" />   </legend>   
         
         <div class="form-group form-inline col-md-6">
@@ -1397,7 +1425,6 @@
 		</div>
 
         
-        
         <div class="form-group form-inline col-md-6">
         <label>ชื่อผู้รับผิดชอบ</label>
         <input type="text" class="form-control" id="exampleInputEmail2" style="width:350px;">
@@ -1415,13 +1442,9 @@
         </fieldset>
         
         
-       <fieldset>
-        <legend>ความคิดเห็นและรายละเอียด</legend>   
-       	<div class="form-group form-inline col-md-12">
-        <label><span class="Txt_red_12"> *</span> ความเห็นของนักสังคมสงเคราะห์/ผู้รับผิดชอบ</label>
-        <textarea class="form-control" id="exampleInputEmail2" placeholder="" style="width:80%; height:100px;"></textarea>
-      	</div>
         
+       <fieldset>
+        <legend>รายละเอียดแผนการช่วยเหลือ</legend>   
         <div class="form-group form-inline col-md-12">
         <label><span class="Txt_red_12"> *</span> รายละเอียด</label>
         <textarea class="form-control" id="exampleInputEmail2" placeholder="" style="width:80%; height:200px;">นายเอกพินิจ แก้วเสนา ตำแหน่งนักพัฒนาสังคมชำนาญการ หน่วยงานศูนย์ช่วยเหลือสังคม</textarea>
@@ -1429,38 +1452,6 @@
         
         </fieldset>
             
-            
-        <fieldset>
-        <legend>แนวทางการช่วยเหลือตามสภาพปัญหาและความต้องการของผู้ใช้บริการ </legend>
-        <div class="form-group form-inline col-md-4" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> ให้คำปรึกษา / แนะนำด้าน  (สวัสดิการสังคม กฏหมาย/พรบ.ที่เกี่ยวข้อง)</label>
-  		</div>
-        
-        <div class="form-group form-inline col-md-4" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> การช่วยเหลือผู้ประสบปัญหาสังคกรณีฉุกเฉิน/วิกฤตการ</label>
-  		</div>
-        
-        <div class="form-group form-inline col-md-4" style="height:30px;">
-     	<label style="width:100%; text-align:left;"><input type="checkbox"> ให้คำปรึกษาของนักสังคมสงเคราะห์ </label>
-  		</div>
-        
-        <div class="form-group form-inline col-md-4" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> การประสาน/ ขอข้อมูลเพิ่มเติม</label>
-  		</div>
-        
-        <div class="form-group form-inline col-md-4" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> การประสานเครือข่ายทางสังคมเพื่อให้การช่วยเหลือ เช่น ตำรวจ โรงพยาบาล  </label>
-  		</div>
-        
-        <div class="form-group form-inline col-md-4" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> ติดตามผลการช่วยเหลือ </label>
-  		</div>
-        
-        <div class="form-group form-inline col-md-4" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> อื่นๆ โปรดระบุ <input type="text" class="form-control" id="exampleInputEmail2" style="width:250px;"></label>
-         
-  		</div>
-        </fieldset>
             <div id="btnBoxAdd">
   <input name="input" type="button" title="บันทึก" value="บันทึก" class="btn btn-primary" style="width:100px;"/>
   <label style="text-align:left; padding-left:20px; width:250px"> <input type="checkbox"> วา่งแผนความช่วยเหลือเรียบร้อย</label>

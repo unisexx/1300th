@@ -72,13 +72,13 @@
 <tr>
   <th>กลุ่มเป้าหมาย<span class="Txt_red_12"> *</span> &gt; ปัญหาหลัก<span class="Txt_red_12"> *</span></th>
   <td>
-    <span class="targetElement">
+    <span class="SelectElement">
     {!! Form::select('target_id', dropdownOption('targets', 'id', 'name',"parent_id = 0", 'name asc'), @$parent->parent->id, array('class'=>'selectpicker', 'data-live-search'=>'true','title'=>'เลือกกลุ่มเป้าหมาย')) !!}
-    <span>
+    </span>
     &gt;
-    <span class="targetElement">
+    <span class="SelectElement">
     {!! Form::select('parent_id', dropdownOption('targets', 'id', 'name',"parent_id = '".@$parent->parent_id."'",'name asc'), @$parent->id, array('class'=>'selectpicker', 'data-live-search'=>'true','title'=>'เลือกปัญหาหลัก')) !!}
-    <span>
+    </span>
   </td>
 </tr>
 <tr>
@@ -102,11 +102,17 @@
 <tr>
   <th>กลุ่มเป้าหมาย<span class="Txt_red_12"> *</span> &gt; ปัญหาหลัก<span class="Txt_red_12"> * </span>&gt; ปัญหาย่อย 1<span class="Txt_red_12"> *</span></th>
   <td>
+    <span class="SelectElement">
     {!! Form::select('target_id', dropdownOption('targets', 'id', 'name',"parent_id = 0", 'name asc'), @$parent->parent->parent->id, array('class'=>'selectpicker', 'data-live-search'=>'true','title'=>'เลือกปัญหาหลัก')) !!}
+    </span>
     &gt;
+    <span class="SelectElement">
     {!! Form::select('problem_id', dropdownOption('targets', 'id', 'name',"parent_id = '".@$parent->parent->parent_id."'", 'name asc'), @$parent->parent->id, array('class'=>'selectpicker', 'data-live-search'=>'true','title'=>'เลือกปัญหาหลัก')) !!}
+    </span>
     &gt;
+    <span class="SelectElement">
     {!! Form::select('parent_id', dropdownOption('targets', 'id', 'name',"parent_id = '".@$parent->parent_id."'",'name asc'), @$parent->id, array('class'=>'selectpicker', 'data-live-search'=>'true','title'=>'เลือกปัญหาย่อย 1')) !!}
+    </span>
     </td>
 </tr>
 <tr>
@@ -130,13 +136,21 @@
 <tr>
   <th>กลุ่มเป้าหมาย<span class="Txt_red_12"> *</span> &gt; ปัญหาหลัก<span class="Txt_red_12"> * </span>&gt; ปัญหาย่อย 1 <span class="Txt_red_12"> *</span> &gt; ปัญหาย่อย 2 <span class="Txt_red_12"> *</span></th>
   <td>
+    <span class="SelectElement">
     {!! Form::select('target_id', dropdownOption('targets', 'id', 'name',"parent_id = 0", 'name asc'), @$parent->parent->parent->parent->id, array('class'=>'selectpicker', 'data-live-search'=>'true','title'=>'เลือกกลุ่มเป้าหมาย')) !!}
+    </span>
     &gt;
+    <span class="SelectElement">
     {!! Form::select('problem_id', dropdownOption('targets', 'id', 'name',"parent_id = '".@$parent->parent->parent->parent_id."'", 'name asc'), @$parent->parent->parent->id, array('class'=>'selectpicker', 'data-live-search'=>'true','title'=>'เลือกปัญหาหลัก')) !!}
+    </span>
     &gt;
+    <span class="SelectElement">
     {!! Form::select('subproblem1_id', dropdownOption('targets', 'id', 'name',"parent_id = '".@$parent->parent->parent_id."'", 'name asc'), @$parent->parent->id, array('class'=>'selectpicker', 'data-live-search'=>'true','title'=>'เลือกปัญหาย่อย 1')) !!}
+    </span>
     &gt;
+    <span class="SelectElement">
     {!! Form::select('parent_id', dropdownOption('targets', 'id', 'name',"parent_id = '".@$parent->parent_id."'",'name asc'), @$parent->id, array('class'=>'selectpicker', 'data-live-search'=>'true','title'=>'เลือกปัญหาย่อย 2')) !!}
+    </span>
   </td>
 </tr>
 <tr>
@@ -159,21 +173,26 @@
 <script>
 $(document).ready(function(){
   // select target หา child target
-	$(document).on('change', "select[name='parent_id']", function() {
-    var n = $(".targetElement").length;
-		var provinces_id = $(this).val();
-		var amphurElement = $(this).closest('.form-inline').find(".SpanAmphoe");
-    AjaxSelectAmphoe(provinces_id,amphurElement);
+	$(document).on('change', "select", function() {
+    var childElement = $(this).closest('.SelectElement').next();
+		var parent_id = $(this).val();
+
+    // disable all child Element
+    $(this).closest('.SelectElement').nextAll().find('select').val('');
+    $(this).closest('.SelectElement').nextAll().find('select').prop('disabled', true);
+    $(this).closest('.SelectElement').nextAll().find('select').selectpicker('refresh');
+
+    AjaxSelectTarget(parent_id,childElement);
 	});
 });
 
-function AjaxSelectTarget($parent_id,$parentElement){
+function AjaxSelectTarget($parent_id,$childElement){
   $.get('ajax/selecttarget',{
     'parent_id' : $parent_id
   },function(data){
-    $amphoe_element.html(data);
+    $childElement.html(data);
     // ถ้า select ข้อมูลที่ดึงมาใช้ data-live-search=true ต้องทำการ refresh ด้วย
-    $amphoe_element.find('select').selectpicker('refresh');
+    $childElement.find('select').selectpicker('refresh');
   });
 }
 </script>

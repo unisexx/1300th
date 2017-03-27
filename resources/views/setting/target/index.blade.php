@@ -23,7 +23,7 @@
       <!-- กลุ่มเป้าหมาย -->
       @foreach($rs as $target)
       <li class="jstree-open" data-jstree='{"icon":"images/problem_target_group.png"}'>
-        [{{ $target->code }}] {{ $target->name }}
+        [{{ $target->code }}] {{ $target->name }} (อายุ {{ $target->start_age }} - {{ $target->end_age }} ปี)
         <img src="images/add_ticket.png" width="16" height="16" style="margin-left:50px;" onclick="document.location='setting/target/form/1/{{ $target->id }}'" class="vtip" title="เพิ่มปัญหาหลัก" /> /
         <img src="images/edit2.png" width="16" height="16"  onclick="document.location='setting/target/form/0/0/{{ $target->id }}'"  class="vtip" title="แก้ไขกลุ่มเป้าหมายนี้" /> /
         <img src="images/remove2.png" width="16" height="16" onclick="return targetDelete({{ $target->id }});" />

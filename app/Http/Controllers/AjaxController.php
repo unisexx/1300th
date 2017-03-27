@@ -17,6 +17,11 @@ class AjaxController extends Controller
 
   // select กลุ่มเป้าหมาย
   public function getSelecttarget(){
-    return Form::select('parent_id', dropdownOption('targets', 'id', 'name', "parent_id = '".$_GET['id']."'",'name asc'), @$_GET['id'], array('class'=>'selectpicker','data-live-search'=>'true'));
+    return Form::select('parent_id', dropdownOption('targets', 'id', 'name', "parent_id = '".$_GET['parent_id']."'",'name asc'), @$_GET['parent_id'], array('class'=>'selectpicker','data-live-search'=>'true'));
+  }
+
+  // select กลุ่มเป้าหมาย
+  public function getSelectdepartment(){
+    return Form::select('parent_id', dropdownOption('departments', 'id', 'name', "parent_id = '".$_GET['parent_id']."'",'name asc'), @$_GET['parent_id'], array('class'=>'selectpicker','data-live-search'=>'true'));
   }
 }

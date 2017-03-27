@@ -15,7 +15,7 @@
           <ul class="nav navbar-nav">
           		<li><a href="ticket.php?act=form"><img src="images/add_ticket.png" width="16" height="16" /> เพิ่มเรื่อง</a></li>
           		<li><a href="ticket.php"><img src="images/help_ticket.png" width="16" height="16" /> เรื่องรับแจ้ง</a></li>
-
+				<li><a href="bookforward.php"><img src="images/bookforward.png" width="16" height="16" /> หนังสือประสานส่งต่อ</a></li>
           </ul>
           
           <ul class="nav navbar-nav">

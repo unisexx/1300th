@@ -260,7 +260,7 @@ padding-left: 9px;
 .tblist2 .paddL60 { padding-left:60px;}
 .tblist2 tr.topic { background:url(../images/bg_topic.gif);}
 .tblist2 tr.odd { background:#fef5ff}
-
+.tblist2 td div.DeptSent { border:1px dotted #CCC; padding:3px 7px; margin-bottom:5px;}
 
 
 .tblistReport

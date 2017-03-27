@@ -98,9 +98,9 @@ $(document).ready(function(){
 jQuery(function($){
    $(".fdate").mask("99/99/9999");
    $(".fmobile").mask("(999) 999-9999");
-   $(".fidcard").mask("9-9999-99999-99-9");
    $(".fnum").mask("999,999,999");
    $(".ftime").mask("99:99");
+   $(".fid").mask("99-99-99999");
 });
 </script>
 
@@ -125,10 +125,10 @@ $(document).ready(function(){
 				$(".boxDeptOUT").show();
             }
 			
-			if($(this).attr("value")=="TypeisDept"){
+			if($(this).attr("value")=="DeptInfo"){
                 $(".boxDeptInfo").show();
 			 }
-            else{
+            if($(this).attr("value")=='Owner' || $(this).attr("value")== 'Goodman' || $(this).attr("value")== 'Family'){
                 $(".boxDeptInfo").hide();
             }
 
@@ -182,14 +182,9 @@ $(document).ready(function(){
             $(".boxDeadDate").show();
         }
 		
-	
-		
-		
-		
     });
 });
 </script>
-
 
 <script>
   $( function() {

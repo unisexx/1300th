@@ -33,7 +33,7 @@
   </tr>
 <tr>
   <td>1</td>
-  <td>Hotline</td>
+  <td>เจ้าหน้าที่รับเรื่องศูนย์ช่วยเหลือสังคม</td>
   <td><img src="images/icon_checkbox.png" width="24" height="24" /></td>
   <td><a href="<?=basename($_SERVER['PHP_SELF'])?>?act=form"><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a><img src="images/remove.png" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
   </tr>

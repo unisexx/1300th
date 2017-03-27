@@ -91,6 +91,12 @@
   <td><img src="images/icon_checkbox.png" width="24" height="24" /></td>
   <td><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /><img src="images/remove.png" alt="" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
   </tr>
+<tr>
+  <td>11</td>
+  <td>หน่วยงานจากต่างประเทศ</td>
+  <td><img src="images/icon_checkbox.png" width="24" height="24" /></td>
+  <td><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /><img src="images/remove.png" alt="" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
+  </tr>
 </table>
 
 <div class="paginationTG">
