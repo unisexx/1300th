@@ -39,6 +39,7 @@ class PermissionController extends Controller {
       $model->save();
 
       // Save Permission_role
+      Permission_roles::where('permission_groups_id',$model->id)->delete();
       foreach($rq->input('permissions_id') as $key=>$item){
   			// ถ้า input ไม่เป็นค่าว่างให้ทำการเซฟ
   			if($item != ""){
@@ -55,8 +56,9 @@ class PermissionController extends Controller {
     }
 
     public function getDelete($id = null) {
-      if($rs = Permissions::find($id)) {
+      if($rs = Permission_groups::find($id)) {
         $rs->delete(); // Delete process
+        Permission_roles::where('permission_groups_id',$id)->delete();
         set_notify('error', trans('message.completeDelete'));
       }
       return Redirect('setting/permission');
