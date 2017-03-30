@@ -9,7 +9,7 @@ class Users extends Model
 {
   use SoftDeletes;
 
-  protected $fillable = array('name','email','password','permission_groups_id','depaerments_id','positions_id','username','tel');
+  protected $fillable = array('name','email','passwords','permission_groups_id','departments_id','positions_id','username','tel','status');
 
   public function permission_groups() {
       return $this->hasOne('App\Models\Permission_groups', 'id', 'permission_groups_id');

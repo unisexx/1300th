@@ -4,7 +4,7 @@
 
 
 <h3>ผู้ใช้งาน (เพิ่ม / แก้ไข)</h3>
-<form method="post" action="setting/tumbon/save/{{ @$rs->id }}">
+<form method="post" action="setting/user/save/{{ @$rs->id }}">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <table class="tbadd">
 <tr>
@@ -15,7 +15,7 @@
   <th>สังกัด กรม &gt; สำนัก/กอง <span class="Txt_red_12"> *</span></th>
   <td><div class="form-inline">
     <span class="SelectElement">
-    {!! Form::select('parent_id', dropdownOption('departments', 'id', 'name',"parent_id = 1",'name asc'), @$parent->id, array('class'=>'selectpicker', 'data-live-search'=>'true','title'=>'เลือกกรม')) !!}
+    {!! Form::select('parent_id', dropdownOption('departments', 'id', 'name',"parent_id = 1",'name asc'), @$rs->departments->parent->id, array('class'=>'selectpicker departments', 'data-live-search'=>'true','title'=>'เลือกกรม')) !!}
     </span>
     >
     <span class="SelectElement">
@@ -34,9 +34,9 @@
   <th>อีเมล์<span class="Txt_red_12"> *</span>  / หมายเลขติดต่อ</th>
   <td>
     <span class="form-inline">
-      <input name="textarea4" type="text" class="form-control" id="textarea4" value="" placeholder="อีเมล์" style="width:300px;"/>
+      <input name="email" type="text" class="form-control" value="{{ @$rs->email }}" placeholder="อีเมล์" style="width:300px;"/>
       /
-      <input name="textarea5" type="text" class="form-control" id="textarea5" value="" placeholder="เบอร์ติดต่อ" style="width:300px;"/></span>
+      <input name="tel" type="text" class="form-control" value="{{ @$rs->tel }}" placeholder="เบอร์ติดต่อ" style="width:300px;"/></span>
     </span>
     </td>
 </tr>
@@ -48,15 +48,22 @@
 </tr>
 <tr>
   <th>Username<span class="Txt_red_12"> *</span></th>
-  <td><input name="textarea2" type="text" class="form-control" id="textarea2" value="" style="width:200px;"/></td>
+  <td><input name="username" type="text" class="form-control" value="{{ @$rs->username }}" style="width:200px;"/></td>
 </tr>
 <tr>
   <th>Password<span class="Txt_red_12"> *</span></th>
-  <td><input name="textarea" type="text" class="form-control" id="textarea" value="" style="width:200px;"/></td>
+  <td><input name="passwords" type="text" class="form-control" value="{{ @$rs->passwords }}" style="width:200px;"/></td>
 </tr>
 <tr>
   <th>Confirm Password<span class="Txt_red_12"> *</span></th>
-  <td><input name="textarea3" type="text" class="form-control" id="textarea3" value="" style="width:200px;"/></td>
+  <td><input name="repassword" type="text" class="form-control" value="{{ @$rs->passwords }}" style="width:200px;"/></td>
+</tr>
+<tr>
+  <th>เปิด / ปิดการใช้งาน</th>
+  <td>
+    <input type="hidden" name="status" value="0">
+    <input name="status" type="checkbox" value="1" {{ @$rs->status == 1 ? 'checked' : '' }}/> เปิดใช้งาน
+  </td>
 </tr>
 </table>
 <div id="btnBoxAdd">
@@ -64,6 +71,35 @@
   <input name="input2" type="button" title="ย้อนกลับ" value="ย้อนกลับ"  onclick="history.back(-1)"  class="btn btn-default" style="width:100px;"/>
 </div>
 </form>
+
+<script>
+$(document).ready(function(){
+  // select target หา child target
+	$(document).on('change', "select.departments", function() {
+    var childElement = $(this).closest('.SelectElement').next();
+		var parent_id = $(this).val();
+    var selectFormName = 'departments_id';
+
+    // disable all child Element
+    $(this).closest('.SelectElement').nextAll().find('select').val('');
+    $(this).closest('.SelectElement').nextAll().find('select').prop('disabled', true);
+    $(this).closest('.SelectElement').nextAll().find('select').selectpicker('refresh');
+
+    AjaxSelectDepartment(parent_id,selectFormName,childElement);
+	});
+});
+
+function AjaxSelectDepartment($parent_id,$selectFormName,$childElement){
+  $.get('ajax/selectdepartment',{
+    'parent_id' : $parent_id,
+    'selectFormName' : $selectFormName
+  },function(data){
+    $childElement.html(data);
+    // ถ้า select ข้อมูลที่ดึงมาใช้ data-live-search=true ต้องทำการ refresh ด้วย
+    $childElement.find('select').selectpicker('refresh');
+  });
+}
+</script>
 
 
 @endsection

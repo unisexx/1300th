@@ -20,8 +20,9 @@ class AjaxController extends Controller
     return Form::select('parent_id', dropdownOption('targets', 'id', 'name', "parent_id = '".$_GET['parent_id']."'",'name asc'), @$_GET['parent_id'], array('class'=>'selectpicker','data-live-search'=>'true'));
   }
 
-  // select กลุ่มเป้าหมาย
+  // select กระทรวง/กรม/สำนัก/กอง
   public function getSelectdepartment(){
-    return Form::select('parent_id', dropdownOption('departments', 'id', 'name', "parent_id = '".$_GET['parent_id']."'",'name asc'), @$_GET['parent_id'], array('class'=>'selectpicker','data-live-search'=>'true'));
+    $selectFormName = @$_GET['selectFormName'] != "" ? @$_GET['selectFormName'] : 'parent_id' ;
+    return Form::select($selectFormName, dropdownOption('departments', 'id', 'name', "parent_id = '".$_GET['parent_id']."'",'name asc'), @$_GET['parent_id'], array('class'=>'selectpicker','data-live-search'=>'true'));
   }
 }

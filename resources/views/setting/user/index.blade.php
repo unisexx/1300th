@@ -7,47 +7,25 @@
 <div id="search">
 <div id="searchBox">
 <form class="form-inline">
-    <input type="text" class="form-control" style="width:350px;" id="exampleInputName2" placeholder="ชื่อ - สกุล">
+    <input name="search" value="{{ @$_GET['search'] }}" type="text" class="form-control" style="width:350px;" placeholder="ชื่อ - สกุล">
 
+    {!! Form::select('positions_id', dropdownOption('positions', 'id', 'name', '','name asc'), @$_GET['positions_id'], array('class'=>'selectpicker', 'data-live-search'=>'true','title'=>'ทุกตำแหน่ง')) !!}
 
-  <select id="lunch" class="selectpicker" data-live-search="true" title="ตำแหน่ง">
-    	<option style="font-weight:700;">- ทุกตำแหน่ง -</option>
-        <option>Hotline</option>
-        <option>นักสังคมสงเคราะห์</option>
-        <option>นักพัฒนาสังคม</option>
-        <option>นักสังคมสงเคราะห์ปฏิบัติการ</option>
-        <option>นักพัฒนาสังคมปฏิบัติการ</option>
-      </select>
-
-      <select id="first-disabled" class="selectpicker" data-hide-disabled="true" data-live-search="true"  title="หน่วยงาน">
-      <option style="font-weight:700;">- ทุกหน่วยงาน -</option>
-      <option>ศูนย์ช่วยเหลือสังคม</option>
-    <optgroup disabled="disabled" label="disabled">
-      <option></option>
-    </optgroup>
-    <optgroup label="สำนักงานพัฒนาสังคมและความมั่นคงของมนุษย์">
-      <option>สำนักงานพัฒนาสังคมและความมั่นคงของมนุษย์จังหวัดนนทบุรี</option>
-      <option>สำนักงานพัฒนาสังคมและความมั่นคงของมนุษ์จังหวัดปทุมธานี</option>
-    </optgroup>
-    <optgroup label="บ้านพักเด็กและครอบครัว">
-      <option>บ้านพักเด็กและครอบครัวจังหวัดนนทบุรี</option>
-      <option>บ้านพักเด็กและครอบครัวจังหวัดปทุมธานี</option>
-    </optgroup>
-    <optgroup label="ศูนย์คุ้มครองคนไร้ที่พึ่ง">
-      <option>ศูนย์คุ้มครองคนไร้ที่พึ่งจังหวัดนนทบุรี</option>
-      <option>ศูนย์คุ้มครองคนไร้ที่พึ่งจังหวัดปทุมธานี</option>
-    </optgroup>
-
-  </select>
-
-  <select name="select4" class="form-control" style="width:auto;" title="สิทธิ์การใช้งาน">
-      <option style="font-weight:700;">- ทุกสิทธิ์การใช้งาน -</option>
-      <option>SuperAdmin</option>
-      <option>Executive</option>
-      <option>User</option>
+    <select name="departments_id" id="first-disabled" class="selectpicker" data-hide-disabled="true" data-live-search="true"  title="หน่วยงาน">
+      @foreach($departments as $department)
+      <optgroup label="{{ $department->name }}">
+        @if(count( $department->children ) > 0 )
+        @foreach($department->children as $bureau)
+        <option value="{{ $bureau->id }}" {{ @$_GET['departments_id'] == $bureau->id ? 'selected' : '' }}>{{ $bureau->name }}</option>
+        @endforeach
+        @endif
+      </optgroup>
+      @endforeach
     </select>
 
-      <button type="submit" class="btn btn-info"><img src="images/search.png" width="16" height="16" />ค้นหา</button>
+    {!! Form::select('permission_groups_id', dropdownOption('permission_groups', 'id', 'name', '','name asc'), @$_GET['permission_groups_id'], array('class'=>'selectpicker', 'data-live-search'=>'true','title'=>'ทุกสิทธิ์การใช้งาน')) !!}
+
+    <button type="submit" class="btn btn-info"><img src="images/search.png" width="16" height="16" />ค้นหา</button>
 </form>
 
 
@@ -74,8 +52,8 @@
   <td>{{ ++$no }}</td>
   <td>{{ $row->name }}</td>
   <td>{{ $row->positions->name }}</td>
-  <td>{{ $row->departments->name }}</td>
-  <td>{{ $row->permission_groups->name }}</td>
+  <td>{{ @$row->departments->name }}</td>
+  <td>{{ @$row->permission_groups->name }}</td>
   <td>
     @if ($row->status == 1)
       <img src="images/icon_checkbox.png" width="24" height="24" />

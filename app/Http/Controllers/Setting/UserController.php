@@ -8,17 +8,30 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Models\Users;
+use App\Models\Departments;
 
 use Form;
 use DB;
 
 class UserController extends Controller {
   public function getIndex() {
+    // select หน่วยงาน
+    $data['departments'] = Departments::where('parent_id', 1)->orderBy('name', 'desc')->get();
+
     $data['rs'] = new Users;
 
     //search
     if(!empty($_GET['search'])){
       $data['rs'] = $data['rs']->where('name', 'like', '%'.$_GET['search'].'%');
+    }
+    if(!empty($_GET['positions_id'])){
+      $data['rs'] = $data['rs']->where('positions_id',$_GET['positions_id']);
+    }
+    if(!empty($_GET['permission_groups_id'])){
+      $data['rs'] = $data['rs']->where('permission_groups_id',$_GET['permission_groups_id']);
+    }
+    if(!empty($_GET['departments_id'])){
+      $data['rs'] = $data['rs']->where('departments_id',$_GET['departments_id']);
     }
 
     $data['rs'] = $data['rs']->orderBy('id','desc')->paginate();
