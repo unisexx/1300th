@@ -22,6 +22,9 @@ Route::get('/data','TestController@test');
 Route::get('/', 'HomeController@getIndex');
 // Route::controller('home', 'HomeController');
 
+// รับเรื่องแจ้ง
+Route::controller('ticket', 'TicketController');
+
 // รายงาน
 Route::group(['prefix' => 'report', 'namespace' => 'Report'], function(){
   Route::controller('r1', 'R1Controller');
