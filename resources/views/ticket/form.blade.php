@@ -435,7 +435,7 @@
 
 
   <div role="tabpanel" class="tab-pane" id="p5">
-   <div style="float:right; margin-bottom:5px;"><a class='inline' href="#inline_attachfile"><input type="button" value="เพิ่มเอกสาร" class="btn btn-success" /></a></div>
+   <div style="float:right; margin-bottom:5px;"><a class='attachFormBtn' href="ticket/ajaxloadattachform"><input type="button" value="เพิ่มเอกสาร" class="btn btn-success" /></a></div>
 
       <span id="attach"></span>
 
@@ -446,73 +446,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- This contains the hidden content for inline calls -->
-		<div style='display:none'>
-			<div id='inline_attachfile' style='padding:10px; background:#fff;'>
-            <h3 style="margin:0; padding:0; color:#F69">แนบไฟล์ (เพิ่ม/แก้ไข)</h3>
-
-		<fieldset>
-        <legend>ไฟล์เอกสาร</legend>
-        <div class="form-group form-inline col-md-12">
-        <label>ประเภทเอกสาร</label>
-        <select name="select" class="form-control">
-           <option>- เลือกประเภทเอกสาร -</option>
-           <option>สำเนาบัตรประจำตัวประชาชน</option>
-           <option>สำเนาทะเบียนบ้าน</option>
-           <option>รูปถ่าย</option>
-           <option>หลักฐานการศึกษา</option>
-           <option>ใบแจ้งความ</option>
-           <option>เอกสารอื่นๆ</option>
-         </select>
-       	</div>
-		<div class="form-group form-inline col-md-12">
-        <label>ชื่อเอกสาร</label>
-        <input type="text" class="form-control" id="exampleInputEmail2" style="width:350px;">
-        <input name="" type="file" style="width:400px; display:inline" />
-       </div>
-        </fieldset>
-
-            <div id="btnBoxAdd">
-  <input name="input" type="button" title="บันทึก" value="บันทึก" class="btn btn-primary" style="width:100px;"/>
-</div>
-
-</div>
-</div>
-
-
-<!-- This contains the hidden content for inline calls -->
-		<div style='display:none'>
-			<div id='inline_docprint' style='padding:10px; background:#fff;'>
-            <h3 style="margin:0; padding:0; color:#F69">เอกสารส่งต่อ</h3>
-
-		<fieldset>
-        <legend>พิมพ์แบบส่งต่อความช่วยเหลือฯ</legend>
-		<div class="form-group form-inline col-md-4">
-        	<div style="border:1px #FCC dashed; background:#FFF0FF; padding:10px; text-align:center; cursor:pointer" onclick="document.location='<?=basename($_SERVER['PHP_SELF'])?>?act=print1'"> <img src="images/document.png" width="24" height="24" /> แบบไม่ทางการ</div></a>
-       	</div>
-        <div class="form-group form-inline col-md-4">
-        	<div style="border:1px #FCC dashed; background:#FFF0FF; padding:10px; text-align:center; cursor:pointer" onclick="document.location='<?=basename($_SERVER['PHP_SELF'])?>?act=print2'"> <img src="images/krut.png" width="24" height="24" /> แบบทางการ</div>
-        	<div></div>
-       	</div>
-
-        </fieldset>
-</div>
-
-</div>
-</div>
-
 <script type="text/javascript">
 $(document).ready(function(){
   // load index
@@ -520,12 +453,14 @@ $(document).ready(function(){
   ajaxloadoffender();
   ajaxloadplan();
   ajaxloadresult();
+  ajaxloadattach();
 
   // load form
   $(".receiveFormBtn").colorbox({maxWidth:'95%'});
   $(".offenderFormBtn").colorbox({maxWidth:'95%'});
   $(".planFormBtn").colorbox({maxWidth:'95%'});
   $(".resultFormBtn").colorbox({maxWidth:'95%'});
+  $(".attachFormBtn").colorbox({maxWidth:'95%'});
 
   // submit form to reload index
   $(document).on('click', ".submitReceiveBtn", function() {
@@ -543,6 +478,10 @@ $(document).ready(function(){
   $(document).on('click', ".submitResultBtn", function() {
     $.colorbox.close()
 		ajaxloadresult();
+	});
+  $(document).on('click', ".submitAttachBtn", function() {
+    $.colorbox.close()
+		ajaxloadattach();
 	});
 
 });

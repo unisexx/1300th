@@ -15,7 +15,7 @@
           <ul class="nav navbar-nav">
           		<li><a href="ticket/form"><img src="images/add_ticket.png" width="16" height="16" /> เพิ่มเรื่อง</a></li>
           		<li><a href="ticket"><img src="images/help_ticket.png" width="16" height="16" /> เรื่องรับแจ้ง</a></li>
-
+              <li><a href="bookforward.php"><img src="images/bookforward.png" width="16" height="16" /> หนังสือประสานส่งต่อ</a></li>
           </ul>
 
           <ul class="nav navbar-nav">
@@ -57,7 +57,7 @@
                 <li><a href="setting/channel">ช่องทางรับแจ้ง</a></li>
                 <li><a href="setting/dept_info">หน่วยงานที่แจ้ง</a></li>
                 <li><a href="setting/career">อาชีพ</a></li>
-                <li><a href="setting/marital_status">สถานภาพ</a></li>
+                <li><a href="setting/marital_status">สถานภาพสมรส</a></li>
                 <li><a href="setting/cable_type">ประเภทสาย</a></li>
                 <li><a href="setting/category_info">หมวดหมู่ผู้แจ้ง</a></li>
                 <li><a href="setting/channel_know">ช่องทางรู้จัก 1300</a></li>

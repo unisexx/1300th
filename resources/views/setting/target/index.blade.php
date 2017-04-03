@@ -34,8 +34,8 @@
             @foreach($target->children as $problem)
                 <li class="jstree-open" data-jstree='{"icon":"images/problem_main.png"}'>
                   [{{ $problem->code }}] {{ $problem->name }}
-                  <img src="images/add_ticket.png" width="16" height="16" style="margin-left:50px;" onclick="document.location='setting/target/form/2/{{ $problem->id }}'" class="vtip" title="เพิ่มปัญหาย่อย1" /> /
-                  <img src="images/edit2.png" width="16" height="16"  onclick="document.location='setting/target/form/1/{{ $problem->parent->id }}/{{ $problem->id }}'"  class="vtip" title="แก้ไขกลุ่มเป้าหมายนี้" /> /
+                  <img src="images/add_ticket.png" width="16" height="16" style="margin-left:50px;" onclick="document.location='setting/target/form/2/{{ $problem->id }}'" class="vtip" title="เพิ่มปัญหาย่อย 1" /> /
+                  <img src="images/edit2.png" width="16" height="16"  onclick="document.location='setting/target/form/1/{{ $problem->parent->id }}/{{ $problem->id }}'"  class="vtip" title="แก้ไขปัญหาหลักนี้" /> /
                   <img src="images/remove2.png" width="16" height="16" onclick="return targetDelete({{ $problem->id }});" />
 
                   <!-- ปัญหาย่่อย 1 -->
@@ -44,8 +44,8 @@
                       @foreach($problem->children as $subproblem_1)
                           <li class="jstree-open" data-jstree='{"icon":"images/problem1.png"}'>
                             [{{ $subproblem_1->code }}] {{ $subproblem_1->name }}
-                            <img src="images/add_ticket.png" width="16" height="16" style="margin-left:50px;" onclick="document.location='setting/target/form/3/{{ $subproblem_1->id }}'" class="vtip" title="เพิ่มปัญหาย่อย1" /> /
-                            <img src="images/edit2.png" width="16" height="16"  onclick="document.location='setting/target/form/2/{{ $subproblem_1->parent->id }}/{{ $subproblem_1->id }}'"  class="vtip" title="แก้ไขกลุ่มเป้าหมายนี้" /> /
+                            <img src="images/add_ticket.png" width="16" height="16" style="margin-left:50px;" onclick="document.location='setting/target/form/3/{{ $subproblem_1->id }}'" class="vtip" title="เพิ่มปัญหาย่อย 2" /> /
+                            <img src="images/edit2.png" width="16" height="16"  onclick="document.location='setting/target/form/2/{{ $subproblem_1->parent->id }}/{{ $subproblem_1->id }}'"  class="vtip" title="แก้ไขปัญหาย่อย 1 นี้" /> /
                             <img src="images/remove2.png" width="16" height="16" onclick="return targetDelete({{ $subproblem_1->id }});" />
 
                             <!-- ปัญหาย่่อย 2 -->
@@ -54,8 +54,8 @@
                                 @foreach($subproblem_1->children as $subproblem_2)
                                     <li class="jstree-open" data-jstree='{"icon":"images/problem2.png"}'>
                                       [{{ $subproblem_2->code }}] {{ $subproblem_2->name }}
-                                      <img src="images/add_ticket.png" width="16" height="16" style="margin-left:50px;" onclick="document.location='setting/target/form/4/{{ $subproblem_2->id }}'" class="vtip" title="เพิ่มปัญหาย่อย2" /> /
-                                      <img src="images/edit2.png" width="16" height="16"  onclick="document.location='setting/target/form/3/{{ $subproblem_2->parent->id }}/{{ $subproblem_2->id }}'"  class="vtip" title="แก้ไขกลุ่มเป้าหมายนี้" /> /
+                                      <img src="images/add_ticket.png" width="16" height="16" style="margin-left:50px;" onclick="document.location='setting/target/form/4/{{ $subproblem_2->id }}'" class="vtip" title="เพิ่มปัญหาย่อย 3" /> /
+                                      <img src="images/edit2.png" width="16" height="16"  onclick="document.location='setting/target/form/3/{{ $subproblem_2->parent->id }}/{{ $subproblem_2->id }}'"  class="vtip" title="แก้ไขปัญหาย่อย 2 นี้" /> /
                                       <img src="images/remove2.png" width="16" height="16" onclick="return targetDelete({{ $subproblem_2->id }});" />
 
                                       <!-- ปัญหาย่่อย 3 -->
@@ -64,7 +64,7 @@
                                           @foreach($subproblem_2->children as $subproblem_3)
                                               <li class="jstree-open" data-jstree='{"icon":"images/problem3.png"}'>
                                                 [{{ $subproblem_3->code }}] {{ $subproblem_3->name }}
-                                                <img style="margin-left:50px;" src="images/edit2.png" width="16" height="16"  onclick="document.location='setting/target/form/4/{{ $subproblem_3->parent->id }}/{{ $subproblem_3->id }}'"  class="vtip" title="แก้ไขกลุ่มเป้าหมายนี้" /> /
+                                                <img style="margin-left:50px;" src="images/edit2.png" width="16" height="16"  onclick="document.location='setting/target/form/4/{{ $subproblem_3->parent->id }}/{{ $subproblem_3->id }}'"  class="vtip" title="แก้ไขปัญหาย่อย 3 นี้" /> /
                                                 <img src="images/remove2.png" width="16" height="16" onclick="return targetDelete({{ $subproblem_3->id }});" />
 
 

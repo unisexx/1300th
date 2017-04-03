@@ -25,7 +25,7 @@
         [{{ $ministry->code }}] {{ $ministry->name }}
         <img src="images/add_ticket.png" width="16" height="16" style="margin-left:50px;" onclick="document.location='setting/department/form/1/{{ $ministry->id }}'" class="vtip" title="เพิ่มกรม" /> /
         <img src="images/edit2.png" width="16" height="16"  onclick="document.location='setting/department/form/0/0/{{ $ministry->id }}'"  class="vtip" title="แก้ไขกระทรวงนี้" /> /
-        <img src="images/remove2.png" width="16" height="16" onclick="return targetDelete({{ $ministry->id }});" />
+        <img src="images/remove2.png" width="16" height="16" onclick="return departmentDelete({{ $ministry->id }});" />
 
         <!-- กรม -->
         @if(count( $ministry->children ) > 0 )
@@ -35,7 +35,7 @@
                   [{{ $department->code }}] {{ $department->name }}
                   <img src="images/add_ticket.png" width="16" height="16" style="margin-left:50px;" onclick="document.location='setting/department/form/2/{{ $department->id }}'" class="vtip" title="เพิ่มสำนัก/กอง" /> /
                   <img src="images/edit2.png" width="16" height="16"  onclick="document.location='setting/department/form/1/{{ $department->parent->id }}/{{ $department->id }}'"  class="vtip" title="แก้ไขกรมนี้" /> /
-                  <img src="images/remove2.png" width="16" height="16" onclick="return targetDelete({{ $department->id }});" />
+                  <img src="images/remove2.png" width="16" height="16" onclick="return departmentDelete({{ $department->id }});" />
 
                   <!-- สำนัก/กอง -->
                   @if(count( $department->children ) > 0 )
@@ -45,7 +45,7 @@
                             [{{ $bureau->code }}] {{ $bureau->name }}
                             <img src="images/add_ticket.png" width="16" height="16" style="margin-left:50px;" onclick="document.location='setting/department/form/3/{{ $bureau->id }}'" class="vtip" title="เพิ่มกลุ่ม/ฝ่าย" /> /
                             <img src="images/edit2.png" width="16" height="16"  onclick="document.location='setting/department/form/2/{{ $bureau->parent->id }}/{{ $bureau->id }}'"  class="vtip" title="แก้ไขสำนัก/กองนี้" /> /
-                            <img src="images/remove2.png" width="16" height="16" onclick="return targetDelete({{ $bureau->id }});" />
+                            <img src="images/remove2.png" width="16" height="16" onclick="return departmentDelete({{ $bureau->id }});" />
 
                             <!-- กลุ่ม/ฝ่าย -->
                             @if(count( $bureau->children ) > 0 )
@@ -54,7 +54,7 @@
                                     <li class="jstree-open" data-jstree='{"icon":"images/dept_group.png"}'>
                                       [{{ $group->code }}] {{ $group->name }}
                                       <img src="images/edit2.png" width="16" height="16" style="margin-left:50px;"  onclick="document.location='setting/department/form/3/{{ $group->parent->id }}/{{ $group->id }}'"  class="vtip" title="แก้ไขสำนัก/กองนี้" /> /
-                                      <img src="images/remove2.png" width="16" height="16" onclick="return targetDelete({{ $group->id }});" />
+                                      <img src="images/remove2.png" width="16" height="16" onclick="return departmentDelete({{ $group->id }});" />
                                     </li>
                                 @endforeach
                                 </ul>
@@ -78,6 +78,14 @@
     </ul>
     <!-- END กระทรวง -->
 </div>
+
+<script>
+function departmentDelete($id){
+  if (confirm('ต้องการลบรายการนี้')) {
+      document.location='setting/department/delete/'+$id;
+  }
+}
+</script>
 
 
 
