@@ -3,14 +3,14 @@
 @section('content')
 
 
-<h3>ช่องทางรับแจ้ง (เพิ่ม / แก้ไข)</h3>
+<h3>ช่องทางรับเรื่อง (เพิ่ม / แก้ไข)</h3>
 <form method="post" action="setting/channel/save/{{ @$rs->id }}">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <table class="tbadd">
 <tr>
-  <th>ชื่อช่องทางรับแจ้ง<span class="Txt_red_12"> *</span></th>
+  <th>ชื่อช่องทางรับเรื่อง<span class="Txt_red_12"> *</span></th>
   <td>
-    <input name="name" value="{{ @$rs->name }}" type="text" class="form-control" placeholder="ชื่อช่องทางรับแจ้ง" style="width:350px;" />
+    <input name="name" value="{{ @$rs->name }}" type="text" class="form-control" placeholder="ชื่อช่องทางรับเรื่อง" style="width:350px;" />
     </td>
 </tr>
 <tr>

@@ -16,47 +16,43 @@
 
 <div class="form-group form-inline col-md-4">
 <label><span class="Txt_red_12"> *</span> กลุ่มเป้าหมาย</label>
-<select class="form-control" disabled="disabled">
-<option>--</option>
-<option>เด็ก</option>
-<option>เยาวชน</option>
-<option>ผู้ใหญ่</option>
-<option>ผู้สูงอายุ</option>
-<option>อื่นๆ</option>
-</select>
+{!! Form::select('targets_id', dropdownOption('targets', 'id', 'name', 'parent_id = 0', 'name asc'), @$rs->channel_knows_id, array('class'=>'form-control','placeholder'=>'--')) !!}
 </div>
 
 <div class="form-group form-inline col-md-4">
 <label><span class="Txt_red_12"> *</span> ปัญหาหลัก</label>
-<select class="form-control">
-<option>--</option>
-<option>ปัญหารายได้และความเป็นอยู่ </option>
-<option>ปัญหาความสัมพันธ์ในครอบครัว</option>
-<option>ปัญหาความรุนแรง</option>
-<option>เร่ร่อน/ขอทาน</option>
-<option>ปัญหาสุขภาพ/ อุบัติเหตุ อุบัติภัย</option>
-</select>
+<span class="spanTarget">
+  <select class="form-control" disabled="disabled">
+      <option>--</option>
+  </select>
+</span>
 </div>
 
 <div class="form-group form-inline col-md-4">
 <label><span class="Txt_red_12"> *</span> ปัญหาย่อย1</label>
-<select class="form-control">
-<option>--</option>
-</select>
+<span class="spanTarget">
+  <select class="form-control" disabled="disabled">
+      <option>--</option>
+  </select>
+</span>
 </div>
 
 <div class="form-group form-inline col-md-4">
 <label>ปัญหาย่อย2</label>
-<select class="form-control">
-<option>--</option>
-</select>
+<span class="spanTarget">
+  <select class="form-control" disabled="disabled">
+      <option>--</option>
+  </select>
+</span>
 </div>
 
 <div class="form-group form-inline col-md-4">
 <label>ปัญหาย่อย3</label>
-<select class="form-control">
-<option>--</option>
-</select>
+<span class="spanTarget">
+  <select class="form-control" disabled="disabled">
+      <option>--</option>
+  </select>
+</span>
 </div>
 
 </fieldset>
@@ -66,14 +62,7 @@
 <legend>ข้อมูลส่วนตัว</legend>
 <div class="form-group form-inline col-md-12">
 <label><span class="Txt_red_12"> *</span> ชื่อผู้รับการช่วยเหลือ</label>
-<select class="form-control">
-<option>--</option>
-<option>นาย/Mr.</option>
-<option>นาง/Mrs.</option>
-<option>นางสาว/Miss</option>
-<option>เด็กหญิง/Miss</option>
-<option>เด็กชาย/Master</option>
-</select>
+{!! Form::select('prefixs_id', dropdownOption('prefixs', 'id', 'name_th', '', 'name_th asc'), @$rs->prefixs_id, array('class'=>'form-control','placeholder'=>'--')) !!}
 <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อตัว" style="width:120px;">
 
 <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อสกุล" style="width:200px;">
@@ -92,66 +81,32 @@
 
 <div class="form-group form-inline col-md-4">
 <label>เพศ</label>
-<select class="form-control">
-<option>--</option>
-<option>เพศชาย</option>
-<option>เพศหญิง</option>
-<option>เพศที่สาม</option>
-</select>
+{!! Form::select('genders_id', dropdownOption('genders', 'id', 'name', '', 'name asc'), @$rs->genders_id, array('class'=>'form-control','placeholder'=>'--')) !!}
 </div>
 
 <div class="form-group form-inline col-md-4">
 <label>สัญญาติ</label>
-<select class="form-control">
-<option>--</option>
-<option>ไทย</option>
-</select>
+{!! Form::select('nationalities_id', dropdownOption('nationalities', 'id', 'name_th', '', 'name_th asc'), @$rs->nationalities_id, array('class'=>'form-control','placeholder'=>'--')) !!}
 </div>
 
 <div class="form-group form-inline col-md-4">
 <label>เชื้อชาติ</label>
-<select class="form-control">
-<option>--</option>
-<option>ไทย</option>
-</select>
+{!! Form::select('races_id', dropdownOption('races', 'id', 'name', '', 'name asc'), @$rs->races_id, array('class'=>'form-control','placeholder'=>'--')) !!}
 </div>
 
 <div class="form-group form-inline col-md-4">
 <label>ศาสนา</label>
-<select class="form-control">
-<option>--</option>
-<option>พุทธ</option>
-<option>อิสลาม</option>
-<option>คริสต์</option>
-<option>ซิกซ์</option>
-<option>ฮินดู</option>
-</select>
+{!! Form::select('religions_id', dropdownOption('religions', 'id', 'name', '', 'name asc'), @$rs->religions_id, array('class'=>'form-control','placeholder'=>'--')) !!}
 </div>
 
 <div class="form-group form-inline col-md-4">
 <label>อาชีพ</label>
-<select class="form-control">
-<option>--</option>
-<option>พนักงานบริษัท</option>
-<option>นักเรียน/นักศึกษา</option>
-<option>ข้าราชการ</option>
-<option>ค้าขาย</option>
-<option>พนักงานของรัฐ</option>
-<option>รับจ้าง</option>
-<option>แม่บ้าน</option>
-<option>ไม่ระบุ</option>
-</select>
+{!! Form::select('careers_id', dropdownOption('careers', 'id', 'name', '', 'name asc'), @$rs->careers_id, array('class'=>'form-control','placeholder'=>'--')) !!}
 </div>
 
 <div class="form-group form-inline col-md-4">
 <label>สถานะภาพ</label>
-<select class="form-control">
-<option>--</option>
-<option>โสด</option>
-<option>แต่งงาน</option>
-<option>หย่าร้าง</option>
-<option>แยกกันอยู่</option>
-</select>
+{!! Form::select('marital_statuses_id', dropdownOption('marital_statuses', 'id', 'name', '', 'name asc'), @$rs->marital_statuses_id, array('class'=>'form-control','placeholder'=>'--')) !!}
 </div>
 
 <div class="form-group form-inline col-md-4">
@@ -215,36 +170,34 @@
 
 <div class="form-group form-inline col-md-4">
 <label><span class="Txt_red_12"> *</span> ประเทศ</label>
-<select class="form-control">
-<option>--</option>
-<option selected="selected">ประเทศไทย</option>
-<option>ญี่ปุ่น</option>
-<option>สหรัฐ</option>
-</select>
+{!! Form::select('countries_id', dropdownOption('countries', 'id', 'name', '', 'name asc'), @$rs->countries_id, array('class'=>'form-control','placeholder'=>'--')) !!}
 </div>
 
 <div class="form-group form-inline col-md-4">
 <label><span class="Txt_red_12"> *</span> จังหวัด/รัฐ</label>
-<select class="form-control">
-<option>--</option>
-<option>กรุงเทพฯ</option>
-<option>นนทบุรี</option>
-<option>นครปฐม</option>
-</select>
+<span class="spanProvince">
+  <select class="form-control" disabled="disabled">
+      <option>--</option>
+  </select>
+</span>
 </div>
 
 <div class="form-group form-inline col-md-4">
 <label><span class="Txt_red_12"> *</span> อำเภอ</label>
-<select class="form-control">
-<option>--</option>
-</select>
+<span class="spanAmphoe">
+  <select class="form-control" disabled="disabled">
+      <option>--</option>
+  </select>
+</span>
 </div>
 
 <div class="form-group form-inline col-md-4">
 <label><span class="Txt_red_12"> *</span> ตำบล</label>
-<select class="form-control">
-<option>--</option>
-</select>
+<span class="spanTumbon">
+  <select class="form-control" disabled="disabled">
+      <option>--</option>
+  </select>
+</span>
 </div>
 </fieldset>
 

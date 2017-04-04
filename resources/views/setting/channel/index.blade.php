@@ -3,7 +3,7 @@
 @section('content')
 
 
-<h3>ช่องทางรับแจ้ง</h3>
+<h3>ช่องทางรับเรื่อง</h3>
 <div id="search">
 <div id="searchBox">
 <form class="form-inline">
@@ -13,7 +13,7 @@
 </div>
 </div>
 <div id="btnBox">
-  <input type="button" title="เพิ่มช่องทางรับแจ้ง" value="เพิ่มช่องทางรับแจ้ง" onclick="document.location='setting/channel/form'" class="btn btn-success vtip" />
+  <input type="button" title="เพิ่มช่องทางรับเรื่อง" value="เพิ่มช่องทางรับเรื่อง" onclick="document.location='setting/channel/form'" class="btn btn-success vtip" />
 </div>
 
 {{ $rs->appends(@$_GET)->render() }}
@@ -21,7 +21,7 @@
 <table class="tblist">
 <tr>
   <th>ลำดับ</th>
-  <th>ชื่อช่องทางรับแจ้ง</th>
+  <th>ชื่อช่องทางรับเรื่อง</th>
   <th>เปิดใช้งาน</th>
   <th>จัดการ</th>
   </tr>

@@ -54,7 +54,7 @@
                 <li><a href="setting/religion">*ศาสนา</a></li>
                 <li><a href="setting/nationality">*สัญชาติ</a></li>
                 <li><a href="setting/race">เชื้อชาติ</a></li>
-                <li><a href="setting/channel">ช่องทางรับแจ้ง</a></li>
+                <li><a href="setting/channel">ช่องทางรับเรื่อง</a></li>
                 <li><a href="setting/dept_info">หน่วยงานที่แจ้ง</a></li>
                 <li><a href="setting/career">อาชีพ</a></li>
                 <li><a href="setting/marital_status">สถานภาพสมรส</a></li>

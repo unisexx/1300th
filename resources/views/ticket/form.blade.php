@@ -66,64 +66,24 @@
 
         <div class="form-group form-inline col-md-6">
     	<label>ช่องทางรับเรื่อง</label>
-        <select class="form-control">
-          <option>--</option>
-          <option>โทร 1300</option>
-          <option>Website</option>
-          <option>Line</option>
-          <option>Skype</option>
-          <option>Facebook</option>
-          <option>Email</option>
-          <option>Walk-in (ติดต่อด้วยตนเอง)</option>
-          <option>Moblie APP หญิงไทย</option>
-          <option>APP แสนรู้</option>
-          <option>ทีวี</option>
-        </select>
-   	 	<!--<input type="text" class="form-control" id="exampleInputEmail2" placeholder="อื่นๆ ระบุ">-->
+      {!! Form::select('channels_id', dropdownOption('channels', 'id', 'name', '', 'name asc'), @$rs->channels_id, array('class'=>'form-control','placeholder'=>'--')) !!}
+
 		</div>
 
         <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> ประเภทสาย</label>
-   	 	<select class="form-control">
-          <option>--</option>
-          <option value="NewProblem">ปัญหาใหม่</option>
-          <option value="OldProblem">ติดตามปัญหา (เดิม)</option>
-          <option value="WrongCall">*โทรผิด</option>
-          <option value="Harry">*ก่อกวน</option>
-          <option value="AskInfo">สอบถามข้อมูล</option>
-          <option value="Comment">ให้ข้อคิดเห็น</option>
-        </select>
+      {!! Form::select('cable_types_id', dropdownOption('cable_types', 'id', 'name', '', 'name asc'), @$rs->cable_types_id, array('class'=>'form-control','placeholder'=>'--')) !!}
   		</div>
 
         <div class="boxNotWrongCall">
         <div class="form-group form-inline col-md-6">
     	<label>หมวดหมู่ของผู้แจ้ง</label>
-   	 	<select class="form-control">
-          <option>--</option>
-          <option value="Owner">ติดต่อด้วยตนเอง</option>
-          <option value="DeptInfo">*หน่วยงาน</option>
-          <option value="Goodman">พลเมืองดี</option>
-          <option value="Family">บิดา มารดา หรือญาติฯ</option>
-        </select>
+      {!! Form::select('category_infos_id', dropdownOption('category_infos', 'id', 'name', '', 'name asc'), @$rs->category_infos_id, array('class'=>'form-control','placeholder'=>'--')) !!}
   		</div>
 
  		<div class="form-group form-inline col-md-6 boxDeptInfo">
     	<label>หน่วยงานที่แจ้ง</label>
-   	 	<select class="form-control">
-          <option>--</option>
-          <option>สถานีตำรวจ</option>
-          <option>โรงพยาบาล</option>
-          <option>ศูนย์บริการสาธารณสุข</option>
-          <option>จส.100</option>
-          <option>สวพ.91</option>
-          <option>ร่วมด้วยช่วยกัน</option>
-          <option>มูลนิธิ</option>
-          <option>สำนักงานเขต</option>
-          <option>สถานีจราจรเพื่อสังคม</option>
-          <option>องค์การบริหารส่วนตำบล</option>
-          <option>หน่วยงานจากต่างประเทศ</option>
-        </select>
-   	 	<!--<input type="text" class="form-control" id="exampleInputEmail2" placeholder="อื่นๆ ระบุ">-->
+      {!! Form::select('dept_infos_id', dropdownOption('dept_infos', 'id', 'name', '', 'name asc'), @$rs->dept_infos_id, array('class'=>'form-control','placeholder'=>'--')) !!}
   		</div>
 
         <div class="form-group form-inline col-md-12" style="margin-bottom:0px;">
@@ -135,14 +95,7 @@
 
         <div class="form-group form-inline col-md-12">
     	<label><span class="Txt_red_12"> *</span> ชื่อผู้แจ้ง</label>
-        <select class="form-control">
-          <option>--</option>
-          <option>นาย/Mr.</option>
-          <option>นาง/Mrs.</option>
-          <option>นางสาว/Miss</option>
-          <option>เด็กหญิง/Miss</option>
-          <option>เด็กชาย/Master</option>
-        </select>
+        {!! Form::select('prefixs_id', dropdownOption('prefixs', 'id', 'name_th', '', 'name_th asc'), @$rs->prefixs_id, array('class'=>'form-control','placeholder'=>'--')) !!}
    	 	<input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อตัว" style="width:120px;">
         <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อสกุล" style="width:200px;">
         <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อรอง" style="width:120px;">
@@ -152,22 +105,16 @@
 
         <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> ประเทศ</label>
-   	 	<select class="form-control">
-          <option>--</option>
-          <option selected="selected">ประเทศไทย</option>
-          <option>ญี่ปุ่น</option>
-          <option>สหรัฐ</option>
-        </select>
+      {!! Form::select('countries_id', dropdownOption('countries', 'id', 'name', '', 'name asc'), @$rs->countries_id, array('class'=>'form-control','placeholder'=>'--')) !!}
   		</div>
 
-        <div class="form-group form-inline col-md-6">
+      <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> จังหวัด/รัฐ</label>
-   	 	<select class="form-control">
-          <option>--</option>
-          <option>กรุงเทพฯ</option>
-          <option>นนทบุรี</option>
-          <option>นครปฐม</option>
+      <span class="spanProvince">
+        <select class="form-control" disabled="disabled">
+            <option>--</option>
         </select>
+      </span>
   		</div>
 
 		<div class="form-group form-inline col-md-6">
@@ -177,14 +124,7 @@
 
         <div class="form-group form-inline col-md-6">
     	<label>ช่องทางที่รู้จัก1300</label>
-   	 	<select class="form-control">
-          <option>--</option>
-          <option>Website 1300</option>
-          <option>โทรทัศน์</option>
-          <option>Mobile Application</option>
-          <option>Facebook</option>
-          <option>เครือข่ายอื่นๆ</option>
-        </select>
+      {!! Form::select('channel_knows_id', dropdownOption('channel_knows', 'id', 'name', '', 'name asc'), @$rs->channel_knows_id, array('class'=>'form-control','placeholder'=>'--')) !!}
   		</div>
         </div> <!--boxWrongCall-->
         </fieldset>
@@ -216,36 +156,34 @@
 
         <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> ประเทศ</label>
-   	 	<select class="form-control">
-          <option>--</option>
-          <option selected="selected">ประเทศไทย</option>
-          <option>ญี่ปุ่น</option>
-          <option>สหรัฐ</option>
-        </select>
+      {!! Form::select('countries_id', dropdownOption('countries', 'id', 'name', '', 'name asc'), @$rs->countries_id, array('class'=>'form-control','placeholder'=>'--')) !!}
   		</div>
 
         <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> จังหวัด/รัฐ</label>
-   	 	<select class="form-control">
-          <option>--</option>
-          <option>กรุงเทพฯ</option>
-          <option>นนทบุรี</option>
-          <option>นครปฐม</option>
+      <span class="spanProvince2">
+        <select class="form-control" disabled="disabled">
+            <option>--</option>
         </select>
+      </span>
   		</div>
 
         <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> อำเภอ</label>
-   	 	<select class="form-control">
-          <option>--</option>
+      <span class="spanAmphoe2">
+        <select class="form-control" disabled="disabled">
+            <option>--</option>
         </select>
+      </span>
   		</div>
 
         <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> ตำบล</label>
-   	 	<select class="form-control">
-          <option>--</option>
+      <span class="spanTumbon2">
+        <select class="form-control" disabled="disabled">
+            <option>--</option>
         </select>
+      </span>
   		</div>
 
         <div class="form-group form-inline col-md-12">
