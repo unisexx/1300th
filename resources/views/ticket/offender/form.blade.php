@@ -5,18 +5,11 @@
 <legend>ข้อมูลส่วนตัว</legend>
     <div class="form-group form-inline col-md-12">
   <label><span class="Txt_red_12"> *</span> ชื่อผู้รับการช่วยเหลือ</label>
-    <select class="form-control">
-      <option>--</option>
-      <option>นาย/Mr.</option>
-      <option>นาง/Mrs.</option>
-      <option>นางสาว/Miss</option>
-      <option>เด็กหญิง/Miss</option>
-      <option>เด็กชาย/Master</option>
-    </select>
-  <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อตัว" style="width:120px;">
+    {!! Form::select('prefixs_id', dropdownOption('prefixs', 'id', 'name_th', '', 'name_th asc'), @$rs->prefixs_id, array('class'=>'form-control','placeholder'=>'--')) !!}
+  <input type="text" class="form-control"  placeholder="ชื่อตัว" style="width:120px;">
 
-    <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อสกุล" style="width:200px;">
-    <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อรอง" style="width:120px;">
+    <input type="text" class="form-control"  placeholder="ชื่อสกุล" style="width:200px;">
+    <input type="text" class="form-control"  placeholder="ชื่อรอง" style="width:120px;">
   </div>
 
     <div class="form-group form-inline col-md-4">
@@ -26,91 +19,57 @@
 
     <div class="form-group form-inline col-md-4">
     <label>เกิดวันที่</label>
-    <input type="text" class="form-control fdate" id="exampleInputEmail2" style="width:100px;">
+    <input type="text" class="form-control fdate"  style="width:100px;">
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>เพศ</label>
-    <select class="form-control">
-      <option>--</option>
-      <option>เพศชาย</option>
-      <option>เพศหญิง</option>
-      <option>เพศที่สาม</option>
-    </select>
+    {!! Form::select('genders_id', dropdownOption('genders', 'id', 'name', '', 'name asc'), @$rs->genders_id, array('class'=>'form-control','placeholder'=>'--')) !!}
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>สัญญาติ</label>
-    <select class="form-control">
-      <option>--</option>
-      <option>ไทย</option>
-    </select>
+    {!! Form::select('nationalities_id', dropdownOption('nationalities', 'id', 'name_th', '', 'name_th asc'), @$rs->nationalities_id, array('class'=>'form-control','placeholder'=>'--')) !!}
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>เชื้อชาติ</label>
-    <select class="form-control">
-      <option>--</option>
-      <option>ไทย</option>
-    </select>
+    {!! Form::select('races_id', dropdownOption('races', 'id', 'name', '', 'name asc'), @$rs->races_id, array('class'=>'form-control','placeholder'=>'--')) !!}
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>ศาสนา</label>
-    <select class="form-control">
-      <option>--</option>
-      <option>พุทธ</option>
-      <option>อิสลาม</option>
-      <option>คริสต์</option>
-      <option>ซิกซ์</option>
-      <option>ฮินดู</option>
-    </select>
+    {!! Form::select('religions_id', dropdownOption('religions', 'id', 'name', '', 'name asc'), @$rs->religions_id, array('class'=>'form-control','placeholder'=>'--')) !!}
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>อาชีพ</label>
-    <select class="form-control">
-      <option>--</option>
-      <option>พนักงานบริษัท</option>
-      <option>นักเรียน/นักศึกษา</option>
-      <option>ข้าราชการ</option>
-      <option>ค้าขาย</option>
-      <option>พนักงานของรัฐ</option>
-      <option>รับจ้าง</option>
-      <option>แม่บ้าน</option>
-      <option>ไม่ระบุ</option>
-    </select>
+    {!! Form::select('careers_id', dropdownOption('careers', 'id', 'name', '', 'name asc'), @$rs->careers_id, array('class'=>'form-control','placeholder'=>'--')) !!}
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>สถานะภาพ</label>
-    <select class="form-control">
-      <option>--</option>
-      <option>โสด</option>
-      <option>แต่งงาน</option>
-      <option>หย่าร้าง</option>
-      <option>แยกกันอยู่</option>
-    </select>
+    {!! Form::select('marital_statuses_id', dropdownOption('marital_statuses', 'id', 'name', '', 'name asc'), @$rs->marital_statuses_id, array('class'=>'form-control','placeholder'=>'--')) !!}
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>เลขที่หนังสือเดินทาง</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" style="width:150px;">
+    <input type="text" class="form-control"  style="width:150px;">
     </div>
 
     <div class="form-group form-inline col-md-6">
     <label>เอกสารประจำตัวอื่นๆ</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" style="width:250px;">
+    <input type="text" class="form-control"  style="width:250px;">
     </div>
 
     <div class="form-group form-inline col-md-6">
     <label>ตำหนิ รูปพรรณ</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" style="width:350px;">
+    <input type="text" class="form-control"  style="width:350px;">
     </div>
 
     <div class="form-group form-inline col-md-6">
     <label>รหัสอ้างอิงพิสูจน์ลักษณะบุคคล</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" style="width:400px;">
+    <input type="text" class="form-control"  style="width:400px;">
     </div>
 </fieldset>
 
@@ -119,72 +78,69 @@
 <legend>ที่อยู่ตามทะเบียนบ้าน</legend>
     <div class="form-group form-inline col-md-4">
     <label>บ้านเลขที่</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" style="width:100px;">
+    <input type="text" class="form-control"  style="width:100px;">
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>หมู่</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" style="width:100px;">
+    <input type="text" class="form-control"  style="width:100px;">
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>หมู่บ้าน</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" style="width:150px;">
+    <input type="text" class="form-control"  style="width:150px;">
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>แยก</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" style="width:100px;">
+    <input type="text" class="form-control"  style="width:100px;">
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>ซอย</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" style="width:150px;">
+    <input type="text" class="form-control"  style="width:150px;">
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>ถนน</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" style="width:150px;">
+    <input type="text" class="form-control"  style="width:150px;">
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>เบอร์โทรศัพท์</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" style="width:180px;">
+    <input type="text" class="form-control"  style="width:180px;">
     </div>
 
     <div class="form-group form-inline col-md-4">
   <label><span class="Txt_red_12"> *</span> ประเทศ</label>
-  <select class="form-control">
-      <option>--</option>
-      <option selected="selected">ประเทศไทย</option>
-      <option>ญี่ปุ่น</option>
-      <option>สหรัฐ</option>
-    </select>
+  {!! Form::select('countries_id', dropdownOption('countries', 'id', 'name', '', 'name asc'), @$rs->countries_id, array('class'=>'form-control','placeholder'=>'--')) !!}
   </div>
 
     <div class="form-group form-inline col-md-4">
   <label><span class="Txt_red_12"> *</span> จังหวัด/รัฐ</label>
-  <select class="form-control">
-      <option>--</option>
-      <option>กรุงเทพฯ</option>
-      <option>นนทบุรี</option>
-      <option>นครปฐม</option>
+  <span class="spanProvince">
+    <select class="form-control" disabled="disabled">
+        <option>--</option>
     </select>
+  </span>
   </div>
 
     <div class="form-group form-inline col-md-4">
   <label><span class="Txt_red_12"> *</span> อำเภอ</label>
-  <select class="form-control">
-      <option>--</option>
+  <span class="spanAmphoe">
+    <select class="form-control" disabled="disabled">
+        <option>--</option>
     </select>
+  </span>
   </div>
 
     <div class="form-group form-inline col-md-4">
   <label><span class="Txt_red_12"> *</span> ตำบล</label>
-  <select class="form-control">
-      <option>--</option>
+  <span class="spanTumbon">
+    <select class="form-control" disabled="disabled">
+        <option>--</option>
     </select>
-  </div>
+  </span>
 </fieldset>
 
 
@@ -192,71 +148,69 @@
 <legend>ที่อยู่ปัจจุบัน <span style="font-size:14px; color:#090; margin-left:40px;"><input name="" type="checkbox" value="" /> ที่อยู่เดียวกับทะเบียนบ้าน</span></legend>
     <div class="form-group form-inline col-md-4">
     <label>บ้านเลขที่</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" style="width:100px;">
+    <input type="text" class="form-control"  style="width:100px;">
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>หมู่</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" style="width:100px;">
+    <input type="text" class="form-control"  style="width:100px;">
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>หมู่บ้าน</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" style="width:150px;">
+    <input type="text" class="form-control"  style="width:150px;">
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>แยก</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" style="width:100px;">
+    <input type="text" class="form-control"  style="width:100px;">
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>ซอย</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" style="width:150px;">
+    <input type="text" class="form-control"  style="width:150px;">
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>ถนน</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" style="width:150px;">
+    <input type="text" class="form-control"  style="width:150px;">
     </div>
 
     <div class="form-group form-inline col-md-4">
     <label>เบอร์โทรศัพท์</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" style="width:180px;">
+    <input type="text" class="form-control"  style="width:180px;">
     </div>
 
     <div class="form-group form-inline col-md-4">
   <label><span class="Txt_red_12"> *</span> ประเทศ</label>
-  <select class="form-control">
-      <option>--</option>
-      <option selected="selected">ประเทศไทย</option>
-      <option>ญี่ปุ่น</option>
-      <option>สหรัฐ</option>
-    </select>
+  {!! Form::select('countries_id', dropdownOption('countries', 'id', 'name', '', 'name asc'), @$rs->countries_id, array('class'=>'form-control','placeholder'=>'--')) !!}
   </div>
 
     <div class="form-group form-inline col-md-4">
   <label><span class="Txt_red_12"> *</span> จังหวัด/รัฐ</label>
-  <select class="form-control">
-      <option>--</option>
-      <option>กรุงเทพฯ</option>
-      <option>นนทบุรี</option>
-      <option>นครปฐม</option>
+  <span class="spanProvince">
+    <select class="form-control" disabled="disabled">
+        <option>--</option>
     </select>
+  </span>
   </div>
 
     <div class="form-group form-inline col-md-4">
   <label><span class="Txt_red_12"> *</span> อำเภอ</label>
-  <select class="form-control">
-      <option>--</option>
+  <span class="spanAmphoe">
+    <select class="form-control" disabled="disabled">
+        <option>--</option>
     </select>
+  </span>
   </div>
 
     <div class="form-group form-inline col-md-4">
   <label><span class="Txt_red_12"> *</span> ตำบล</label>
-  <select class="form-control">
-      <option>--</option>
+  <span class="spanTumbon">
+    <select class="form-control" disabled="disabled">
+        <option>--</option>
     </select>
+  </span>
   </div>
 </fieldset>
 

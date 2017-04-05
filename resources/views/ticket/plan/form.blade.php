@@ -24,45 +24,21 @@
 
         <div class="form-group form-inline col-md-6">
         <label><span class="Txt_red_12"> *</span> ความเร่งด่วน</label>
-        <select class="form-control">
-          <option>--</option>
-          <option>ปกติ</option>
-          <option>ด่วน</option>
-          <option>ด่วนที่สุด</option>
-        </select>
+        {!! Form::select('urgents_id', dropdownOption('urgents', 'id', 'name', '', 'name asc'), @$rs->urgents_id, array('class'=>'form-control','placeholder'=>'--')) !!}
         </div>
         </fieldset>
 
         <fieldset>
         <legend>แนวทางการช่วยเหลือตามสภาพปัญหาและความต้องการของผู้ใช้บริการ </legend>
-        <div class="form-group form-inline col-md-4" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> ให้คำปรึกษา / แนะนำด้าน  (สวัสดิการสังคม กฏหมาย/พรบ.ที่เกี่ยวข้อง)</label>
-  		</div>
-
-        <div class="form-group form-inline col-md-4" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> การช่วยเหลือผู้ประสบปัญหาสังคกรณีฉุกเฉิน/วิกฤตการ</label>
-  		</div>
-
-        <div class="form-group form-inline col-md-4" style="height:30px;">
-     	<label style="width:100%; text-align:left;"><input type="checkbox"> ให้คำปรึกษาของนักสังคมสงเคราะห์ </label>
-  		</div>
-
-        <div class="form-group form-inline col-md-4" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> การประสาน/ ขอข้อมูลเพิ่มเติม</label>
-  		</div>
-
-        <div class="form-group form-inline col-md-4" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> การประสานเครือข่ายทางสังคมเพื่อให้การช่วยเหลือ เช่น ตำรวจ โรงพยาบาล  </label>
-  		</div>
-
-        <div class="form-group form-inline col-md-4" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> ติดตามผลการช่วยเหลือ </label>
-  		</div>
-
-        <div class="form-group form-inline col-md-4" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> อื่นๆ โปรดระบุ <input type="text" class="form-control" id="exampleInputEmail2" style="width:250px;"></label>
-
-  		</div>
+          @foreach($helps as $help)
+          <div class="form-group form-inline col-md-4" style="height:30px;">
+         	 <label style="width:100%; text-align:left;"><input type="checkbox" name="helps_id[]" value="{{ $help->id }}"> {{ $help->name }}
+             @if($help->fill == 1)
+              <input type="text" class="form-control" style="width:250px;" name="fill[]" value="">
+             @endif
+           </label>
+      		</div>
+          @endforeach
         </fieldset>
 
         <fieldset>

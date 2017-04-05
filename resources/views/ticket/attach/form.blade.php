@@ -5,15 +5,7 @@
     <legend>ไฟล์เอกสาร</legend>
     <div class="form-group form-inline col-md-12">
     <label>ประเภทเอกสาร</label>
-    <select name="select" class="form-control">
-       <option>- เลือกประเภทเอกสาร -</option>
-       <option>สำเนาบัตรประจำตัวประชาชน</option>
-       <option>สำเนาทะเบียนบ้าน</option>
-       <option>รูปถ่าย</option>
-       <option>หลักฐานการศึกษา</option>
-       <option>ใบแจ้งความ</option>
-       <option>เอกสารอื่นๆ</option>
-     </select>
+    {!! Form::select('doc_types_id', dropdownOption('doc_types', 'id', 'name', '', 'name asc'), @$rs->doc_types_id, array('class'=>'form-control','placeholder'=>'- เลือกประเภทเอกสาร -')) !!}
     </div>
 <div class="form-group form-inline col-md-12">
     <label>ชื่อเอกสาร</label>

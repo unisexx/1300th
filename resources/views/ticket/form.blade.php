@@ -194,53 +194,11 @@
 
         <fieldset class="boxNotWrongCall">
         <legend>การประเมินความเสี่ยง (จากการพูดคุยทางโทรศัพท์) </legend>
+        @foreach($risks as $risk)
         <div class="form-group form-inline col-md-3" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> ไม่มีความเสี่ยง </label>
-  		</div>
-
-        <div class="form-group form-inline col-md-3" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> การรับและแพร่เชื้อโรคติดต่อร้ายแรง เช่น HIV </label>
-  		</div>
-
-        <div class="form-group form-inline col-md-3" style="height:30px;">
-     	<label style="width:100%; text-align:left;"><input type="checkbox"> การทำแท้ง / ทอดทิ้งบุตร </label>
-  		</div>
-
-        <div class="form-group form-inline col-md-3" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> เกิดปัญหาสุขภาพจิต / จิตเวช</label>
-  		</div>
-
-        <div class="form-group form-inline col-md-3" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> การทำร้ายผู้อื่น / ทำร้ายบุคคลในครอบครัว </label>
-  		</div>
-
-        <div class="form-group form-inline col-md-3" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> ได้รับการเลี้ยงดู / ดูแลไม่เหมาะสม</label>
-  		</div>
-
-        <div class="form-group form-inline col-md-3" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> การล่วงละเมิดทางเพศซ้ำ</label>
-  		</div>
-
-        <div class="form-group form-inline col-md-3" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> การหลบหนี ปฏิเสธการรักษา</label>
-  		</div>
-
-        <div class="form-group form-inline col-md-3" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> การเป็นเหยื่อการค้ามนุษย์</label>
-  		</div>
-
-        <div class="form-group form-inline col-md-3" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> การติดสารเสพติด / เสพซ้ำ</label>
-  		</div>
-
-        <div class="form-group form-inline col-md-3" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> การก่ออาชญากรรม</label>
-  		</div>
-
-        <div class="form-group form-inline col-md-3" style="height:30px;">
-     	 <label style="width:100%; text-align:left;"><input type="checkbox"> ซึมเศร้า / ความเครียดสูง / การฆ่าตัวตาย</label>
-  		</div>
+       	 <label style="width:100%; text-align:left;"><input type="checkbox" name="risks_id" value="{{ $risk->id }}"> {{ $risk->name }} </label>
+    		</div>
+        @endforeach
 
 
 
