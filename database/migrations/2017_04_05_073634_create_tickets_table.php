@@ -53,6 +53,16 @@ class CreateTicketsTable extends Migration
             $table->timestamp('conclude_date');
             $table->timestamp('conclude_time');
             $table->string('conclude_detail', 2000);
+            $table->string('reserve_1', 200);
+            $table->string('reserve_2', 200);
+            $table->string('reserve_3', 200);
+            $table->string('reserve_4', 200);
+            $table->string('reserve_5', 200);
+            $table->integer('reserve_6', 200);
+            $table->integer('reserve_7', 200);
+            $table->integer('reserve_8', 200);
+            $table->timestamp('reserve_9');
+            $table->timestamp('reserve_10');
             $table->timestamps();
             $table->softDeletes();
         });

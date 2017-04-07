@@ -24,6 +24,21 @@ class TicketController extends Controller {
       return view('ticket.form',$data);
     }
 
+    public function postSave(Request $rq, $id = null) {
+      // convert datepicker value
+      $rq->merge([
+        'subj_notify_date' => DateToDB($rq->input('subj_notify_date'))
+      ]);
+
+      // Save
+      $model = $id?Tickets::find($id):new Tickets;
+      $model->fill($rq->all());
+      $model->save();
+
+      set_notify('success', trans('message.completeSave'));
+      return Redirect('ticket');
+    }
+
     // ผู้ขอรับการช่วยเหลือ index
     public function getAjaxloadreceive(){
       return view('ticket.receive.index');

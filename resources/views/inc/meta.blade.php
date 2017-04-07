@@ -8,6 +8,7 @@
 
 
 <link rel="stylesheet" type="text/css" href="css/template.css"/>
+<link rel="stylesheet" type="text/css" href="css/font-awesome-4.7.0/css/font-awesome.css"/>
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
@@ -225,3 +226,19 @@ $(document).ready(function(){
 
 <link rel="stylesheet" href="css/bootstrap-select.css">
 <script src="js/bootstrap-select.js"></script>
+
+<!-- bootstrap Datepicker -->
+<link rel="stylesheet" href="js/bootstrap-datepicker/datepicker.min.css" />
+<style>
+	.datepicker-dropdown:before,
+	.datepicker-dropdown::after {
+		display: none;
+	}
+</style>
+<script src="js/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+<script src="js/bootstrap-datepicker/locales/bootstrap-datepicker.th.js"></script>
+<script>
+$(document).ready(function(){
+	$('[data-provide="datepicker"]').datepicker({autoclose:true});
+});
+</script>

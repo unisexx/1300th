@@ -4,31 +4,34 @@
 
 
 <h3>เรื่องรับแจ้ง (เพิ่ม / แก้ไข)</h3>
+<form method="post" action="ticket/save/{{ @$rs->id }}">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
 <div style="border-bottom:1px dotted #999; background:#FAFFF2; padding:10px; margin-bottom:10px; ">
 <div class="form-inline">
   <div class="form-group">
     <label style="width:auto;"><span class="Txt_red_12"> *</span> เลขที่รับแจ้ง</label>
-    <input type="text" class="form-control" id="exampleInputName2" readonly="readonly" placeholder="Auto" style="width:120px;">
+    <input type="text" class="form-control" readonly="readonly" placeholder="Auto" style="width:120px;" name="subj_ticket_number" value="1234">
   </div>
 
   <div class="form-group">
     <label style="width:auto;">ref.ticket</label>
     <a href="#"><span style="font-weight:700; display:inline-block; margin-top:3px;">17-01-00030</span></a>
+    <input class="form-control" type="text" name="subj_ticket_ref_id" placeholder="subj_ticket_ref_id" value="{{ @$rs->subj_ticket_ref_id }}">
   </div>
 
   <div class="form-group">
     <label><span class="Txt_red_12"> *</span> วันที่รับแจ้งเหตุ</label>
-    <input type="text" class="form-control fdate" id="exampleInputEmail2" value="<? echo date("d/m").(date("Y")+543);?>" style="width:100px;">
+    <input name="subj_notify_date" type="text" class="form-control fdate" value="<? echo date("d/m").(date("Y")+543);?>" style="width:100px;" data-provide="datepicker" data-date-language="th-th">
     <img src="images/calendar.png" width="24" height="24" /> </div>
 
   <div class="form-group">
     <label><span class="Txt_red_12"> *</span> เวลาที่รับแจ้งเหตุ</label>
-    <input type="text" class="form-control" id="exampleInputEmail2" value="<? echo (date('H')+6).date(':i');?>" style="width:70px;">  <label style="width:20px;">น.</label>
+    <input name="subj_notify_time" type="text" class="form-control"  value="<? echo (date('H')+6).date(':i');?>" style="width:70px;">  <label style="width:20px;">น.</label>
   </div>
 
   <div class="form-group">
     <label>สถานะเรื่อง</label>
-    <select class="form-control">
+    <select name="subj_status" class="form-control">
       <option>รอแจ้งผู้รับผิดชอบ</option>
       <option>พิจารณาการช่วยเหลือ</option>
       <option>ส่งต่อพื้นที่</option>
@@ -61,57 +64,57 @@
 
         <div class="form-group form-inline col-md-12">
         <label>เจ้าหน้าที่รับเรื่อง</label>
-        <input type="text" class="form-control" id="exampleInputEmail2" placeholder="" readonly="readonly">
+        <input name="notify_users_id" type="text" class="form-control"  placeholder="" readonly="readonly">
       	</div>
 
         <div class="form-group form-inline col-md-6">
     	<label>ช่องทางรับเรื่อง</label>
-      {!! Form::select('channels_id', dropdownOption('channels', 'id', 'name', '', 'name asc'), @$rs->channels_id, array('class'=>'form-control','placeholder'=>'--')) !!}
+      {!! Form::select('notify_channels_id', dropdownOption('channels', 'id', 'name', '', 'name asc'), @$rs->notify_channels_id, array('class'=>'form-control','placeholder'=>'--')) !!}
 
 		</div>
 
         <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> ประเภทสาย</label>
-      {!! Form::select('cable_types_id', dropdownOption('cable_types', 'id', 'name', '', 'name asc'), @$rs->cable_types_id, array('class'=>'form-control','placeholder'=>'--')) !!}
+      {!! Form::select('notify_cable_types_id', dropdownOption('cable_types', 'id', 'name', '', 'name asc'), @$rs->notify_cable_types_id, array('class'=>'form-control','placeholder'=>'--')) !!}
   		</div>
 
         <div class="boxNotWrongCall">
         <div class="form-group form-inline col-md-6">
     	<label>หมวดหมู่ของผู้แจ้ง</label>
-      {!! Form::select('category_infos_id', dropdownOption('category_infos', 'id', 'name', '', 'name asc'), @$rs->category_infos_id, array('class'=>'form-control','placeholder'=>'--')) !!}
+      {!! Form::select('notify_category_infos_id', dropdownOption('category_infos', 'id', 'name', '', 'name asc'), @$rs->notify_category_infos_id, array('class'=>'form-control','placeholder'=>'--')) !!}
   		</div>
 
  		<div class="form-group form-inline col-md-6 boxDeptInfo">
     	<label>หน่วยงานที่แจ้ง</label>
-      {!! Form::select('dept_infos_id', dropdownOption('dept_infos', 'id', 'name', '', 'name asc'), @$rs->dept_infos_id, array('class'=>'form-control','placeholder'=>'--')) !!}
+      {!! Form::select('notify_dept_infos_id', dropdownOption('dept_infos', 'id', 'name', '', 'name asc'), @$rs->notify_dept_infos_id, array('class'=>'form-control','placeholder'=>'--')) !!}
   		</div>
 
         <div class="form-group form-inline col-md-12" style="margin-bottom:0px;">
     	<label></label>
    	 	<label>
-     	 <input type="checkbox"> ไม่ประสงค์ออกนาม
+     	 <input name="notify_anonymous" type="checkbox" value="1"> ไม่ประสงค์ออกนาม
     	</label>
   		</div>
 
         <div class="form-group form-inline col-md-12">
     	<label><span class="Txt_red_12"> *</span> ชื่อผู้แจ้ง</label>
-        {!! Form::select('prefixs_id', dropdownOption('prefixs', 'id', 'name_th', '', 'name_th asc'), @$rs->prefixs_id, array('class'=>'form-control','placeholder'=>'--')) !!}
-   	 	<input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อตัว" style="width:120px;">
-        <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อสกุล" style="width:200px;">
-        <input type="text" class="form-control" id="exampleInputEmail2" placeholder="ชื่อรอง" style="width:120px;">
-         <input type="text" class="form-control" data-inputmask="'mask': '9-9999-99999-99-9'" placeholder="เลขบัตรประชาชน" style="width:150px;"  />
+        {!! Form::select('notify_prefixs_id', dropdownOption('prefixs', 'id', 'name_th', '', 'name_th asc'), @$rs->notify_prefixs_id, array('class'=>'form-control','placeholder'=>'--')) !!}
+   	 	<input name="notify_name" value="{{ @$rs->notify_name }}" type="text" class="form-control"  placeholder="ชื่อตัว" style="width:120px;">
+        <input name="notify_lastname" value="{{ @$rs->notify_lastname }}" type="text" class="form-control"  placeholder="ชื่อสกุล" style="width:200px;">
+        <input name="notify_secondname" value="{{ @$rs->notify_secondname }}" type="text" class="form-control"  placeholder="ชื่อรอง" style="width:120px;">
+         <input name="notify_id_card" value="{{ @$rs-> notify_id_card }}" type="text" class="form-control" data-inputmask="'mask': '9-9999-99999-99-9'" placeholder="เลขบัตรประชาชน" style="width:150px;"  />
 
   		</div>
 
         <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> ประเทศ</label>
-      {!! Form::select('countries_id', dropdownOption('countries', 'id', 'name', '', 'name asc'), @$rs->countries_id, array('class'=>'form-control','placeholder'=>'--')) !!}
+      {!! Form::select('notify_countries_id', dropdownOption('countries', 'id', 'name', '', 'name asc'), @$rs->notify_countries_id, array('class'=>'form-control','placeholder'=>'--')) !!}
   		</div>
 
       <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> จังหวัด/รัฐ</label>
       <span class="spanProvince">
-        <select class="form-control" disabled="disabled">
+        <select name="notify_provinces_id" class="form-control" disabled="disabled">
             <option>--</option>
         </select>
       </span>
@@ -119,12 +122,12 @@
 
 		<div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> เบอร์โทรศัพท์</label>
-   	 	<input type="text" class="form-control" id="exampleInputEmail2" placeholder="">
+   	 	<input name="notify_tel" value="{{ @$rs->notify_tel }}" type="text" class="form-control"  placeholder="">
   		</div>
 
         <div class="form-group form-inline col-md-6">
     	<label>ช่องทางที่รู้จัก1300</label>
-      {!! Form::select('channel_knows_id', dropdownOption('channel_knows', 'id', 'name', '', 'name asc'), @$rs->channel_knows_id, array('class'=>'form-control','placeholder'=>'--')) !!}
+      {!! Form::select('notify_channel_knows_id', dropdownOption('channel_knows', 'id', 'name', '', 'name asc'), @$rs->notify_channel_knows_id, array('class'=>'form-control','placeholder'=>'--')) !!}
   		</div>
         </div> <!--boxWrongCall-->
         </fieldset>
@@ -135,34 +138,34 @@
 
          <div class="form-group form-inline col-md-6">
     	 <label><span class="Txt_red_12"> *</span> วันที่เกิดเหตุ</label>
-            <input type="text" class="form-control fdate" id="exampleInputEmail2" style="width:100px;">
+            <input name="event_date" value="{{ @$rs->event_date }}" type="text" class="form-control fdate"  style="width:100px;" data-provide="datepicker" data-date-language="th-th">
             <img src="images/calendar.png" width="24" height="24" />
          </div>
 
          <div class="form-group form-inline col-md-6">
          <label>เวลาเกิดเหตุ</label>
-	    <input type="text" class="form-control ftime" id="exampleInputEmail2" style="width:70px;"> <label style="width:20px;">น.</label>
+	    <input name="event_time" value="{{ @$rs->event_time }}" type="text" class="form-control ftime"  style="width:70px;"> <label style="width:20px;">น.</label>
    		</div>
 
         <div class="form-group form-inline col-md-6">
         <label><span class="Txt_red_12"> *</span> หัวข้อเหตุการณ์</label>
-        <textarea class="form-control" id="exampleInputEmail2" placeholder="" style="width:70%; height:80px;"></textarea>
+        <textarea name="event_title" class="form-control"  placeholder="" style="width:70%; height:80px;">{{ @$rs->event_title }}</textarea>
       	</div>
 
         <div class="form-group form-inline col-md-6">
         <label>สถานที่เกิดเหตุ</label>
-        <textarea class="form-control" id="exampleInputEmail2" placeholder="" style="width:70%; height:80px;"></textarea>
+        <textarea name="event_location" class="form-control"  placeholder="" style="width:70%; height:80px;">{{ @$rs->event_location }}</textarea>
       	</div>
 
         <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> ประเทศ</label>
-      {!! Form::select('countries_id', dropdownOption('countries', 'id', 'name', '', 'name asc'), @$rs->countries_id, array('class'=>'form-control','placeholder'=>'--')) !!}
+      {!! Form::select('event_countries_id', dropdownOption('countries', 'id', 'name', '', 'name asc'), @$rs->event_countries_id, array('class'=>'form-control','placeholder'=>'--')) !!}
   		</div>
 
         <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> จังหวัด/รัฐ</label>
       <span class="spanProvince2">
-        <select class="form-control" disabled="disabled">
+        <select name="event_provinces_id" class="form-control" disabled="disabled">
             <option>--</option>
         </select>
       </span>
@@ -171,7 +174,7 @@
         <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> อำเภอ</label>
       <span class="spanAmphoe2">
-        <select class="form-control" disabled="disabled">
+        <select name="event_amphoes_id" class="form-control" disabled="disabled">
             <option>--</option>
         </select>
       </span>
@@ -180,7 +183,7 @@
         <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> ตำบล</label>
       <span class="spanTumbon2">
-        <select class="form-control" disabled="disabled">
+        <select name="event_tumbons_id" class="form-control" disabled="disabled">
             <option>--</option>
         </select>
       </span>
@@ -188,7 +191,7 @@
 
         <div class="form-group form-inline col-md-12">
         <label><span class="Txt_red_12"> *</span> ข้อมูลสภาพปัญหา (สรุป)</label>
-        <textarea class="form-control" id="exampleInputEmail2" placeholder="" style="width:80%; height:150px;"></textarea>
+        <textarea name="event_summary" class="form-control"  placeholder="" style="width:80%; height:150px;">{{ @$rs->event_summary }}</textarea>
       	</div>
         </fieldset>
 
@@ -196,7 +199,7 @@
         <legend>การประเมินความเสี่ยง (จากการพูดคุยทางโทรศัพท์) </legend>
         @foreach($risks as $risk)
         <div class="form-group form-inline col-md-3" style="height:30px;">
-       	 <label style="width:100%; text-align:left;"><input type="checkbox" name="risks_id" value="{{ $risk->id }}"> {{ $risk->name }} </label>
+       	 <label style="width:100%; text-align:left;"><input type="checkbox" name="risks_id" value="{{ @$risk->id }}"> {{ $risk->name }} </label>
     		</div>
         @endforeach
 
@@ -204,7 +207,7 @@
 
       	<div class="form-group form-inline col-md-12">
         <label>รายละเอียดเพิ่มเติม</label>
-        <textarea class="form-control" id="exampleInputEmail2" placeholder="" style="width:80%; height:100px;"></textarea>
+        <textarea name="risk_detail" class="form-control"  placeholder="" style="width:80%; height:100px;">{{ @$rs->risk_detail }}</textarea>
       	</div>
         </fieldset>
 
@@ -236,7 +239,7 @@
 
 
         <div id="btnBoxAdd">
-          <input name="input" type="button" title="บันทึกข้อมูลรับเรื่อง" value="บันทึกข้อมูลรับเรื่อง" class="btn btn-primary"/>
+          <input name="input" type="submit" title="บันทึกข้อมูลรับเรื่อง" value="บันทึกข้อมูลรับเรื่อง" class="btn btn-primary"/>
           <input name="input2" type="button" title="ย้อนกลับ" value="ย้อนกลับ"  onclick="history.back(-1)"  class="btn btn-default" style="width:100px;"/>
         </div>
     </div>
@@ -284,37 +287,37 @@
   <div role="tabpanel" class="tab-pane" id="p4" style="margin-top:20px;">
  		<div class="form-group form-inline col-md-6">
         <label><span class="Txt_red_12"> *</span> ชื่อเจ้าหน้าที่ </label>
-        <input type="text" class="form-control" id="exampleInputEmail2" placeholder="" readonly="readonly" style="width:300px;">
+        <input name="conclude_users_id" value="{{ @$rs->conclude_users_id }}" type="text" class="form-control"  placeholder="" readonly="readonly" style="width:300px;">
       	</div>
 
         <div class="form-group form-inline col-md-6">
         <label><span class="Txt_red_12"> *</span> ตำแหน่ง</label>
-        <input type="text" class="form-control" id="exampleInputEmail2" placeholder="" readonly="readonly" style="width:400px;">
+        <input name="conclude_positions_id" value="{{ @$rs->conclude_positions_id }}" type="text" class="form-control"  placeholder="" readonly="readonly" style="width:400px;">
       	</div>
 
 		<div class="form-group form-inline col-md-6">
     	 <label><span class="Txt_red_12"> *</span> แจ้งปัญหายุติวันที่ </label>
-            <input type="text" class="form-control fdate" id="exampleInputEmail2" style="width:100px;">
+            <input name="conclude_notify_date" value="{{ @$rs->conclude_notify_date }}" type="text" class="form-control fdate"  style="width:100px;" data-provide="datepicker" data-date-language="th-th">
             <img src="images/calendar.png" width="24" height="24" />
          </div>
 
          <div class="form-group form-inline col-md-6">
     	 	<label><span class="Txt_red_12"> *</span> วันที่ดำเนินการ</label>
-            <input type="text" class="form-control fdate" id="exampleInputEmail2" style="width:100px;">
+            <input name="conclude_date" value="{{ @$rs->conclude_date }}" type="text" class="form-control fdate"  style="width:100px;" data-provide="datepicker" data-date-language="th-th">
             <img src="images/calendar.png" width="24" height="24" />
 
             <label>เวลา</label>
-            <input type="text" class="form-control ftime" id="exampleInputEmail2" style="width:70px;">  <label style="width:20px;">น.</label>
+            <input name="conclude_time" value="{{ @$rs->conclude_time }}" type="text" class="form-control ftime"  style="width:70px;">  <label style="width:20px;">น.</label>
 
          </div>
 
 		<div class="form-group form-inline col-md-12">
         <label><span class="Txt_red_12"> *</span> รายละเอียด</label>
-        <textarea class="form-control" id="exampleInputEmail2" placeholder="" style="width:80%; height:150px;"></textarea>
+        <textarea class="form-control"  placeholder="" style="width:80%; height:150px;"></textarea>
       	</div>
 
         <div id="btnBoxAdd">
-      <input name="input" type="button" title="บันทึกสรุปยุติปัญหา" value="บันทึกสรุปยุติปัญหา" class="btn btn-primary"/>
+      <input name="input" type="submit" title="บันทึกสรุปยุติปัญหา" value="บันทึกสรุปยุติปัญหา" class="btn btn-primary"/>
     </div>
   </div>
   <!-- END Tab 4 : สรุปยุติปัญหา -->
@@ -339,6 +342,7 @@
   <!-- END Tab 5 : เอกสารแนบ -->
 
 </div>
+</form>
 
 
 
