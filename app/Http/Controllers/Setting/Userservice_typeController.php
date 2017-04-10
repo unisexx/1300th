@@ -21,7 +21,6 @@ class Userservice_typeController extends Controller {
     }
 
     $data['rs'] = $data['rs']->orderBy('id','desc')->paginate();
-    $data['no'] = (empty($_GET['page']))?0:($_GET['page']-1)*20;
     return view('setting.userservice_type.index',$data);
   }
 

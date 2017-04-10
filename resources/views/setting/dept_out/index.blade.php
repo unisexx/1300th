@@ -29,7 +29,7 @@
   </tr>
 @foreach($rs as $row)
 <tr>
-  <td>{{ ++$no }}</td>
+  <td>{{ autoNumber($rs) }}</td>
   <td>{{ $row->name }}</td>
   <td>{{ $row->dept_out_types->name }}</td>
   <td>{{ $row->provinces->name }}</td>

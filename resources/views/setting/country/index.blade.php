@@ -32,7 +32,7 @@
 
 @foreach($rs as $row)
 <tr>
-  <td>{{ ++$no }}</td>
+  <td>{{ autoNumber($rs) }}</td>
   <td>{{ $row->code }}</td>
   <td>{{ $row->name }}</td>
   <td>{{ $row->phone }}</td>

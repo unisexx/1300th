@@ -16,7 +16,7 @@
   <div class="form-group">
     <label style="width:auto;">ref.ticket</label>
     <a href="#"><span style="font-weight:700; display:inline-block; margin-top:3px;">17-01-00030</span></a>
-    <input class="form-control" type="text" name="subj_ticket_ref_id" placeholder="subj_ticket_ref_id" value="{{ @$rs->subj_ticket_ref_id }}">
+    <input class="form-control" type="text" name="subj_ticket_ref_id" placeholder="subj_ticket_ref_id" value="4321">
   </div>
 
   <div class="form-group">
@@ -32,12 +32,12 @@
   <div class="form-group">
     <label>สถานะเรื่อง</label>
     <select name="subj_status" class="form-control">
-      <option>รอแจ้งผู้รับผิดชอบ</option>
-      <option>พิจารณาการช่วยเหลือ</option>
-      <option>ส่งต่อพื้นที่</option>
-      <option>รายงานการช่วยเหลือ</option>
-      <option>ช่วยเหลือเรียบร้อย</option>
-      <option>ปัญหายุติแล้ว</option>
+      <option value="1">รอแจ้งผู้รับผิดชอบ</option>
+      <option value="2">พิจารณาการช่วยเหลือ</option>
+      <option value="3">ส่งต่อพื้นที่</option>
+      <option value="4">รายงานการช่วยเหลือ</option>
+      <option value="5">ช่วยเหลือเรียบร้อย</option>
+      <option value="6">ปัญหายุติแล้ว</option>
 	</select>
   </div>
 </div>
@@ -52,7 +52,6 @@
     <li role="presentation"><a href="#p3" aria-controls="p3" role="tab" data-toggle="tab">ผลการช่วยเหลือ</a></li>
     <li role="presentation"><a href="#p4" aria-controls="p4" role="tab" data-toggle="tab">สรุปยุติปัญหา</a></li>
     <li role="presentation"><a href="#p5" aria-controls="p5" role="tab" data-toggle="tab">เอกสารแนบ</a></li>
-
   </ul>
 
 <!-- Tab panes -->
@@ -64,7 +63,7 @@
 
         <div class="form-group form-inline col-md-12">
         <label>เจ้าหน้าที่รับเรื่อง</label>
-        <input name="notify_users_id" type="text" class="form-control"  placeholder="" readonly="readonly">
+        <input name="notify_users_id" type="text" class="form-control"  placeholder="" readonly="readonly" value="1">
       	</div>
 
         <div class="form-group form-inline col-md-6">
@@ -108,7 +107,7 @@
 
         <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> ประเทศ</label>
-      {!! Form::select('notify_countries_id', dropdownOption('countries', 'id', 'name', '', 'name asc'), @$rs->notify_countries_id, array('class'=>'form-control','placeholder'=>'--')) !!}
+      {!! Form::select('notify_countries_id', dropdownOption('countries', 'id', 'name', '', 'name asc'), @$rs->notify_countries_id, array('class'=>'form-control countries','placeholder'=>'--')) !!}
   		</div>
 
       <div class="form-group form-inline col-md-6">
@@ -159,12 +158,12 @@
 
         <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> ประเทศ</label>
-      {!! Form::select('event_countries_id', dropdownOption('countries', 'id', 'name', '', 'name asc'), @$rs->event_countries_id, array('class'=>'form-control','placeholder'=>'--')) !!}
+      {!! Form::select('event_countries_id', dropdownOption('countries', 'id', 'name', '', 'name asc'), @$rs->event_countries_id, array('class'=>'form-control countries','placeholder'=>'--')) !!}
   		</div>
 
         <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> จังหวัด/รัฐ</label>
-      <span class="spanProvince2">
+      <span class="spanProvince">
         <select name="event_provinces_id" class="form-control" disabled="disabled">
             <option>--</option>
         </select>
@@ -173,7 +172,7 @@
 
         <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> อำเภอ</label>
-      <span class="spanAmphoe2">
+      <span class="spanAmphoe">
         <select name="event_amphoes_id" class="form-control" disabled="disabled">
             <option>--</option>
         </select>
@@ -182,7 +181,7 @@
 
         <div class="form-group form-inline col-md-6">
     	<label><span class="Txt_red_12"> *</span> ตำบล</label>
-      <span class="spanTumbon2">
+      <span class="spanTumbon">
         <select name="event_tumbons_id" class="form-control" disabled="disabled">
             <option>--</option>
         </select>
@@ -199,7 +198,7 @@
         <legend>การประเมินความเสี่ยง (จากการพูดคุยทางโทรศัพท์) </legend>
         @foreach($risks as $risk)
         <div class="form-group form-inline col-md-3" style="height:30px;">
-       	 <label style="width:100%; text-align:left;"><input type="checkbox" name="risks_id" value="{{ @$risk->id }}"> {{ $risk->name }} </label>
+       	 <label style="width:100%; text-align:left;"><input type="checkbox" name="risks_id[]" value="{{ @$risk->id }}"> {{ $risk->name }} </label>
     		</div>
         @endforeach
 
@@ -207,7 +206,7 @@
 
       	<div class="form-group form-inline col-md-12">
         <label>รายละเอียดเพิ่มเติม</label>
-        <textarea name="risk_detail" class="form-control"  placeholder="" style="width:80%; height:100px;">{{ @$rs->risk_detail }}</textarea>
+        <textarea name="risks_detail" class="form-control"  placeholder="" style="width:80%; height:100px;">{{ @$rs->risks_detail }}</textarea>
       	</div>
         </fieldset>
 
@@ -287,12 +286,12 @@
   <div role="tabpanel" class="tab-pane" id="p4" style="margin-top:20px;">
  		<div class="form-group form-inline col-md-6">
         <label><span class="Txt_red_12"> *</span> ชื่อเจ้าหน้าที่ </label>
-        <input name="conclude_users_id" value="{{ @$rs->conclude_users_id }}" type="text" class="form-control"  placeholder="" readonly="readonly" style="width:300px;">
+        <input name="conclude_users_id" value="1" type="text" class="form-control"  placeholder="" readonly="readonly" style="width:300px;">
       	</div>
 
         <div class="form-group form-inline col-md-6">
         <label><span class="Txt_red_12"> *</span> ตำแหน่ง</label>
-        <input name="conclude_positions_id" value="{{ @$rs->conclude_positions_id }}" type="text" class="form-control"  placeholder="" readonly="readonly" style="width:400px;">
+        <input name="conclude_positions_id" value="1" type="text" class="form-control"  placeholder="" readonly="readonly" style="width:400px;">
       	</div>
 
 		<div class="form-group form-inline col-md-6">
@@ -313,7 +312,7 @@
 
 		<div class="form-group form-inline col-md-12">
         <label><span class="Txt_red_12"> *</span> รายละเอียด</label>
-        <textarea class="form-control"  placeholder="" style="width:80%; height:150px;"></textarea>
+        <textarea name="conclude_detail" class="form-control"  placeholder="" style="width:80%; height:150px;">{{ @$rs->conclude_detail }}</textarea>
       	</div>
 
         <div id="btnBoxAdd">
@@ -384,6 +383,30 @@ $(document).ready(function(){
 		ajaxloadattach();
 	});
 
+  // select ประเทศ หา จังหวัด
+	$(document).on('change', "select.countries", function() {
+    var prefix = $(this).attr("name").split(/_(.+)/)[0]+'_';
+		var countries_id = $(this).val();
+		var provinceElement = $(this).closest('.form-inline').next().find(".spanProvince");
+    AjaxSelectProvince(prefix,countries_id,provinceElement);
+	});
+
+  // select จังหวัด หา อำเภอ
+	$(document).on('change', "select.provinces", function() {
+    var prefix = $(this).attr("name").split(/_(.+)/)[0]+'_';
+		var provinces_id = $(this).val();
+		var amphoeElement = $(this).closest('.form-inline').next().find(".spanAmphoe");
+    AjaxSelectAmphoe(prefix,provinces_id,amphoeElement);
+	});
+
+  // select อำเภอ หา ตำบล
+	$(document).on('change', "select.amphoes", function() {
+    var prefix = $(this).attr("name").split(/_(.+)/)[0]+'_';
+		var amphoes_id = $(this).val();
+		var tumbonElement = $(this).closest('.form-inline').next().find(".spanTumbon");
+    AjaxSelectTumbon(prefix,amphoes_id,tumbonElement);
+	});
+
 });
 
 /*############################## Function ##############################*/
@@ -436,6 +459,60 @@ $(document).ready(function(){
       $('#attach').html(data);
     });
   }
+
+// เลือกประเทศ แสดงจังหวัด
+function AjaxSelectProvince($prefix,$countries_id,$province_element,$province_id_selected=false){
+  if($countries_id == ""){
+    $province_element.find('select').val('').attr("disabled", true);
+    $province_element.find('select').selectpicker('refresh');
+  }else{
+    $.get('ajax/selectprovince',{
+      'countries_id' : $countries_id,
+      'provinces_id' :  $province_id_selected,
+      'prefix' : $prefix
+    },function(data){
+      $province_element.html(data);
+      // ถ้า select ข้อมูลที่ดึงมาใช้ data-live-search=true ต้องทำการ refresh ด้วย
+      $province_element.find('select').selectpicker('refresh');
+    });
+  }
+}
+
+// เลือกจังหวัด แสดงอำเภอ
+function AjaxSelectAmphoe($prefix,$provinces_id,$amphoe_element,$amphoes_id_selected=false){
+  if($provinces_id == ""){
+    $amphoe_element.find('select').val('').attr("disabled", true);
+    $amphoe_element.find('select').selectpicker('refresh');
+  }else{
+    $.get('ajax/selectamphoe',{
+      'provinces_id' : $provinces_id,
+      'amphoes_id' :  $amphoes_id_selected,
+      'prefix' : $prefix
+    },function(data){
+      $amphoe_element.html(data);
+      // ถ้า select ข้อมูลที่ดึงมาใช้ data-live-search=true ต้องทำการ refresh ด้วย
+      $amphoe_element.find('select').selectpicker('refresh');
+    });
+  }
+}
+
+// เลือกอำเภอ แสดงตำบล
+function AjaxSelectTumbon($prefix,$amphoes_id,$tumbon_element,$tumbons_id_selected=false){
+  if($amphoes_id == ""){
+    $tumbon_element.find('select').val('').attr("disabled", true);
+    $tumbon_element.find('select').selectpicker('refresh');
+  }else{
+    $.get('ajax/selecttumbon',{
+      'amphoes_id' : $amphoes_id,
+      'tumbons_id' :  $tumbons_id_selected,
+      'prefix' : $prefix
+    },function(data){
+      $tumbon_element.html(data);
+      // ถ้า select ข้อมูลที่ดึงมาใช้ data-live-search=true ต้องทำการ refresh ด้วย
+      $tumbon_element.find('select').selectpicker('refresh');
+    });
+  }
+}
 </script>
 
 

@@ -16,7 +16,6 @@ class TargetController extends Controller {
   public function getIndex() {
     $data['rs'] = new Targets;
     $data['rs'] = $data['rs']->where('parent_id','0')->orderBy('id','desc')->get();
-    $data['no'] = (empty($_GET['page']))?0:($_GET['page']-1)*20;
     return view('setting.target.index',$data);
   }
 

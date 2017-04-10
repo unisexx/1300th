@@ -14,7 +14,9 @@ use DB;
 
 class TicketController extends Controller {
     public function getIndex() {
-      return view('ticket.index');
+      $data['rs'] = new Tickets;
+      $data['rs'] = $data['rs']->orderBy('id','desc')->paginate();
+      return view('ticket.index',$data);
     }
 
     public function getForm() {
@@ -25,9 +27,13 @@ class TicketController extends Controller {
     }
 
     public function postSave(Request $rq, $id = null) {
-      // convert datepicker value
+      // convert variable value before save
       $rq->merge([
-        'subj_notify_date' => DateToDB($rq->input('subj_notify_date'))
+        'subj_notify_date' => DateToDB($rq->input('subj_notify_date'),$rq->input('subj_notify_time'))
+        ,'event_date' => DateToDB($rq->input('event_date'),$rq->input('event_time'))
+        ,'risks_id' => @implode(',', $rq->input('risks_id'))
+        ,'conclude_notify_date' => DateToDB($rq->input('conclude_notify_date'))
+        ,'conclude_date' => DateToDB($rq->input('conclude_date'),$rq->input('conclude_time'))
       ]);
 
       // Save

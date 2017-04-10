@@ -29,7 +29,7 @@
   </tr>
 @foreach($rs as $row)
 <tr>
-  <td>{{ ++$no }}</td>
+  <td>{{ autoNumber($rs) }}</td>
   <td>{{ $row->code }}</td>
   <td>{{ $row->name_th }}</td>
   <td>{{ $row->name_en }}</td>

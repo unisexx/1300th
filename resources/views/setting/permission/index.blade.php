@@ -30,7 +30,7 @@
   </tr>
 @foreach($rs as $row)
 <tr>
-  <td>{{ ++$no }}</td>
+  <td>{{ autoNumber($rs) }}</td>
   <td>{{ $row->name }}</td>
   <td>&nbsp;</td>
   <td>

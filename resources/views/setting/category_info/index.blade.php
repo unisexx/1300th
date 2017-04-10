@@ -27,7 +27,7 @@
   </tr>
 @foreach($rs as $row)
 <tr>
-  <td>{{ ++$no }}</td>
+  <td>{{ autoNumber($rs) }}</td>
   <td>{{ $row->name }}</td>
   <td>
     @if ($row->status == 1)

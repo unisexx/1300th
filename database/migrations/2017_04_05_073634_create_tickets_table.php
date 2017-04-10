@@ -45,8 +45,8 @@ class CreateTicketsTable extends Migration
             $table->integer('event_amphoes_id');
             $table->integer('event_tumbons_id');
             $table->string('event_summary', 2000);
-            $table->string('risk_id', 200);
-            $table->string('risk_detail', 2000);
+            $table->string('risks_id', 200);
+            $table->string('risks_detail', 2000);
             $table->integer('conclude_users_id');
             $table->integer('conclude_positions_id');
             $table->timestamp('conclude_notify_date');

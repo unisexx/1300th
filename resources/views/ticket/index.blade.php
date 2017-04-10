@@ -135,18 +135,7 @@
 <span><img src="images/clock6.png" width="25" height="25" /> ปัญหายุติแล้ว</span>
 </div>
 
-<div class="paginationTG">
-	<ul>
-    <li style="margin-right:10px;">หน้าที่</li>
-	<li class="currentpage">1</li><li ><a href=''>2</a></li>
-	<li><a href="">3</a></li>
-	<li><a href="">4</a></li>
-	<li><a href="">5</a></li>
-	<li><a href="">6</a></li>
-	<li><a href="">7</a></li> . . . <li ><a href="">19</a></li>
-	<li><a href="">20</a></li><li ><a href="">21</a></li>
-	</ul>
-</div>
+{{ $rs->appends(@$_GET)->render() }}
 
 <table class="tblist">
 <tr>
@@ -161,129 +150,28 @@
   <th>ผู้รับแจ้ง</th>
   <th>ประเภทสาย</th>
   <th>จัดการ</th>
-  </tr>
+</tr>
+@foreach($rs as $row)
 <tr>
-  <td>1</td>
-  <td>ุ17-01-00038</td>
-  <td>24 มกราคม 2560 16:26</td>
-  <td>ปกติ</td>
-  <td><img src="images/givehelp.png" width="16" height="16" class="vtip" title="นายทรงพล อาริยวัฒน์" style="margin-bottom:5px;" /> ผู้ใหญ่ </td>
-  <td>สอบถามเงินอุดหนุนเด็กแรกเกิด <br />
-    (ปราจีนบุรี) </td>
+  <td>{{ autoNumber($rs) }}</td>
+  <td>{{ $row->subj_ticket_number }}</td>
+  <td>{{ DBToDate($row->subj_notify_date,true,true) }}</td>
+  <td></td>
+  <td></td>
+  <td>{{ $row->event_title }}</td>
+  <td>{!! ticket_status_img($row->subj_status) !!}</td>
+  <td>{{ $row->notify_prefixs_id }} {{ $row->notify_name }} {{ $row->notify_lastname }}</td>
+  <td>{{ $row->notify_users_id }}</td>
+  <td>{{ $row->notify_cable_types_id }}</td>
   <td>
-  <img src="images/clock1.png" width="25" height="25" class="vtip" title="รอแจ้งผู้รับผิดชอบ" />
-  <!--<div class="statusWait">รอแจ้งผู้รับผิดชอบ</div>--></td>
-  <td>นางสาว พวงผกา -</td>
-  <td>    นางสาว วรรณภา ผลสุข<br />
-    (ศูนย์ช่วยเหลือสังคม)</td>
-  <td>ปัญหาใหม่</td>
-  <td><img src="images/add_tag.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="เพิ่มรายการโดยอ้างอิงรายการนี้" /><a href="<?=basename($_SERVER['PHP_SELF'])?>?act=form"><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a><img src="images/remove.png" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
-  </tr>
-<tr class="odd">
-  <td>2</td>
-  <td>17-01-00030</td>
-  <td>18 มกราคม 2560 19:05</td>
-  <td>ปกติ</td>
-  <td><img src="images/givehelp.png" width="16" height="16" class="vtip" title="นายวันชัย  ตราชูธรรม" style="margin-bottom:5px;" /> ผู้ใหญ่<br /> <img src="images/givehelp.png" width="16" height="16" class="vtip" title="เด็กชายสมพร  สุขธรรมนิตย์"  style="margin-bottom:5px;"/> เด็ก</td>
-  <td>ขอความช่วยเหลือต้องการนำเด็กชายธีรเชษฐ์ บุญรอด อายุ 9 ปี บุตรชาย เข้าสถานสงเคราะห์<br />
-    (กรุงเทพมหานคร)</td>
-  <td>
-  <img src="images/clock2.png" width="25" height="25" class="vtip" title="พิจารณาการช่วยเหลือ" />
-  <!--<div class="statusProcess">พิจารณาการช่วยเหลือ</div>--></td>
-  <td>นาย ธนัฐวรรณ บุญรวด</td>
-  <td>    นางสาว พัชรีย์ เพชร์ทอง<br />
-    (ศูนย์ช่วยเหลือสังคม)</td>
-  <td>ปัญหาใหม่</td>
-  <td><img src="images/add_tag.png" alt="" width="24" height="24" class="vtip" style="margin-right:10px;" title="เพิ่มรายการโดยอ้างอิงรายการนี้" /><a href="<?=basename($_SERVER['PHP_SELF'])?>?act=form"><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a><img src="images/remove.png" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
-  </tr>
-<tr>
-  <td>3</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>
-  <img src="images/clock3.png" width="25" height="25" class="vtip" title="ส่งต่อพื้นที่" />
-  <!--<div class="statusReport">รายงานการช่วยเหลือ</div>--></td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td><img src="images/add_tag.png" alt="" width="24" height="24" class="vtip" style="margin-right:10px;" title="เพิ่มรายการโดยอ้างอิงรายการนี้" /><a href="<?=basename($_SERVER['PHP_SELF'])?>?act=form"><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a><img src="images/remove.png" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
-  </tr>
-<tr class="odd">
-  <td>4</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>
-  <img src="images/clock4.png" width="25" height="25"  class="vtip" title="รายงานการช่วยเหลือ" />
-  <!--<div class="statusSend">ส่งต่อพื้นที่</div>--></td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td><img src="images/add_tag.png" alt="" width="24" height="24" class="vtip" style="margin-right:10px;" title="เพิ่มรายการโดยอ้างอิงรายการนี้" /><a href="<?=basename($_SERVER['PHP_SELF'])?>?act=form"><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a><img src="images/remove.png" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
-  </tr>
-<tr>
-  <td>5</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>
-  <img src="images/clock5.png" width="25" height="25" class="vtip" title="ช่วยเหลือเรียบร้อย" />
-  <!--<div class="statusHelped">ช่วยเหลือเรียบร้อย</div>--></td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td><img src="images/add_tag.png" alt="" width="24" height="24" class="vtip" style="margin-right:10px;" title="เพิ่มรายการโดยอ้างอิงรายการนี้" /><a href="<?=basename($_SERVER['PHP_SELF'])?>?act=form"><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a><img src="images/remove.png" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
-  </tr>
-<tr>
-  <td>6</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>
-  <img src="images/clock6.png" width="25" height="25" class="vtip" title="ปัญหายุติแล้ว"/>
-  <!--<div class="statusComplete">ปัญหายุติแล้ว</div>--></td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td><img src="images/add_tag.png" alt="" width="24" height="24" class="vtip" style="margin-right:10px;" title="เพิ่มรายการโดยอ้างอิงรายการนี้" /><a href="<?=basename($_SERVER['PHP_SELF'])?>?act=form"><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a><img src="images/remove.png" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
-  </tr>
-<tr>
-  <td>7</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>
-  <img src="images/clock6.png" width="25" height="25" class="vtip" title="ปัญหายุติแล้ว" />
-  <!--<div class="statusComplete">ปัญหายุติแล้ว</div>--></td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td class="odd"><img src="images/add_tag.png" alt="" width="24" height="24" class="vtip" style="margin-right:10px;" title="เพิ่มรายการโดยอ้างอิงรายการนี้" /><a href="<?=basename($_SERVER['PHP_SELF'])?>?act=form"><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a><img src="images/remove.png" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></td>
-  </tr>
+    <a href="ticket/form?ref={{ $row->id }}"><img src="images/add_tag.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="เพิ่มรายการโดยอ้างอิงรายการนี้" /></a>
+    <a href="ticket/form/{{ $row->id }}"><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a>
+    <a href="ticket/delete/{{ $row->id }}" onclick="return confirm('ต้องการลบรายการนี้')"><img src="images/remove.png" width="24" height="24" class="vtip" title="ลบรายการนี้"  /></a>
+  </td>
+</tr>
+@endforeach
 </table>
 
-<div class="paginationTG">
-	<ul>
-    <li style="margin-right:10px;">หน้าที่</li>
-	<li class="currentpage">1</li><li ><a href=''>2</a></li>
-	<li><a href="">3</a></li>
-	<li><a href="">4</a></li>
-	<li><a href="">5</a></li>
-	<li><a href="">6</a></li>
-	<li><a href="">7</a></li> . . . <li ><a href="">19</a></li>
-	<li><a href="">20</a></li><li ><a href="">21</a></li>
-  </ul>
-</div>
+{{ $rs->appends(@$_GET)->render() }}
 
 @endsection
