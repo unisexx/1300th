@@ -14,7 +14,7 @@ class Tickets extends Model
               ,'subj_ticket_ref_id'
               ,'subj_notify_date'
               // ,'subj_notify_time'
-              ,'subj_status'
+              ,'ticket_statuses_id'
               ,'notify_users_id'
               ,'notify_channels_id'
               ,'notify_cable_types_id'
@@ -50,6 +50,14 @@ class Tickets extends Model
               // ,'conclude_time'
               ,'conclude_detail'
   );
+
+  public function ticket_statuses() {
+      return $this->hasOne('App\Models\ticket_status', 'id', 'ticket_statuses_id');
+  }
+
+  public function cable_types() {
+      return $this->hasOne('App\Models\Cable_types', 'id', 'notify_cable_types_id');
+  }
 
   protected $dates = ['deleted_at'];
 }

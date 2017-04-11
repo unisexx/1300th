@@ -19,10 +19,11 @@ class TicketController extends Controller {
       return view('ticket.index',$data);
     }
 
-    public function getForm() {
+    public function getForm($id = null) {
       // การประเมินความเสี่ยง
       $data['risks'] = DB::table('risks')->orderBy('id', 'asc')->get();
 
+      $data['rs'] = Tickets::find($id);
       return view('ticket.form',$data);
     }
 
@@ -44,6 +45,14 @@ class TicketController extends Controller {
       set_notify('success', trans('message.completeSave'));
       return Redirect('ticket');
     }
+
+    public function getDelete($id = null) {
+  		if($rs = Tickets::find($id)) {
+  			$rs->delete(); // Delete process
+        set_notify('error', trans('message.completeDelete'));
+  		}
+  		return Redirect('ticket');
+  	}
 
     // ผู้ขอรับการช่วยเหลือ index
     public function getAjaxloadreceive(){

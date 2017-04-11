@@ -236,6 +236,7 @@ $(document).ready(function(){
 	}
 </style>
 <script src="js/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+<script src="js/bootstrap-datepicker/bootstrap-datepicker-thai.js"></script>
 <script src="js/bootstrap-datepicker/locales/bootstrap-datepicker.th.js"></script>
 <script>
 $(document).ready(function(){

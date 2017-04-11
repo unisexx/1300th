@@ -16,29 +16,23 @@
   <div class="form-group">
     <label style="width:auto;">ref.ticket</label>
     <a href="#"><span style="font-weight:700; display:inline-block; margin-top:3px;">17-01-00030</span></a>
-    <input class="form-control" type="text" name="subj_ticket_ref_id" placeholder="subj_ticket_ref_id" value="4321">
+    <input class="form-control" type="text" name="subj_ticket_ref_id" placeholder="subj_ticket_ref_id" value="{{ @$rs->subj_ticket_ref_id ? $rs->subj_ticket_ref_id : @$_GET['ref'] }}">
   </div>
 
   <div class="form-group">
     <label><span class="Txt_red_12"> *</span> วันที่รับแจ้งเหตุ</label>
-    <input name="subj_notify_date" type="text" class="form-control fdate" value="<? echo date("d/m").(date("Y")+543);?>" style="width:100px;" data-provide="datepicker" data-date-language="th-th">
+    <input name="subj_notify_date" type="text" class="form-control fdate" value="{{ @$rs->subj_notify_date ? DBToDate($rs->subj_notify_date) : date("d/m").(date("Y")+543) }}" style="width:100px;" data-provide="datepicker" data-date-language="th-th">
     <img src="images/calendar.png" width="24" height="24" /> </div>
 
+<? echo (date('H')+6).date(':i');?>
   <div class="form-group">
     <label><span class="Txt_red_12"> *</span> เวลาที่รับแจ้งเหตุ</label>
-    <input name="subj_notify_time" type="text" class="form-control"  value="<? echo (date('H')+6).date(':i');?>" style="width:70px;">  <label style="width:20px;">น.</label>
+    <input name="subj_notify_time" type="text" class="form-control"  value="{{ @$rs->subj_notify_date ? DBToTime($rs->subj_notify_date) : (date('H')+6).date(':i') }}" style="width:70px;">  <label style="width:20px;">น.</label>
   </div>
 
   <div class="form-group">
     <label>สถานะเรื่อง</label>
-    <select name="subj_status" class="form-control">
-      <option value="1">รอแจ้งผู้รับผิดชอบ</option>
-      <option value="2">พิจารณาการช่วยเหลือ</option>
-      <option value="3">ส่งต่อพื้นที่</option>
-      <option value="4">รายงานการช่วยเหลือ</option>
-      <option value="5">ช่วยเหลือเรียบร้อย</option>
-      <option value="6">ปัญหายุติแล้ว</option>
-	</select>
+    {!! Form::select('ticket_statuses_id', dropdownOption('ticket_statuses', 'id', 'name', '', 'id asc'), @$rs->ticket_statuses_id, array('class'=>'form-control')) !!}
   </div>
 </div>
 
@@ -91,7 +85,7 @@
         <div class="form-group form-inline col-md-12" style="margin-bottom:0px;">
     	<label></label>
    	 	<label>
-     	 <input name="notify_anonymous" type="checkbox" value="1"> ไม่ประสงค์ออกนาม
+     	 <input name="notify_anonymous" type="checkbox" value="1" {{ @$rs->notify_anonymous == 1 ? 'checked' : '' }}> ไม่ประสงค์ออกนาม
     	</label>
   		</div>
 
@@ -137,13 +131,13 @@
 
          <div class="form-group form-inline col-md-6">
     	 <label><span class="Txt_red_12"> *</span> วันที่เกิดเหตุ</label>
-            <input name="event_date" value="{{ @$rs->event_date }}" type="text" class="form-control fdate"  style="width:100px;" data-provide="datepicker" data-date-language="th-th">
+            <input name="event_date" value="{{ @DBToDate($rs->event_date) }}" type="text" class="form-control fdate"  style="width:100px;" data-provide="datepicker" data-date-language="th-th">
             <img src="images/calendar.png" width="24" height="24" />
          </div>
 
          <div class="form-group form-inline col-md-6">
          <label>เวลาเกิดเหตุ</label>
-	    <input name="event_time" value="{{ @$rs->event_time }}" type="text" class="form-control ftime"  style="width:70px;"> <label style="width:20px;">น.</label>
+	    <input name="event_time" value="{{ @DBToTime($rs->event_date) }}" type="text" class="form-control ftime"  style="width:70px;"> <label style="width:20px;">น.</label>
    		</div>
 
         <div class="form-group form-inline col-md-6">
@@ -195,10 +189,10 @@
         </fieldset>
 
         <fieldset class="boxNotWrongCall">
-        <legend>การประเมินความเสี่ยง (จากการพูดคุยทางโทรศัพท์) </legend>
+        <legend>การประเมินความเสี่ยง (จากการพูดคุยทางโทรศัพท์)</legend>
         @foreach($risks as $risk)
         <div class="form-group form-inline col-md-3" style="height:30px;">
-       	 <label style="width:100%; text-align:left;"><input type="checkbox" name="risks_id[]" value="{{ @$risk->id }}"> {{ $risk->name }} </label>
+       	 <label style="width:100%; text-align:left;"><input type="checkbox" name="risks_id[]" value="{{ @$risk->id }}" {{ in_array($risk->id, explode(',',@$rs->risks_id)) ? 'checked' : '' }}> {{ $risk->name }} </label>
     		</div>
         @endforeach
 
@@ -406,6 +400,42 @@ $(document).ready(function(){
 		var tumbonElement = $(this).closest('.form-inline').next().find(".spanTumbon");
     AjaxSelectTumbon(prefix,amphoes_id,tumbonElement);
 	});
+
+  // ฟอร์มแก้ไข รายละเอียดผู้แจ้ง : โหลดจังหวัด
+  var prefix = 'notify_';
+  var countries_id = '{{ @$rs->notify_countries_id }}';
+  var provinceElement = $('select[name=notify_countries_id]').closest('.form-inline').next().find(".spanProvince");
+  var province_id_selected = '{{ @$rs->notify_provinces_id }}';
+  if(countries_id){
+    AjaxSelectProvince(prefix,countries_id,provinceElement,province_id_selected);
+  }
+
+  // ฟอร์มแก้ไข รายละเอียดเหตุการณ์ : โหลดจังหวัด
+  var prefix = 'event_';
+  var countries_id = '{{ @$rs->event_countries_id }}';
+  var provinceElement = $('select[name=event_countries_id]').closest('.form-inline').next().find(".spanProvince");
+  var province_id_selected = '{{ @$rs->event_provinces_id }}';
+  if(countries_id){
+    AjaxSelectProvince(prefix,countries_id,provinceElement,province_id_selected);
+  }
+
+  // ฟอร์มแก้ไข รายละเอียดเหตุการณ์ : โหลดอำเภอ
+  var prefix = 'event_';
+  var provinces_id = '{{ @$rs->event_provinces_id }}';
+  var amphoeElement = $('select[name=event_provinces_id]').closest('.form-inline').next().find(".spanAmphoe");
+  var amphoe_id_selected = '{{ @$rs->event_amphoes_id }}';
+  if(provinces_id){
+    AjaxSelectAmphoe(prefix,provinces_id,amphoeElement,amphoe_id_selected);
+  }
+
+  // ฟอร์มแก้ไข รายละเอียดเหตุการณ์ : โหลดตำบล
+  var prefix = 'event_';
+  var amphoes_id = '{{ @$rs->event_amphoes_id }}';
+  var tumbonElement = $('select[name=event_amphoes_id]').closest('.form-inline').next().find(".spanTumbon");
+  var tumbon_id_selected = '{{ @$rs->event_tumbons_id }}';
+  if(amphoes_id){
+    AjaxSelectTumbon(prefix,amphoes_id,tumbonElement,tumbon_id_selected);
+  }
 
 });
 

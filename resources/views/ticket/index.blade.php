@@ -159,10 +159,12 @@
   <td></td>
   <td></td>
   <td>{{ $row->event_title }}</td>
-  <td>{!! ticket_status_img($row->subj_status) !!}</td>
+  <td>
+    <img class="vtip" src="images/{{ $row->ticket_statuses->icon }}" width="25" height="25" title="{{ $row->ticket_statuses->name }}">
+  </td>
   <td>{{ $row->notify_prefixs_id }} {{ $row->notify_name }} {{ $row->notify_lastname }}</td>
   <td>{{ $row->notify_users_id }}</td>
-  <td>{{ $row->notify_cable_types_id }}</td>
+  <td>{{ @$row->cable_types->name }}</td>
   <td>
     <a href="ticket/form?ref={{ $row->id }}"><img src="images/add_tag.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="เพิ่มรายการโดยอ้างอิงรายการนี้" /></a>
     <a href="ticket/form/{{ $row->id }}"><img src="images/edit.png" width="24" height="24" style="margin-right:10px;" class="vtip" title="แก้ไขรายการนี้" /></a>

@@ -18,7 +18,7 @@ class CreateTicketsTable extends Migration
             $table->integer('subj_ticket_ref_id');
             $table->timestamp('subj_notify_date');
             $table->timestamp('subj_notify_time');
-            $table->integer('subj_status');
+            $table->integer('ticket_statuses_id');
             $table->integer('notify_users_id');
             $table->integer('notify_channels_id');
             $table->integer('notify_cable_types_id');
